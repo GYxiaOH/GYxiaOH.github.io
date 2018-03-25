@@ -1745,6 +1745,7 @@ pre .javascript .function {
   border: 1px solid #eee;
 /* start*/
   border-radius: 50%;
+  opacity: 0.6;
   webkit-transition: 1.4s all;
   moz-transition: 1.4s all;
   ms-transition: 1.4s all;
@@ -1760,7 +1761,7 @@ pre .javascript .function {
 .site-author-name {
   margin: 0;
   text-align: center;
-  color: #222;
+  color: rgba(2,2,2,0.5);
   font-weight: 600;
 }
 .site-description {
@@ -1789,7 +1790,7 @@ pre .javascript .function {
 .site-state-item-count {
   display: block;
   text-align: center;
-  color: inherit;
+  color: rgba(85,85,85,0.8);
   font-weight: 600;
   font-size: 16px;
 }
@@ -1837,7 +1838,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b50daa;
+  background: #4995cf;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2624,6 +2625,7 @@ pre .javascript .function {
   background: #fff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   border-radius: initial;
+  background: rgba(255,255,255,0.2) none repeat scroll !important;
 }
 @media (min-width: 1600px) {
   .container .header-inner {
@@ -2758,7 +2760,7 @@ pre .javascript .function {
 .site-meta {
   padding: 20px 0;
   color: #fff;
-  background: #222;
+  background: rgba(2,2,2,0.2);
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-meta {
@@ -2820,6 +2822,9 @@ pre .javascript .function {
 .menu .menu-item br {
   display: none;
 }
+.menu-item-active a {
+  background: rgba(255,255,255,0.25) none repeat scroll !important;
+}
 .menu-item-active a:after {
   content: " ";
   position: absolute;
@@ -2857,6 +2862,7 @@ pre .javascript .function {
   right: auto;
   bottom: auto;
   -webkit-transform: none;
+  background: rgba(255,255,255,0.2) none repeat scroll !important;
 }
 .sidebar-inner {
   box-sizing: border-box;
@@ -2866,6 +2872,7 @@ pre .javascript .function {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   border-radius: initial;
   opacity: 0;
+  background: rgba(255,255,255,0.2) none repeat scroll !important;
 }
 .sidebar-inner.affix {
   position: fixed;
@@ -3001,6 +3008,7 @@ pre .javascript .function {
   background: #fff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   border-radius: initial;
+  background: rgba(255,255,255,0.3) none repeat scroll !important;
 }
 #posts > article + article .post-block {
   margin-top: 12px;
@@ -3014,6 +3022,7 @@ pre .javascript .function {
   background: #fff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   border-radius: initial;
+  background: rgba(255,255,255,0.3) none repeat scroll !important;
 }
 .posts-expand {
   padding-top: initial;
@@ -3134,4 +3143,31 @@ pre .javascript .function {
   .pagination {
     margin: 8px 0 0;
   }
+}
+@font-face {
+  font-family: simi;
+  src: url("/fonts/simi.otf");
+}
+.site-title {
+  font-size: 20px !important;
+  font-family: 'simi' !important;
+}
+.highlight {
+  background-color: rgba(247,247,247,0.1);
+}
+pre,
+.highlight {
+  background-color: rgba(247,247,247,0.1);
+}
+.highlight .code pre {
+  background-color: rgba(247,247,247,0.1);
+}
+.highlight tr {
+  background-color: rgba(247,247,247,0.1) !important;
+}
+.links-of-author {
+  padding-left: 15px;
+}
+.links-of-author-item a {
+  color: rgba(85,85,85,0.8);
 }
