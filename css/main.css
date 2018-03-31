@@ -1746,6 +1746,8 @@ pre .javascript .function {
 /* start*/
   border-radius: 50%;
   opacity: 0.6;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
   webkit-transition: 1.4s all;
   moz-transition: 1.4s all;
   ms-transition: 1.4s all;
@@ -1838,7 +1840,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #00f2ff;
+  background: #d018ff;
 }
 .links-of-blogroll {
   font-size: 13px;

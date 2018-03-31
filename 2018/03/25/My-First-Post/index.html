@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="personal blog">
 <meta property="og:description" content="Gitpage + Hexo搭建个人博客（一）1.　介绍　　昨天周日，作为一周唯一的休息日，虽然背负着论文的任务，但是因为实验跑的时候无事可干（其实是不想干），忙里偷闲的想着搭个博客记录下最近刷的题和学习TensorFlow的一些心得（caffe实在是……）。好了废话不说，其实搭建博客听起来高大上，其实大部分框架都做好了，无非是一些安装，设置和小的样式调整，只是因为具体优化过程很杂，你可能要打开一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-26T16:44:53.539Z">
+<meta property="og:updated_time" content="2018-03-31T09:07:24.128Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gitpage + Hexo搭建个人博客（一）">
 <meta name="twitter:description" content="Gitpage + Hexo搭建个人博客（一）1.　介绍　　昨天周日，作为一周唯一的休息日，虽然背负着论文的任务，但是因为实验跑的时候无事可干（其实是不想干），忙里偷闲的想着搭个博客记录下最近刷的题和学习TensorFlow的一些心得（caffe实在是……）。好了废话不说，其实搭建博客听起来高大上，其实大部分框架都做好了，无非是一些安装，设置和小的样式调整，只是因为具体优化过程很杂，你可能要打开一">
@@ -414,15 +414,15 @@
 </li>
 </ul>
 </li>
-<li><p>安装 Hexo</p>
-<ul>
+<li>安装 Hexo<ul>
 <li>打开 Command Prompt，输入 <code>npm install -g hexo-cli</code></li>
 <li>输入 hexo -v</li>
-<li><p>得到版本号　　</p>
-<p>安装成功，至此该安装的东西我们都安装完了，生下来就可以本地部署看看Hexo的效果了。这里有个小坑，因为接下来我们要用Git Bash，但是在CMD里安装的环境不会自动配置到系统变量里，所以需要手动配置一下。具体来说就是把C:\Users\username\AppData\Roaming\npm，C:\Users\lenovo\AppData\Roaming\npm\node_modules\hexo-cli\bin<br>添加到系统环境变量里</p>
-</li>
+<li>得到版本号</li>
 </ul>
 </li>
+</ol>
+<p>　　安装成功，至此该安装的东西我们都安装完了，生下来就可以本地部署看看Hexo的效果了。这里有个小坑，因为接下来我们要用Git Bash，但是在CMD里安装的环境不会自动配置到系统变量里，所以需要手动配置一下。具体来说就是把C:\Users\username\AppData\Roaming\npm　C:\Users\lenovo\AppData\Roaming\npm\node_modules\hexo-cli\bin<br>    添加到系统环境变量里</p>
+<ol>
 <li><p>部署本地博客</p>
 <ul>
 <li>在任意盘下创建自己的博客文件夹（我是d:\blog） </li>
@@ -472,7 +472,7 @@
 </ul>
 </li>
 </ol>
-<p>　　然后就可以在浏览器中通过<a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> 看部署的效果了。</p>
+<p>　　然后就可以在浏览器中通过<a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> 看部署的效果了。在配置文件里可以修改网站的名字等一些东西，具体可以参考官方文档<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">Hexo配置</a>，主要就是修改Site里面的一些描述。</p>
 <h2 id="5-安装Next主题"><a href="#5-安装Next主题" class="headerlink" title="5.安装Next主题"></a>5.安装Next主题</h2><p>　　网页部署成功，当然你可能还是觉得原生的Hexo太丑了。所以更换主题是十分有必要的，这里可以参考<a href="https://www.zhihu.com/question/24422335/answer/46357100" target="_blank" rel="noopener">有哪些好看的 Hexo 主题？</a>选择一款你喜欢的主题安装，等完成后你就会发现你的博客有了本质上的变化。这里选用的是人气最高的Next。安装过程也十分简单，<strong>如下：</strong>  </p>
 <ol>
 <li>clone主题文件<ul>
@@ -485,7 +485,7 @@
 <li>找到theme: 改为 theme:next</li>
 <li>找到#url，去掉#填入你的url。如：url: <a href="https://gyxiaoh.github.io">https://gyxiaoh.github.io</a>  </li>
 </ul>
-<p>当然配置文件里还有许多可以Diy的地方，但是我们留到下篇博文里去讲。修改完成后我们只需要重新部署一下即可。</p>
+<p>修改完成后我们只需要重新部署一下即可。</p>
 </li>
 <li>重新部署<ul>
 <li>回到git bash，输入 hexo clean</li>
@@ -530,15 +530,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/25/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/31/Gitpage-Hexo搭建个人博客（二）-1/" rel="prev" title="Gitpage + Hexo搭建个人博客（二）">
+                Gitpage + Hexo搭建个人博客（二） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
