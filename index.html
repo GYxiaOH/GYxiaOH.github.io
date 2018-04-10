@@ -278,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gyxiaoh.github.io/2018/04/09/动归初级三连-1/">
+    <link itemprop="mainEntityOfPage" href="https://gyxiaoh.github.io/2018/04/09/初级动态三连/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GYxiaOH">
@@ -297,7 +297,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/09/动归初级三连-1/" itemprop="url">动归初级三连</a></h1>
+                <a class="post-title-link" href="/2018/04/09/初级动态三连/" itemprop="url">动归初级三连</a></h1>
         
 
         <div class="post-meta">
@@ -349,7 +349,7 @@
 
           
           
-             <span id="/2018/04/09/动归初级三连-1/" class="leancloud_visitors" data-flag-title="动归初级三连">
+             <span id="/2018/04/09/初级动态三连/" class="leancloud_visitors" data-flag-title="动归初级三连">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -386,6 +386,197 @@
 每次你可以爬 1 或 2 个台阶。你有多少种不同的方式可以爬到楼顶呢？
 </code></pre><p>　　最简单的动归题目了，可以有三种方法，最近在知乎上看到一篇超棒的帖子将简单动归，<a href="https://zhuanlan.zhihu.com/p/31628866" target="_blank" rel="noopener">漫画：什么是动态规划？</a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">climbStairs</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">2</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">        a = <span class="number">1</span></span><br><span class="line">        b = <span class="number">2</span></span><br><span class="line">        temp = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,n):</span><br><span class="line">            temp =a + b</span><br><span class="line">            a,b = b,temp</span><br><span class="line">        <span class="keyword">return</span> temp</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">## 买卖股票的最佳时机１</span></span><br><span class="line">	假设你有一个数组，其中第 i 个元素是一支给定股票第 i 天的价格。</span><br><span class="line">    如果您只能完成最多一笔交易（即买入和卖出一股股票），则设计一个算法来找到最大的利润。  </span><br><span class="line">　　先求隔天的收益差，然后就是最大子序列和问题，具体可以看下面一道问题，这里也有很好的解释[动态规划算法—买卖股票的最佳时机系列(<span class="number">1</span><span class="number">-4</span>)](https://blog.csdn.net/chenvast/article/details/<span class="number">78950392</span>)。注意这里求的是最高收益，因此边界？条件是小与０就可以重新计算收益了。　　</span><br><span class="line">```python</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span><span class="params">(self, prices)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type prices: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        temp = <span class="number">0</span></span><br><span class="line">        imax = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(prices)<span class="number">-1</span>):</span><br><span class="line">            d = prices[i+<span class="number">1</span>]-prices[i]</span><br><span class="line">            <span class="keyword">if</span> (temp+d&gt;<span class="number">0</span>):</span><br><span class="line">                temp += d</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                temp = <span class="number">0</span></span><br><span class="line">            imax = max(temp,imax)</span><br><span class="line">        <span class="keyword">return</span> imax</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">## 最大子序和</span></span><br><span class="line">	给定一个序列（至少含有 <span class="number">1</span> 个数），从该序列中寻找一个连续的子序列，使得子序列的和最大。</span><br><span class="line">    例如，给定序列 [<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]，</span><br><span class="line">    连续子序列 [<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>] 的和最大，为 <span class="number">6</span>。</span><br><span class="line">    扩展练习:</span><br><span class="line">    若你已实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。  </span><br><span class="line"> 　　和上题一样，直接的子序和问题，这里有篇博客从最简单的三重循环到分治到动归都讲的很详细[经典算法问题 - 最大连续子数列和](https://www.cnblogs.com/conw/p/<span class="number">5896155.</span>html)。注意这里考虑的动归转移是考虑的以n为结尾的子序列的最大和，而不是第n个数的最大子序列和。   </span><br><span class="line">```python</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxSubArray</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        imax = nums[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            <span class="keyword">if</span> (nums[i<span class="number">-1</span>]&gt;<span class="number">0</span>):</span><br><span class="line">                nums[i] += nums[i<span class="number">-1</span>]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                nums[i] += <span class="number">0</span></span><br><span class="line">            imax = max(nums[i],imax)</span><br><span class="line">        <span class="keyword">return</span> imax</span><br></pre></td></tr></table></figure></p>
 
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gyxiaoh.github.io/2018/04/07/Gitpage-Hexo搭建个人博客（三）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GYxiaOH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/face.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="personal blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/07/Gitpage-Hexo搭建个人博客（三）/" itemprop="url">Gitpage + Hexo搭建个人博客（三）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-07T17:08:00+08:00">
+                2018-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/博客搭建/" itemprop="url" rel="index">
+                    <span itemprop="name">博客搭建</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/04/07/Gitpage-Hexo搭建个人博客（三）/" class="leancloud_visitors" data-flag-title="Gitpage + Hexo搭建个人博客（三）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Gitpage-Hexo搭建个人博客（三）"><a href="#Gitpage-Hexo搭建个人博客（三）" class="headerlink" title="Gitpage + Hexo搭建个人博客（三）"></a>Gitpage + Hexo搭建个人博客（三）</h1><p>　　这里第三篇博客应该就是终极篇了，主要介绍一些使用的小技巧和一些无关外观的优化大概的内容有：  </p>
+<ul>
+<li>同时在github以及coding部署博客</li>
+<li>Seo优化  </li>
+<li>写作的一些小trick</li>
+</ul>
+<h2 id="1-同时在github以及coding部署博客"><a href="#1-同时在github以及coding部署博客" class="headerlink" title="1. 同时在github以及coding部署博客"></a>1. 同时在github以及coding部署博客</h2><p>　　做这个工作主要是因为github有时在国内访问太慢，所以希望国内的时候访问的是coding的服务器，但是要完成同一个域名访问两个不同的服务器，你需要有自己的域名，并且有分区解析的功能（阿里云，腾讯云都有），因此如果你没有这个需求，这个部分并没有什么看的必要，当然你也可以把你的博客移植到coding上，抛弃本来只在传说中存在的国外访客（滑稽）。  </p>
+<h3 id="1-1-在coding上部署"><a href="#1-1-在coding上部署" class="headerlink" title="1.1 在coding上部署"></a>1.1 在coding上部署</h3><p>　　在coding上部署与在github上部署如出一辙，不过我们得先生存SSH秘钥。 </p>
+<ol>
+<li>打开git bash，使用<code>ssh -T git@git.coding.net</code>命令生成SSH 秘钥</li>
+<li>输入<code>cat ~/.ssh/id_rsa.pub</code>，在命令行中会显示出你的SSM秘钥，复制<br>　　之后我们在coding上注册账号(最好与github一致），并且绑定手机或者邮箱（注意，绑定后才能提交ssh公钥，开始我找了很久）。之后：  </li>
+<li>创建项目，设置为公开，项目名称和用户名与github保持一致</li>
+<li>点击左上角小猴子，进入账户页面</li>
+<li>打开SSH公钥，将刚才复制的内容提交上去  </li>
+<li>打开新建的项目，复制右上角的HTTPS信息</li>
+<li>打开HEXO配置文件，修改如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line">	  type: git  </span><br><span class="line">	  repository: </span><br><span class="line">              github: https://github.com/GYxiaOH/GYxiaOH.github.io.git,master</span><br><span class="line">              coding: https://git.coding.net/GYxiaOH/codingpage.git,master</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>其中逗号之前是复制的信息，逗号后面是分支名，都用master就好。<br>　　设置完成重新部署hexo。部署后可以在项目中看到我们的网页文件了，之后点击pages服务，在静态中选择master分支，保存。之后就可以看到自己coding page的地址了。　　</p>
+<h3 id="1-2-域名跳转"><a href="#1-2-域名跳转" class="headerlink" title="1.2 域名跳转"></a>1.2 域名跳转</h3><p>　　之后我们希望的是访问自己的域名，如果是国外的ip就跳转到github的服务器，如果是国内的ip就跳转到coding的服务器。于是乎我们先去注册一个自己的域名，国内的随便找个阿里云，腾讯云什么的，这里我用的是腾讯云。操作很简单，直接上它官网，注册，验证身份，然后查询自己想要的域名是否还在，然后注册就好。一年是28元（新手）。然后因为DNS解析需要身份审核，查你的身份证…….于是我卡在这一步了，等审核好再更新吧。<br>　　然后发现超简单。当你审核通过后，打开域名管理，在DNS解析力做如下添加：</p>
+<p><img src="\\images\pasted-1.png\" alt="upload successful"></p>
+<p>　　ip地址和网址都不用改，然后分别在coding和github上把自己的自定义域名绑定上去，就可以直接通过域名分区优化访问了。</p>
+<h2 id="2-Seo优化"><a href="#2-Seo优化" class="headerlink" title="2. Seo优化"></a>2. Seo优化</h2><p>　　暂略　　</p>
+<h2 id="3-写作的一些小trick"><a href="#3-写作的一些小trick" class="headerlink" title="3. 写作的一些小trick"></a>3. 写作的一些小trick</h2><h3 id="在线markdown以及hexo-admin"><a href="#在线markdown以及hexo-admin" class="headerlink" title="在线markdown以及hexo-admin"></a>在线markdown以及hexo-admin</h3><h3 id="在文章结束后加入结束标记"><a href="#在文章结束后加入结束标记" class="headerlink" title="在文章结束后加入结束标记"></a>在文章结束后加入结束标记</h3><p>　　在每篇文章后加入感谢阅读，之后就可以不要脸的在把打赏二维码放上去啦！先礼后兵嘛（滑稽）。操作如下：</p>
+<ol>
+<li>在路径<code>D:\blog\themes\next\layout\_macro</code>下创建<code>passage-end-tag.swig</code>文件，输入以下代码：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% if not is_index %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align:center;color: #969696;font-size:18px;"</span>&gt;</span>-------------本文结束<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-paw"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>感谢您的阅读-------------<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>其中字体颜色内容都可以自己修改。  </p>
+<ol>
+<li>打开<code>D:\blog\themes\next\layout\_macro\post.swig</code>,在<code>&lt;footer class=&quot;post-footer&quot;&gt;</code>之前加入以下代码：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      &#123;% if not is_index %&#125;</span><br><span class="line">        &#123;% include 'passage-end-tag.swig' %&#125;</span><br><span class="line">      &#123;% endif %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">```  </span><br><span class="line">3. 打开主题配置文件，添加以下代码：</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="文章末尾添加“本文结束”标记"><a href="#文章末尾添加“本文结束”标记" class="headerlink" title="文章末尾添加“本文结束”标记"></a>文章末尾添加“本文结束”标记</h1><p>passage_end_tag:<br>  enabled: true<br><code>`</code>  </p>
+<p>　　完成后重新部署，每篇文章后便会自动添加结束标记啦。　　</p>
+<h3 id="添加打赏二维码"><a href="#添加打赏二维码" class="headerlink" title="添加打赏二维码"></a>添加打赏二维码</h3>
           
         
       
@@ -1190,7 +1381,7 @@ page_pv_footer:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
