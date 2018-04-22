@@ -282,6 +282,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/04/22/pycharm远程调试代码（tensorflow）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GYxiaOH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/face.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小 君">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/22/pycharm远程调试代码（tensorflow）/" itemprop="url">pycharm远程调试代码（tensorflow）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T22:55:25+08:00">
+                2018-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/04/22/pycharm远程调试代码（tensorflow）/" class="leancloud_visitors" data-flag-title="pycharm远程调试代码（tensorflow）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="pycharm远程调试代码（tensorflow）"><a href="#pycharm远程调试代码（tensorflow）" class="headerlink" title="pycharm远程调试代码（tensorflow）"></a>pycharm远程调试代码（tensorflow）</h1><p>　　以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。<br>  　　本文主要参考<a href="https://www.cnblogs.com/xiongmao-cpp/p/7856596.html" target="_blank" rel="noopener">PyCharm 配置远程python解释器和在本地修改服务器代码</a>。遇到的坑如下：  </p>
+<ol>
+<li>配置Deployment的Mapping的Deployment path on server时，一定要配置的是自己的工作目录，如果用默认的根目录的话你无法down你的服务器上的代码，会提示没有这个文件或者目录</li>
+<li>配置Python解释器的时候，不知道是不是版本的原因，我是2018最新版本，是没有Add remote 这个选项的，需要用Add按钮，然后在ssh interpreter里选择服务器的配置。</li>
+<li>在本地运行的时候你需要配置一下服务器的环境变量，开始我很懵逼。。。。。后来发现就是正常的配置位置就好。在以下两个位置正常配置（和你服务器配置的路径一样就可以，比如服务器是/usr/local/cuda/lib64,那么你这里配置也是一样是/usr/local/cuda/lib64）<blockquote>
+<p>在Settings -&gt; Build, Execution, Deployment -&gt; Console -&gt; Python Console 下最上面可设置环境变量。<br>任务栏顶部的 Run -&gt; Edit Configurations 里面有个 Environment Variables  </p>
+</blockquote>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/04/19/从caffe到tensorflow-vggs网络/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -313,7 +456,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-19T16:56:22+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-19T16:56:00+08:00">
                 2018-04-19
               </time>
             
@@ -323,6 +466,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -459,7 +624,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T14:12:27+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T14:12:00+08:00">
                 2018-04-18
               </time>
             
@@ -469,6 +634,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1830,7 +2017,7 @@ page_pv_footer:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1841,7 +2028,7 @@ page_pv_footer:
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1852,7 +2039,7 @@ page_pv_footer:
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="machine learning,xgdbt," />
+  <meta name="keywords" content="Hexo, NexT, 人世不平一剑消" />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="本篇文章的主要记录可以看懂得一个博客流程。从决策树到XGDBT可以看成是逐步进化的过程，先是最简单的决策树CART，然后采用集成学习的思想，分别用bagging和boost得到了随机森林和GDBT算法。而XGDBT可以看成是GDBT的一个更好的实现，在寻找更好的函数下降方向时考虑到了二阶导数，使收敛加快。以下是博客介绍：  决策树　　cart生成算法  随机森林　　这个其实很简单，随便看看林轩">
-<meta name="keywords" content="machine learning,xgdbt">
+<meta name="description" content="pycharm远程调试代码（tensorflow）　　以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。  　　本文主要参考PyCharm 配置远程python解释器和在本地修改服务器代码。遇到的坑如下：">
+<meta name="keywords" content="blog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="经典机器算法-决策树，随机森林，GDBT，XGDBT">
-<meta property="og:url" content="https://www.gyxiaoh.com/2018/04/18/经典机器算法-决策树，随机森林，GDBT，XGDBT/index.html">
+<meta property="og:title" content="pycharm远程调试代码（tensorflow）">
+<meta property="og:url" content="https://www.gyxiaoh.com/2018/04/22/pycharm远程调试代码（tensorflow）/index.html">
 <meta property="og:site_name" content="小 君">
-<meta property="og:description" content="本篇文章的主要记录可以看懂得一个博客流程。从决策树到XGDBT可以看成是逐步进化的过程，先是最简单的决策树CART，然后采用集成学习的思想，分别用bagging和boost得到了随机森林和GDBT算法。而XGDBT可以看成是GDBT的一个更好的实现，在寻找更好的函数下降方向时考虑到了二阶导数，使收敛加快。以下是博客介绍：  决策树　　cart生成算法  随机森林　　这个其实很简单，随便看看林轩">
+<meta property="og:description" content="pycharm远程调试代码（tensorflow）　　以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。  　　本文主要参考PyCharm 配置远程python解释器和在本地修改服务器代码。遇到的坑如下：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-22T14:54:50.923Z">
+<meta property="og:updated_time" content="2018-04-22T15:10:28.975Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="经典机器算法-决策树，随机森林，GDBT，XGDBT">
-<meta name="twitter:description" content="本篇文章的主要记录可以看懂得一个博客流程。从决策树到XGDBT可以看成是逐步进化的过程，先是最简单的决策树CART，然后采用集成学习的思想，分别用bagging和boost得到了随机森林和GDBT算法。而XGDBT可以看成是GDBT的一个更好的实现，在寻找更好的函数下降方向时考虑到了二阶导数，使收敛加快。以下是博客介绍：  决策树　　cart生成算法  随机森林　　这个其实很简单，随便看看林轩">
+<meta name="twitter:title" content="pycharm远程调试代码（tensorflow）">
+<meta name="twitter:description" content="pycharm远程调试代码（tensorflow）　　以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。  　　本文主要参考PyCharm 配置远程python解释器和在本地修改服务器代码。遇到的坑如下：">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://www.gyxiaoh.com/2018/04/18/经典机器算法-决策树，随机森林，GDBT，XGDBT/"/>
+  <link rel="canonical" href="https://www.gyxiaoh.com/2018/04/22/pycharm远程调试代码（tensorflow）/"/>
 
 
 
 
 
-  <title>经典机器算法-决策树，随机森林，GDBT，XGDBT | 小 君</title>
+  <title>pycharm远程调试代码（tensorflow） | 小 君</title>
   
 
 
@@ -282,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/04/18/经典机器算法-决策树，随机森林，GDBT，XGDBT/">
+    <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/04/22/pycharm远程调试代码（tensorflow）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GYxiaOH">
@@ -299,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">经典机器算法-决策树，随机森林，GDBT，XGDBT</h1>
+          <h1 class="post-title" itemprop="name headline">pycharm远程调试代码（tensorflow）</h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T14:12:00+08:00">
-                2018-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T22:55:25+08:00">
+                2018-04-22
               </time>
             
 
@@ -322,28 +322,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -351,7 +329,7 @@
 
           
           
-             <span id="/2018/04/18/经典机器算法-决策树，随机森林，GDBT，XGDBT/" class="leancloud_visitors" data-flag-title="经典机器算法-决策树，随机森林，GDBT，XGDBT">
+             <span id="/2018/04/22/pycharm远程调试代码（tensorflow）/" class="leancloud_visitors" data-flag-title="pycharm远程调试代码（tensorflow）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -382,14 +360,14 @@
       
 
       
-        <p>　　本篇文章的主要记录可以看懂得一个博客流程。从决策树到XGDBT可以看成是逐步进化的过程，先是最简单的决策树CART，然后采用集成学习的思想，分别用bagging和boost得到了随机森林和GDBT算法。而XGDBT可以看成是GDBT的一个更好的实现，在寻找更好的函数下降方向时考虑到了二阶导数，使收敛加快。以下是博客介绍：</p>
+        <h1 id="pycharm远程调试代码（tensorflow）"><a href="#pycharm远程调试代码（tensorflow）" class="headerlink" title="pycharm远程调试代码（tensorflow）"></a>pycharm远程调试代码（tensorflow）</h1><p>　　以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。<br>  　　本文主要参考<a href="https://www.cnblogs.com/xiongmao-cpp/p/7856596.html" target="_blank" rel="noopener">PyCharm 配置远程python解释器和在本地修改服务器代码</a>。遇到的坑如下：  </p>
 <ol>
-<li><p>决策树<br>　　<a href="https://blog.csdn.net/shine19930820/article/details/62233166#cart生成算法" target="_blank" rel="noopener">cart生成算法</a></p>
+<li>配置Deployment的Mapping的Deployment path on server时，一定要配置的是自己的工作目录，如果用默认的根目录的话你无法down你的服务器上的代码，会提示没有这个文件或者目录</li>
+<li>配置Python解释器的时候，不知道是不是版本的原因，我是2018最新版本，是没有Add remote 这个选项的，需要用Add按钮，然后在ssh interpreter里选择服务器的配置。</li>
+<li>在本地运行的时候你需要配置一下服务器的环境变量，开始我很懵逼。。。。。后来发现就是正常的配置位置就好。在以下两个位置正常配置（和你服务器配置的路径一样就可以，比如服务器是/usr/local/cuda/lib64,那么你这里配置也是一样是/usr/local/cuda/lib64）<blockquote>
+<p>在Settings -&gt; Build, Execution, Deployment -&gt; Console -&gt; Python Console 下最上面可设置环境变量。<br>任务栏顶部的 Run -&gt; Edit Configurations 里面有个 Environment Variables  </p>
+</blockquote>
 </li>
-<li><p>随机森林<br>　　这个其实很简单，随便看看林轩田的机器学习技法就好<a href="https://blog.csdn.net/red_stone1/article/details/76053360" target="_blank" rel="noopener">台湾大学林轩田机器学习技法课程学习笔记10 – Random Forest</a>  </p>
-</li>
-<li>GDBT<br>　<a href="https://blog.csdn.net/shine19930820/article/details/65633436" target="_blank" rel="noopener">『机器学习笔记 』GBDT原理-Gradient Boosting Decision Tree</a><br>　<a href="https://blog.csdn.net/red_stone1/article/details/76219948" target="_blank" rel="noopener"> 台湾大学林轩田机器学习技法课程学习笔记11 – Gradient Boosted Decision Tree</a></li>
-<li>XGDBT<br>　<a href="https://blog.csdn.net/shine19930820/article/details/69500242" target="_blank" rel="noopener">https://blog.csdn.net/shine19930820/article/details/69500242</a></li>
 </ol>
 
       
@@ -416,14 +394,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/machine-learning/" rel="tag"># machine learning</a>
-          
-            <a href="/tags/xgdbt/" rel="tag"># xgdbt</a>
-          
-        </div>
-      
 
       
       
@@ -433,8 +403,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/13/排序算法复习-Python实现/" rel="next" title="排序算法复习-Python实现">
-                <i class="fa fa-chevron-left"></i> 排序算法复习-Python实现
+              <a href="/2018/04/19/从caffe到tensorflow-vggs网络/" rel="next" title="从caffe到tensorflow-vggs网络">
+                <i class="fa fa-chevron-left"></i> 从caffe到tensorflow-vggs网络
               </a>
             
           </div>
@@ -442,10 +412,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/19/从caffe到tensorflow-vggs网络/" rel="prev" title="从caffe到tensorflow-vggs网络">
-                从caffe到tensorflow-vggs网络 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -502,8 +468,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -595,6 +570,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pycharm远程调试代码（tensorflow）"><span class="nav-number">1.</span> <span class="nav-text">pycharm远程调试代码（tensorflow）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
