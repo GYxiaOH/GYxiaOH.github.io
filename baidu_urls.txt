@@ -1,5 +1,5 @@
+https://www.gyxiaoh.com/2018/04/30/Image-Text系列（1）：最初的开始-WSABIE-与DeViSE/
 https://www.gyxiaoh.com/2018/04/22/pycharm远程调试代码（tensorflow）/
 https://www.gyxiaoh.com/2018/04/19/从caffe到tensorflow-vggs网络/
 https://www.gyxiaoh.com/2018/04/18/经典机器算法-决策树，随机森林，GDBT，XGDBT/
 https://www.gyxiaoh.com/2018/04/13/排序算法复习-Python实现/
-https://www.gyxiaoh.com/2018/04/09/初级动态三连/

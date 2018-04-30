@@ -282,6 +282,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/04/30/Image-Text系列（1）：最初的开始-WSABIE-与DeViSE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GYxiaOH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/face.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小 君">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/30/Image-Text系列（1）：最初的开始-WSABIE-与DeViSE/" itemprop="url">Image-Text系列（1）：最初的开始-WSABIE 与DeViSE</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-30T16:44:01+08:00">
+                2018-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/04/30/Image-Text系列（1）：最初的开始-WSABIE-与DeViSE/" class="leancloud_visitors" data-flag-title="Image-Text系列（1）：最初的开始-WSABIE 与DeViSE">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Image-Text系列（1）：最初的开始-WSABIE-与DeViSE"><a href="#Image-Text系列（1）：最初的开始-WSABIE-与DeViSE" class="headerlink" title="Image-Text系列（1）：最初的开始-WSABIE 与DeViSE"></a>Image-Text系列（1）：最初的开始-WSABIE 与DeViSE</h1><p>　　最近找实习不是很顺利，伐开心。感觉自己主要要从两个方法努力去应对来年的秋招。基础和前沿。过去因为自己做的方向感觉比较冷门，就没有其他志同道合的同志．．．．．．因此看论文都属于一个瞎看的状态，最近发现其实我们的任务和Image-Text　mapping/embedding 或者有的叫cross modal很像，和image caption也可以靠一靠，因此打算把这一方向的经典论文补一补。最大的问题是……这个方向的大佬好像都很低调。。。。很少能看到中文博客，因此尽自己所能总结下对论文的理解吧。那么开始：</p>
+<h2 id="WSABIE"><a href="#WSABIE" class="headerlink" title="WSABIE"></a>WSABIE</h2><p><a href="https://heleifz.github.io/14696374110477.html" target="_blank" rel="noopener">算法论文：WSABIE: Scaling Up To Large Vocabulary Image Annotation</a><br>　　这篇可以参考上述博客…….这是为数不多的可以看到有人做过笔记的论文，可能是我英语不好吧，感觉论文有些地方写的很奇怪，因此没看到中文之前很多地方很困惑，下面记录下我一些卡主的点和对论文的理解，如果明白了，对着论文或者博客看应该很快：</p>
+<ol>
+<li>论文是对09年的论文（应用SVM模型）的一点改进，大体思想是差不多。大意是将图片和标签都转换为向量表示，在通过线性变换（就是乘一个矩阵）同一个低维空间中。因为在同一个空间中，所以两个向量的相似度就可以用向量的内积表示。模型学习的目标是使得图片和正确的标签向量内积最大，和错误的标签向量内积尽可能的小。</li>
+<li>在09年的论文里，作者的损失函数用的是指示函数加权重（我理解的是这样）,所谓指示函数其实就是个sign函数，或者叫01损失函数？也就是遍历所有内积，一旦错误标签与图像的内积大于正确标签与图像的内积，损失就是1，然后得到了一个损失值，在通过L函数乘上权重（如果你和我一样对传统机器学习不是特别了解，这里你可能会纠结很久这函数到底是啥，怎么传的梯度，其实我想了想就是把1变成了aj，也就是给每个损失乘了个权重）。通过这个loss在结构化的SVM（其实我不大懂啥是结构化的SVM）训练，在text retrieval数据集上取得了很好的效果。并且取了aj=1/j，我的理解应该是它的loss应该是排序过得，然后让最大的错误标签向量离图片远一点，这样aj=1/j效果好才比较科学。当然好像不用也有一样的效果，因为迭代的过程中会不断地调换第一个错误标签向量。嗯，这个可以具体情况具体实验来看。</li>
+<li>本论文在09论文的基础上提出了两个问题，一是01损失不连续，因此无法用SGD优化，二十结构化SVM无法训练向量内积，因此无法动态的在线训练。因此论文作者将指示函数修改为hinge loss，一是让损失函数连续，二是模拟SVM的效果。当然损失函数对应的也改为1+错误内积&gt;正确内积才防入损失函数。</li>
+<li>为了进一步提高速度，作者提出用采样的方法估计错误向量的个数，具体是随机采样，直到猜到满足1+错误内积&gt;正确内积的错误向量为止，并用几何分布来估计之前我说的权值函数，但是在这里我觉得权值函数的aj已经没有意义了，因为一次迭代只找到一个错误样本，乘上权值函数唯一的目的应该是使得错误向量远离图片向量的同时尽量减少错误向量的个数。如果有人发现了这里L的正确意义可以和我讨论下。<br>　　以上是我对本篇论文的一点理解，希望得到大家的指正。<h2 id="DeViSE"><a href="#DeViSE" class="headerlink" title="DeViSE"></a>DeViSE</h2><a href="http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41473.pdf" target="_blank" rel="noopener">算法论文：DeViSE: A Deep Visual-Semantic Embedding Model</a><br>　　这篇文章似乎没有中文的博客在讲，不过其实本篇也不准备怎么讲，他就是上面那篇论文的时代进化版。上面那篇论文图像特征和文字特征都是学好的。在本篇文章中随着神经网络和深度学习的兴起，它将视觉部分直接接上一个Alex Net，标签部分使用w2vec学出来的word向量，所以整个网络都可以同时更新，即实现端对端的学习。Loss函数依然是hinge rank loss（没搞懂为啥要加个rank），在取错误向量的时候论文里没说清楚具体是怎么取。<br>　　以下是tf的一个实现<a href="https://github.com/aelda/DeViSE" target="_blank" rel="noopener">https://github.com/aelda/DeViSE</a> 。这里是找一个mini-batch里错误最大的那个向量进行优化，另外loss里的margin取得是0.1而不是上文的1。其他基本就没什么区别。注意下这个实现里有点问题，第一是它取得是最后分类层的向量作为图像的特征向量。另外是它读取预训练参数之后就不训练了。所以如果你要使用的话可以修改一下。<br>　　由于已经是13年的论文了，效果似乎比较一般，不过鉴于神经网络的功用，给出了图片＋句子的很多可能性，对于一些zero shot也就是没有出现在训练数据中的标签word也能有不错的效果，后来很多深度学习的相关网络思路都和这篇文章差不多，而且文章十分简单，值得一看。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/04/22/pycharm远程调试代码（tensorflow）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -697,12 +839,12 @@
       
         
           
-            <p>　　本篇文章的主要记录可以看懂得一个博客流程。从决策树到XGDBT可以看成是逐步进化的过程，先是最简单的决策树CART，然后采用集成学习的思想，分别用bagging和boost得到了随机森林和GDBT算法。而XGDBT可以看成是GDBT的一个更好的实现，在寻找更好的函数下降方向时考虑到了二阶导数，使收敛加快。以下是博客介绍：</p>
+            <p>本篇文章的主要记录可以看懂得一个博客流程。从决策树到XGDBT可以看成是逐步进化的过程，先是最简单的决策树CART，然后采用集成学习的思想，分别用bagging和boost得到了随机森林和GDBT算法。而XGDBT可以看成是GDBT的一个更好的实现，在寻找更好的函数下降方向时考虑到了二阶导数，使收敛加快。以下是博客介绍：</p>
 <ol>
-<li><p>决策树<br>　　<a href="https://blog.csdn.net/shine19930820/article/details/62233166#cart生成算法" target="_blank" rel="noopener">cart生成算法</a></p>
-</li>
-<li><p>随机森林<br>　　这个其实很简单，随便看看林轩田的机器学习技法就好<a href="https://blog.csdn.net/red_stone1/article/details/76053360" target="_blank" rel="noopener">台湾大学林轩田机器学习技法课程学习笔记10 – Random Forest</a>  </p>
-</li>
+<li>决策树<br>　　<a href="https://blog.csdn.net/shine19930820/article/details/62233166#cart生成算法" target="_blank" rel="noopener">cart生成算法</a><br>　　<a href="https://blog.csdn.net/weixin_40604987/article/details/79296427" target="_blank" rel="noopener"> Regression Tree 回归树</a></li>
+</ol>
+<ol>
+<li>随机森林<br>　　这个其实很简单，随便看看林轩田的机器学习技法就好<a href="https://blog.csdn.net/red_stone1/article/details/76053360" target="_blank" rel="noopener">台湾大学林轩田机器学习技法课程学习笔记10 – Random Forest</a>  </li>
 <li>GDBT<br>　<a href="https://blog.csdn.net/shine19930820/article/details/65633436" target="_blank" rel="noopener">『机器学习笔记 』GBDT原理-Gradient Boosting Decision Tree</a><br>　<a href="https://blog.csdn.net/red_stone1/article/details/76219948" target="_blank" rel="noopener"> 台湾大学林轩田机器学习技法课程学习笔记11 – Gradient Boosted Decision Tree</a></li>
 <li>XGDBT<br>　<a href="https://blog.csdn.net/shine19930820/article/details/69500242" target="_blank" rel="noopener">https://blog.csdn.net/shine19930820/article/details/69500242</a></li>
 </ol>
@@ -2017,7 +2159,7 @@ page_pv_footer:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
