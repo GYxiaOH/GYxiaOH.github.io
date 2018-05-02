@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="小 君">
 <meta property="og:description" content="从caffe到tensorflow-vggs网络　　本文所有网络结构已放进本人github vggs_tf,再次惯例感谢大佬，本网络基本都是按照他的博客和代码一步一步搭建修改完成。　　如果你和我一样是从caffe转向tensorflow，或者之前有一定的深度学习基础，那么我觉得你一步一步搭建好本文介绍的网络后基本就对tf的套路了解了，剩下的就是不断看新的网络实现，了解一些奇怪的API了。 　　其实">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-22T14:54:25.858Z">
+<meta property="og:updated_time" content="2018-05-01T15:02:55.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从caffe到tensorflow-vggs网络">
 <meta name="twitter:description" content="从caffe到tensorflow-vggs网络　　本文所有网络结构已放进本人github vggs_tf,再次惯例感谢大佬，本网络基本都是按照他的博客和代码一步一步搭建修改完成。　　如果你和我一样是从caffe转向tensorflow，或者之前有一定的深度学习基础，那么我觉得你一步一步搭建好本文介绍的网络后基本就对tf的套路了解了，剩下的就是不断看新的网络实现，了解一些奇怪的API了。 　　其实">
@@ -391,7 +391,7 @@
 <h3 id="L2-regular"><a href="#L2-regular" class="headerlink" title="L2 regular"></a>L2 regular</h3><p>　　一开始用tf训练的时候就感觉，我去，损失这么这么低，但准确率还是不高。其实这个很容易想到就是过拟合，没加正则项。tf里加正则项语句如下:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l2regular = tf.contrib.layers.l2_regularizer(<span class="number">0.0005</span>)</span><br><span class="line">regular = tf.contrib.layers.apply_regularization(l2regular, weights_list=weight_list)</span><br><span class="line">regularization_loss = tf.reduce_sum(tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES))</span><br></pre></td></tr></table></figure></p>
 <p>　　把这个loss加到总loss里就好</p>
 <h3 id="Crop"><a href="#Crop" class="headerlink" title="Crop"></a>Crop</h3><p>　　这个是真的隐蔽，在最后我一行一行的对比，实在是找不到哪里和caffe网络的不同了，最后才想到有可能是数据增强的问题……这里我没做镜像，只是像caffe里一样，在训练的时候回随机剪裁一个对应输入大小的图像，而在测试的时候是裁剪中心图像。具体的可以看我datagenerator里的内容，主要是用了<code>tf.random_crop(img_resized,[self.resize,self.resize,3])</code>和<code>img_resized = tf.image.resize_image_with_crop_or_pad(img_resized,self.resize,self.resize)</code>两个函数。</p>
-<h3 id="batch-norm"><a href="#batch-norm" class="headerlink" title="batch norm"></a>batch norm</h3><p>　　这个其实和我的任务比较相关，因为我最后会跑出多通道的ｆｃ层特征，如果不做归一化就把它们concat在一起，效果会比较差，因此在前面需要bn一下。</p>
+<h3 id="batch-norm"><a href="#batch-norm" class="headerlink" title="batch norm"></a>batch norm</h3><p>　　这个其实和我的任务比较相关，因为我最后会跑出多通道的fc层特征，如果不做归一化就把它们concat在一起，效果会比较差，因此在前面需要bn一下。</p>
 <h3 id="小的问题"><a href="#小的问题" class="headerlink" title="小的问题"></a>小的问题</h3><p>　　加了句data.repeat(),避免最后一个batch过小出错。<br>　　注意下dataset的shuffle函数，它只会打乱batch的顺序，因此batch里面的样本顺序是不变的，千万注意，否则你的准确率可能会非常的低。</p>
 <p>　　以上，其实这里主要是解决tf和caffe不同而提升的一些准确率，下一篇将通过kaggle里面的入门泰坦尼克来介绍下我的“第一次”实践经历。</p>
 
@@ -538,7 +538,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
