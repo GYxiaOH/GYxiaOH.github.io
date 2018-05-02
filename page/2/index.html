@@ -282,6 +282,285 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/03/31/Gitpage-Hexo搭建个人博客（二）-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GYxiaOH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/face.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小 君">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/31/Gitpage-Hexo搭建个人博客（二）-1/" itemprop="url">Gitpage + Hexo搭建个人博客（二）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T11:15:00+08:00">
+                2018-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/博客搭建/" itemprop="url" rel="index">
+                    <span itemprop="name">博客搭建</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/03/31/Gitpage-Hexo搭建个人博客（二）-1/" class="leancloud_visitors" data-flag-title="Gitpage + Hexo搭建个人博客（二）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Gitpage-Hexo搭建个人博客（二）"><a href="#Gitpage-Hexo搭建个人博客（二）" class="headerlink" title="Gitpage + Hexo搭建个人博客（二）"></a>Gitpage + Hexo搭建个人博客（二）</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.　介绍"></a>1.　介绍</h2><p>　　时隔一周…….终于又抽出了时间补完博客搭建的文章，不得不说，赶论文和找实习是真的忙。这几天应该会两到三更吧，不更完实在不舒服，过两天又不知道有没有时间了，赶紧把这些琐事搞定。<br> 　　在这一章里，我们主要对Next进行一些外观上的美化，已经一些第三方插件的应用。因为大部分其他博主写的已经十分详细了，我就贴上链接附上一些简答的补充。总之，看完本篇文章你将学会以下<strong>技能</strong>:</p>
+<blockquote>
+<ul>
+<li>Next外观美化</li>
+<li>评论，统计等第三方插件开启  </li>
+</ul>
+</blockquote>
+<p>　　当完成本篇博文所做的工作后，博客可以说已经完成了。当然，可能在后续的文章里我还会做一些其他的补充，比如优雅发文，百度搜索，部署码云？之类的，不过那都是后话了</p>
+<h2 id="2-Next外观美化"><a href="#2-Next外观美化" class="headerlink" title="2.Next外观美化"></a>2.Next外观美化</h2><p>   本节主要对主题外观进行了一些修饰，让博客看起更加花里胡哨一点（滑稽）。  </p>
+<h3 id="Next主题设置"><a href="#Next主题设置" class="headerlink" title="Next主题设置"></a>Next主题设置</h3><p>　　俗话说得好，寻龙千万看缠山，一重缠是一重关。Next主题下面又有四个小主题可以选，我觉得都挺漂亮，本人用的是gemini，这里推荐一个其他主题的博主，<a href="https://notes.wanghao.work/" target="_blank" rel="noopener">Doublemine</a>，真的好看，我这张博客的脸基本就照他整的。具体<strong>步骤如下</strong>：</p>
+<ol>
+<li>打开 D:\blog\themes\next_config.yml<br>　　然后，你就成功拥有了自己的网页，怎么样，酷不酷！如果想测试以下的话，可用如下方法，因为我是windows，git有GUI界面，我觉得挺好用的，如果你是命令行git的话，可以参考刚才的<a href="https://pages.github.com/" target="_blank" rel="noopener">Gitpage</a>官网。</li>
+<li>找到 Scheme Settings</li>
+<li>修改如下本地项目文件夹中新建index.html文件，并加入以下代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>　　同样可以在部署后通过，hexo s查看效果。  </p>
+<h3 id="跟换头像，圆形头像，以及头像旋转"><a href="#跟换头像，圆形头像，以及头像旋转" class="headerlink" title="跟换头像，圆形头像，以及头像旋转"></a>跟换头像，圆形头像，以及头像旋转</h3><p>　　更换头像也是在设置文件里，不过这节大部分都是在主题的设置文件中，也就是D:\blog\themes\next_config.yml。<br>　　<strong>更改头像</strong>　　</p>
+<p>　　在配置文件中找到Sidebar Avatar</p>
+<ul>
+<li>修改如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Sidebar Avatar</span><br><span class="line"># in theme directory(source/images): /images/avatar.gif</span><br><span class="line"># in site  directory(source/uploads): /uploads/avatar.gif</span><br><span class="line">avatar: /images/face.jpg</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>　　其中face.jpg放在D:\blog\themes\next\source\images目录下。当然你也可以直接贴在线地址。　　</p>
+<p>　　<strong>圆形头像以及图像旋转</strong>  </p>
+<p>　　找到D:\blog\themes\next\source\css_common\components\sidebar下的sidebar-author.styl文件</p>
+<ul>
+<li>修改如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">.site-author-image &#123;</span><br><span class="line">  border: 0 !important;</span><br><span class="line">  display: block;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  padding: $site-author-image-padding;</span><br><span class="line">  max-width: $site-author-image-width;</span><br><span class="line">  height: $site-author-image-height;</span><br><span class="line">  border: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line">  border-radius: 50%</span><br><span class="line">  opacity: 0.6;</span><br><span class="line">  /* start*/</span><br><span class="line">  webkit-transition: 1.4s all;</span><br><span class="line">  moz-transition: 1.4s all;</span><br><span class="line">  ms-transition: 1.4s all;</span><br><span class="line">  transition: 1.4s all;</span><br><span class="line">  /* end */</span><br><span class="line">&#125;</span><br><span class="line">/* start */</span><br><span class="line">.site-author-image:hover &#123;</span><br><span class="line">    -webkit-transform: rotate(360deg);</span><br><span class="line">    -moz-transform: rotate(360deg);</span><br><span class="line">    -ms-transform: rotate(360deg);</span><br><span class="line">    -transform: rotate(360deg);</span><br><span class="line">/* end */</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>　　其中opacity是调整透明度的，可以酌情使用。图像周围会有个边界，我把它去掉了，就是第一句border，想要框的话可以把它去掉。start里面的部分都是和旋转有关，如果想要旋转后放大这种更加花里胡哨的效果，可在rotate后面加scale属性。要是不想要旋转的话直接把start到end部分删除即可。  </p>
+<h3 id="菜单栏添加"><a href="#菜单栏添加" class="headerlink" title="菜单栏添加   　　"></a>菜单栏添加   　　</h3><p> 　　初始的博客界面，左侧的菜单栏里只有两三项项目，我们当然会有自己添加页面的需求，这里以最简单的标签和分类作为例子。增加菜单页面步骤如下<strong>步骤如下</strong>：</p>
+<ol>
+<li><p>建立新的页面</p>
+<ul>
+<li>在blog目录下打开gitbash</li>
+<li>输入<code>hexo new page xxx</code></li>
+<li>如分类，我们输入<code>hexo new page categories</code></li>
+</ul>
+</li>
+<li><p>在配置文件中配置</p>
+<ul>
+<li>打开 D:\blog\themes\next_config.yml</li>
+<li>找到并做如下修改<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  #schedule: /schedule/ || calendar</span><br><span class="line">  #sitemap: /sitemap.xml || sitemap</span><br><span class="line">  #commonweal: /404/ || heartbeat</span><br><span class="line">  # Enable/Disable menu icons.</span><br><span class="line">  menu_icons:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>||线后为菜单图标，具体可在<a href="https://link.jianshu.com/?t=http://fontawesome.io/icons/" target="_blank" rel="noopener">Font Awesom</a> 中查看</li>
+</ul>
+<ol>
+<li>设置对应中文<ul>
+<li>打开 D:\blog\themes\next\languages\zh-Hans.yml</li>
+<li>找到并做如下修改<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line"> home: 首页</span><br><span class="line"> archives: 归档</span><br><span class="line"> categories: 分类</span><br><span class="line"> tags: 标签</span><br><span class="line"> about: 关于</span><br><span class="line"> search: 搜索</span><br><span class="line"> schedule: 日程表</span><br><span class="line"> sitemap: 站点地图</span><br><span class="line"> commonweal: 公益404</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="侧边栏链接分享"><a href="#侧边栏链接分享" class="headerlink" title="侧边栏链接分享"></a>侧边栏链接分享</h3><p> 　　同样是在配置文件D:\blog\themes\next_config.yml里，找到social后自行添加，操作和上面差不多，||后是图标。</p>
+<h3 id="去除底部logo"><a href="#去除底部logo" class="headerlink" title="去除底部logo　　"></a>去除底部logo　　</h3><p> 　　初始的博客界面底下有Hexo和Next的信息，感觉和违和，参考<a href="https://www.jianshu.com/p/4fbc57269f1b" target="_blank" rel="noopener">Hexo-Next底部powered by的logo栏更改以及注意事项</a>  </p>
+<h3 id="透明化"><a href="#透明化" class="headerlink" title="透明化"></a>透明化</h3><p> 　　透明是男人的浪漫！啊呸．．．．．．其实如果你和我一样对艺术和美一无所知的话，只需要将界面透明，你的页面就会出现一种奇特的美感。<br>　　具体的步骤有大佬写的很详细了，可参考<a href="https://simi.fun/2018/01/31/next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E9%80%8F%E6%98%8E%E8%89%B2%E7%AD%89/" target="_blank" rel="noopener">next主题配置透明色等</a>。如果有其他的地方要透明，推荐下这个文件D:\blog\themes\next\source\css_custom\custom.styl，估计是在CSS里把权值设置到最高了，在这里改的CSS效果都是可以直接作用在页面上的。以下我进行的一些修改，如果有疑问可以评论问我。</p>
+<ul>
+<li>修改如下：<pre><code>// Custom styles.
+@font-face {
+  font-family: simi;
+  src: url(&apos;/fonts/simi.otf&apos;);
+}
+.site-title {
+  font-size: 20px !important;
+  font-family: &apos;simi&apos; !important;
+}
+.highlight {
+   background-color: rgba(247,247,247,0.1); 
+}
+pre, .highlight {
+  background-color: rgba(247,247,247,0.1); 
+}
+.highlight .code pre{
+      background-color: rgba(247,247,247,0.1); 
+}
+.highlight tr{
+  background-color: rgba(247,247,247,0.1) !important; 
+}
+.links-of-author {
+  padding-left:15px
+}
+.links-of-author-item a {
+  color:rgba(85,85,85,0.8)
+}
+</code></pre></li>
+</ul>
+<p> 　　至此，外观修改介绍结束，如果有遗漏或者添加会在更新中继续介绍。最后再次感谢各位大佬的博文，给了我很大的帮助，感谢！这里在推荐三个大佬的博文<a href="https://www.jianshu.com/p/3ff20be8574c" target="_blank" rel="noopener">Hexo-Next-主题优化(一)</a>，<a href="http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html" target="_blank" rel="noopener">hexo的next主题个性化教程:打造炫酷网站</a>，<a href="https://blog.csdn.net/kunkun5love/article/details/79403176" target="_blank" rel="noopener">Hexo 个性化配置(三)</a>。里面可能会找到你想要我却没有提到的技术供你参考。</p>
+<h2 id="3-第三方插件"><a href="#3-第三方插件" class="headerlink" title="3.第三方插件"></a>3.第三方插件</h2><p>　　当然，Next支持许多插件来丰富网页功能，这里介绍几个我目前在用的，估计下一篇会更新几个，因为看到几个很有意思的。几个好用基本的都可以在<a href="http://theme-next.iissnan.com/third-party-services.html" target="_blank" rel="noopener">官方文档</a>中查看到。<br>　　<strong>卜算子</strong>　　</p>
+<p>　　页面最底下的访问人数和次数统计。依旧在配置文件中。  </p>
+<ul>
+<li>打开D:\blog\themes\next_config.yml，修改如下：<pre><code># Show PV/UV of the website/page with busuanzi.
+# Get more information on http://ibruce.info/2015/04/04/busuanzi/
+busuanzi_count:
+# count values only if the other configs are false
+enable: true
+# custom uv span for the whole site
+site_uv: true
+site_uv_header: &lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;Visitors
+site_uv_footer:
+# custom pv span for the whole site
+site_pv: true
+site_pv_header: &lt;i class=&quot;fa fa-eye&quot;&gt;&lt;/i&gt;Total
+site_pv_footer:
+# custom pv span for one page only
+page_pv: false
+page_pv_header: &lt;i class=&quot;fa fa-file-o&quot;&gt;&lt;/i&gt;View
+page_pv_footer: 
+</code></pre></li>
+</ul>
+<p>　　<strong>LeanCloud</strong>　　</p>
+<p>　　每篇文章的阅读统计。参考<a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="noopener">为NexT主题添加文章阅读量统计功能</a>。　　  </p>
+<p>　　<strong>评论系统</strong>　　</p>
+<p> 　　我用的是来必力，因为感觉支持的最多，但是感觉好像有点卡，最近在找替代品。参考<a href="https://blog.csdn.net/qwerty200696/article/details/78836421" target="_blank" rel="noopener">hexo博客优化之实现来必力评论功能</a>。  </p>
+<p>   <strong>Daovoice在线聊天系统</strong>　　</p>
+<p> 　　参考<a href="https://asdfv1929.github.io/2018/01/21/daovoice/" target="_blank" rel="noopener">Hexo NexT主题内接入网页在线联系功能</a>。还在思考自己的CSS样式怎么覆盖它。</p>
+<hr>
+<p> 　<br>　　至此，大致的博客网站已经搭建好了，基本的功能和外观我觉得都算完善了，剩下的可能就是添加些小功能修修补补了。当然本篇博文会继续更新并继续分享我搭建博客所做的工作，希望这篇文章对你有所帮助！　继续学习去啦～</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/03/25/My-First-Post/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -602,7 +881,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -613,7 +892,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -624,7 +903,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
