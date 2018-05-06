@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="Anaconda多环境+远程jupyter1.Anaconda多环境　　最近在服务器上安装tensorflow,因为Python2和Python3都要体验一下，因此需要一个管理Python环境的好办法，Anaconda就是一个非常好的管理工具，并且可以在服务器上单用户管理自己的环境，操作十分简单。    首先在服务器上下载Anaconda，我这里下载的是3，理论上讲2也完全可以。上传到服务器上利用">
+<meta name="description" content="Anaconda多环境+远程jupyter1.Anaconda多环境　　最近在服务器上安装tensorflow,因为Python2和Python3都要体验一下，因此需要一个管理Python环境的好办法，Anaconda就是一个非常好的管理工具，并且可以在服务器上单用户管理自己的环境，操作十分简单。　  首先在服务器上下载Anaconda，我这里下载的是3，理论上讲2也完全可以。上传到服务器上利用">
 <meta name="keywords" content="blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Anaconda多环境+远程jupyter">
 <meta property="og:url" content="https://www.gyxiaoh.com/2018/04/05/Anaconda多环境-远程jupyter/index.html">
 <meta property="og:site_name" content="小 君">
-<meta property="og:description" content="Anaconda多环境+远程jupyter1.Anaconda多环境　　最近在服务器上安装tensorflow,因为Python2和Python3都要体验一下，因此需要一个管理Python环境的好办法，Anaconda就是一个非常好的管理工具，并且可以在服务器上单用户管理自己的环境，操作十分简单。    首先在服务器上下载Anaconda，我这里下载的是3，理论上讲2也完全可以。上传到服务器上利用">
+<meta property="og:description" content="Anaconda多环境+远程jupyter1.Anaconda多环境　　最近在服务器上安装tensorflow,因为Python2和Python3都要体验一下，因此需要一个管理Python环境的好办法，Anaconda就是一个非常好的管理工具，并且可以在服务器上单用户管理自己的环境，操作十分简单。　  首先在服务器上下载Anaconda，我这里下载的是3，理论上讲2也完全可以。上传到服务器上利用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-05T15:32:02.775Z">
+<meta property="og:updated_time" content="2018-05-06T09:27:54.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Anaconda多环境+远程jupyter">
-<meta name="twitter:description" content="Anaconda多环境+远程jupyter1.Anaconda多环境　　最近在服务器上安装tensorflow,因为Python2和Python3都要体验一下，因此需要一个管理Python环境的好办法，Anaconda就是一个非常好的管理工具，并且可以在服务器上单用户管理自己的环境，操作十分简单。    首先在服务器上下载Anaconda，我这里下载的是3，理论上讲2也完全可以。上传到服务器上利用">
+<meta name="twitter:description" content="Anaconda多环境+远程jupyter1.Anaconda多环境　　最近在服务器上安装tensorflow,因为Python2和Python3都要体验一下，因此需要一个管理Python环境的好办法，Anaconda就是一个非常好的管理工具，并且可以在服务器上单用户管理自己的环境，操作十分简单。　  首先在服务器上下载Anaconda，我这里下载的是3，理论上讲2也完全可以。上传到服务器上利用">
 
 
 
@@ -360,7 +360,8 @@
       
 
       
-        <h1 id="Anaconda多环境-远程jupyter"><a href="#Anaconda多环境-远程jupyter" class="headerlink" title="Anaconda多环境+远程jupyter"></a>Anaconda多环境+远程jupyter</h1><h2 id="1-Anaconda多环境"><a href="#1-Anaconda多环境" class="headerlink" title="1.Anaconda多环境"></a>1.Anaconda多环境</h2><p>　　最近在服务器上安装tensorflow,因为Python2和Python3都要体验一下，因此需要一个管理Python环境的好办法，Anaconda就是一个非常好的管理工具，并且可以在服务器上单用户管理自己的环境，操作十分简单。  </p>
+        <a id="more"></a>
+<h1 id="Anaconda多环境-远程jupyter"><a href="#Anaconda多环境-远程jupyter" class="headerlink" title="Anaconda多环境+远程jupyter"></a>Anaconda多环境+远程jupyter</h1><h2 id="1-Anaconda多环境"><a href="#1-Anaconda多环境" class="headerlink" title="1.Anaconda多环境"></a>1.Anaconda多环境</h2><p>　　最近在服务器上安装tensorflow,因为Python2和Python3都要体验一下，因此需要一个管理Python环境的好办法，Anaconda就是一个非常好的管理工具，并且可以在服务器上单用户管理自己的环境，操作十分简单。<br><!--more-->　</p>
 <ol>
 <li>首先在服务器上下载Anaconda，我这里下载的是3，理论上讲2也完全可以。上传到服务器上利用<code>bash xxxx.sh</code>安装。</li>
 <li>将Anaconda目录加载进用户环境。利用<code>vim ~/.bashrc</code>打开环境变量文件，在最后加上<code>export PATH=你的anaconda目录/bin:$PATH</code>，保存退出后用<code>source ~/.bashrc</code>命令加载环境变量，成功后使用<code>conda-V</code>查看版本信息，如果出现版本号则安装成功。  </li>

@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="从caffe到tensorflow-vggs网络　　本文所有网络结构已放进本人github vggs_tf,再次惯例感谢大佬，本网络基本都是按照他的博客和代码一步一步搭建修改完成。　　如果你和我一样是从caffe转向tensorflow，或者之前有一定的深度学习基础，那么我觉得你一步一步搭建好本文介绍的网络后基本就对tf的套路了解了，剩下的就是不断看新的网络实现，了解一些奇怪的API了。 　　其实">
+<meta name="description" content="本文所有网络结构已放进本人github vggs_tf,再次惯例感谢大佬，本网络基本都是按照他的博客和代码一步一步搭建修改完成。　　如果你和我一样是从caffe转向tensorflow，或者之前有一定的深度学习基础，那么我觉得你一步一步搭建好本文介绍的网络后基本就对tf的套路了解了，剩下的就是不断看新的网络实现，了解一些奇怪的API了。 　　其实记录本文的主要目的是因为从caffe转到tens">
 <meta name="keywords" content="tensorflow,caffe,vggs,deep learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从caffe到tensorflow-vggs网络">
 <meta property="og:url" content="https://www.gyxiaoh.com/2018/04/19/从caffe到tensorflow-vggs网络/index.html">
 <meta property="og:site_name" content="小 君">
-<meta property="og:description" content="从caffe到tensorflow-vggs网络　　本文所有网络结构已放进本人github vggs_tf,再次惯例感谢大佬，本网络基本都是按照他的博客和代码一步一步搭建修改完成。　　如果你和我一样是从caffe转向tensorflow，或者之前有一定的深度学习基础，那么我觉得你一步一步搭建好本文介绍的网络后基本就对tf的套路了解了，剩下的就是不断看新的网络实现，了解一些奇怪的API了。 　　其实">
+<meta property="og:description" content="本文所有网络结构已放进本人github vggs_tf,再次惯例感谢大佬，本网络基本都是按照他的博客和代码一步一步搭建修改完成。　　如果你和我一样是从caffe转向tensorflow，或者之前有一定的深度学习基础，那么我觉得你一步一步搭建好本文介绍的网络后基本就对tf的套路了解了，剩下的就是不断看新的网络实现，了解一些奇怪的API了。 　　其实记录本文的主要目的是因为从caffe转到tens">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-01T15:02:55.002Z">
+<meta property="og:updated_time" content="2018-05-06T09:28:41.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从caffe到tensorflow-vggs网络">
-<meta name="twitter:description" content="从caffe到tensorflow-vggs网络　　本文所有网络结构已放进本人github vggs_tf,再次惯例感谢大佬，本网络基本都是按照他的博客和代码一步一步搭建修改完成。　　如果你和我一样是从caffe转向tensorflow，或者之前有一定的深度学习基础，那么我觉得你一步一步搭建好本文介绍的网络后基本就对tf的套路了解了，剩下的就是不断看新的网络实现，了解一些奇怪的API了。 　　其实">
+<meta name="twitter:description" content="本文所有网络结构已放进本人github vggs_tf,再次惯例感谢大佬，本网络基本都是按照他的博客和代码一步一步搭建修改完成。　　如果你和我一样是从caffe转向tensorflow，或者之前有一定的深度学习基础，那么我觉得你一步一步搭建好本文介绍的网络后基本就对tf的套路了解了，剩下的就是不断看新的网络实现，了解一些奇怪的API了。 　　其实记录本文的主要目的是因为从caffe转到tens">
 
 
 
@@ -382,7 +382,7 @@
       
 
       
-        <h1 id="从caffe到tensorflow-vggs网络"><a href="#从caffe到tensorflow-vggs网络" class="headerlink" title="从caffe到tensorflow-vggs网络"></a>从caffe到tensorflow-vggs网络</h1><p>　　本文所有网络结构已放进本人github <a href="https://github.com/GYxiaOH/vggs_tf" target="_blank" rel="noopener">vggs_tf</a>,再次惯例感谢<a href="https://kratzert.github.io/2017/02/24/finetuning-alexnet-with-tensorflow.html" target="_blank" rel="noopener"></a>大佬，本网络基本都是按照他的博客和代码一步一步搭建修改完成。<br>　　如果你和我一样是从caffe转向tensorflow，或者之前有一定的深度学习基础，那么我觉得你一步一步搭建好本文介绍的网络后基本就对tf的套路了解了，剩下的就是不断看新的网络实现，了解一些奇怪的API了。<br> 　　其实记录本文的主要目的是因为从caffe转到tensorflow后，第一，你不知道如何下手，第二，有时候你觉得你的网络结构，相关参数用的都是一模一样，但是效果就是比caffe差了不少。因此本文就是记录笔者在这些地方踩的坑。废话不多说，我们开始。  </p>
+        <p>　　本文所有网络结构已放进本人github <a href="https://github.com/GYxiaOH/vggs_tf" target="_blank" rel="noopener">vggs_tf</a>,再次惯例感谢<a href="https://kratzert.github.io/2017/02/24/finetuning-alexnet-with-tensorflow.html" target="_blank" rel="noopener"></a>大佬，本网络基本都是按照他的博客和代码一步一步搭建修改完成。<br>　　如果你和我一样是从caffe转向tensorflow，或者之前有一定的深度学习基础，那么我觉得你一步一步搭建好本文介绍的网络后基本就对tf的套路了解了，剩下的就是不断看新的网络实现，了解一些奇怪的API了。<br> 　　其实记录本文的主要目的是因为从caffe转到tensorflow后，第一，你不知道如何下手，第二，有时候你觉得你的网络结构，相关参数用的都是一模一样，但是效果就是比caffe差了不少。因此本文就是记录笔者在这些地方踩的坑。废话不多说，我们开始。<br><a id="more"></a>　</p>
 <h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>　　首先简单介绍下整个网络搭建比较重要的地方。<br>　　第一个就是vggs里面的内容，其中主要就是搭建网络框架，并且把读取参数的函数放了进去(caffemodel)，和caffe一样，tf搭建网路也很简答，就是create中的一堆conv=pool什么的，之所以每个部分都用了自己封装的函数是为了读取caffe的预训练模型更方便，tf里用layers建立的层通常weight的参数名字是”keras”，而caffe是”weights”。<br>　　第二个是finetune。它就是我们主要训练和测试的函数，其主要功能就是读取vggs里面的最后一层的输出结果，放入一个loss函数，在建立一个optimizer去优化整个网络，用一堆for循环跑N个epoch后输出结果。<br>　　第三个是datagenerator。这个感觉就可能是比较难的一块，因为caffe里基本就是转化为lmdb完事了，其他一些设定都比较简单，而转向tf第一个比较懵逼的就是如何输入数据，理论上讲tf输入数据有三种方法，这里用了比较新的dataset api，其实也比较简单，主要是不熟，建议和<a href="https://blog.csdn.net/kwame211/article/details/78579035" target="_blank" rel="noopener">TensorFlow全新的数据读取方式：Dataset API入门教程</a>对照着看，很快便能弄懂。</p>
 <h2 id="为什么我的准确率不高"><a href="#为什么我的准确率不高" class="headerlink" title="为什么我的准确率不高"></a>为什么我的准确率不高</h2><p>　　当我按照原作者的Alex Net 该成我VGGS后，一开始还很不错，训练测试都很正常，可是我对网络进一步修改的时候，就发现网络的准确率很差，和caffe训练的有天壤之别。明明感觉网络结构和参数设置都差不多。。。。经过了快一个星期我才基本把所有原因找道，在这里记录下来，希望有缘人能不要做这些浪费时间的事情。  </p>
 <h3 id="Pretrain-weights"><a href="#Pretrain-weights" class="headerlink" title="Pretrain weights"></a>Pretrain weights</h3><p>　　深度学习的参数初始化是十分重要的，所谓站在巨人的肩膀上，所以你没有在imagenet上的训练参数你很难直接把自己的数据集训练好。原来作者的代码这一部分就很奇怪 ，他用了一个skip_layer，这里面的层参数全部是随机初始化重新训练，并且之前继承了参数的层他把trainable设置成了False，这就会让训练的时候无法继承全部的参数，继承的参数又无法训练，虽然有文章表示VGG的前几层学习的特征比较通用，可以固定，当通过我的实际测试还是一起训练会得到比较好的结果。因此在我的VGG里面我改成了skiplayer和trainlayer，分别代表我需要重新初始化的层和我需要训练的层,这一步后大概争取率翻了一倍。</p>
@@ -621,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从caffe到tensorflow-vggs网络"><span class="nav-number">1.</span> <span class="nav-text">从caffe到tensorflow-vggs网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络结构"><span class="nav-number">1.1.</span> <span class="nav-text">网络结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么我的准确率不高"><span class="nav-number">1.2.</span> <span class="nav-text">为什么我的准确率不高</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pretrain-weights"><span class="nav-number">1.2.1.</span> <span class="nav-text">Pretrain weights</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数初始化"><span class="nav-number">1.2.2.</span> <span class="nav-text">参数初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimizer"><span class="nav-number">1.2.3.</span> <span class="nav-text">Optimizer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L2-regular"><span class="nav-number">1.2.4.</span> <span class="nav-text">L2 regular</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Crop"><span class="nav-number">1.2.5.</span> <span class="nav-text">Crop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#batch-norm"><span class="nav-number">1.2.6.</span> <span class="nav-text">batch norm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小的问题"><span class="nav-number">1.2.7.</span> <span class="nav-text">小的问题</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络结构"><span class="nav-number">1.</span> <span class="nav-text">网络结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么我的准确率不高"><span class="nav-number">2.</span> <span class="nav-text">为什么我的准确率不高</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pretrain-weights"><span class="nav-number">2.1.</span> <span class="nav-text">Pretrain weights</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数初始化"><span class="nav-number">2.2.</span> <span class="nav-text">参数初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimizer"><span class="nav-number">2.3.</span> <span class="nav-text">Optimizer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L2-regular"><span class="nav-number">2.4.</span> <span class="nav-text">L2 regular</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Crop"><span class="nav-number">2.5.</span> <span class="nav-text">Crop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#batch-norm"><span class="nav-number">2.6.</span> <span class="nav-text">batch norm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小的问题"><span class="nav-number">2.7.</span> <span class="nav-text">小的问题</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="动归初级三连上楼梯你正在爬楼梯。需要 n 步你才能到达顶部。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方式可以爬到楼顶呢？ 　　最简单的动归题目了，可以有三种方法，最近在知乎上看到一篇超棒的帖子将简单动归，漫画：什么是动态规划？1234567891011121314151617class Solution(object):    def climbStairs(self, n):">
+<meta name="description" content="leetcode动态规划简单题目">
 <meta name="keywords" content="动归,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动归初级三连">
 <meta property="og:url" content="https://www.gyxiaoh.com/2018/04/09/初级动态三连/index.html">
 <meta property="og:site_name" content="小 君">
-<meta property="og:description" content="动归初级三连上楼梯你正在爬楼梯。需要 n 步你才能到达顶部。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方式可以爬到楼顶呢？ 　　最简单的动归题目了，可以有三种方法，最近在知乎上看到一篇超棒的帖子将简单动归，漫画：什么是动态规划？1234567891011121314151617class Solution(object):    def climbStairs(self, n):">
+<meta property="og:description" content="leetcode动态规划简单题目">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-16T11:58:19.088Z">
+<meta property="og:updated_time" content="2018-05-06T09:31:01.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动归初级三连">
-<meta name="twitter:description" content="动归初级三连上楼梯你正在爬楼梯。需要 n 步你才能到达顶部。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方式可以爬到楼顶呢？ 　　最简单的动归题目了，可以有三种方法，最近在知乎上看到一篇超棒的帖子将简单动归，漫画：什么是动态规划？1234567891011121314151617class Solution(object):    def climbStairs(self, n):">
+<meta name="twitter:description" content="leetcode动态规划简单题目">
 
 
 
@@ -382,7 +382,8 @@
       
 
       
-        <h1 id="动归初级三连"><a href="#动归初级三连" class="headerlink" title="动归初级三连"></a>动归初级三连</h1><h2 id="上楼梯"><a href="#上楼梯" class="headerlink" title="上楼梯"></a>上楼梯</h2><pre><code>你正在爬楼梯。需要 n 步你才能到达顶部。
+        <p>　　leetcode动态规划简单题目<br><a id="more"></a>　</p>
+<h2 id="上楼梯"><a href="#上楼梯" class="headerlink" title="上楼梯"></a>上楼梯</h2><pre><code>你正在爬楼梯。需要 n 步你才能到达顶部。
 每次你可以爬 1 或 2 个台阶。你有多少种不同的方式可以爬到楼顶呢？
 </code></pre><p>　　最简单的动归题目了，可以有三种方法，最近在知乎上看到一篇超棒的帖子将简单动归，<a href="https://zhuanlan.zhihu.com/p/31628866" target="_blank" rel="noopener">漫画：什么是动态规划？</a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">climbStairs</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">2</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">        a = <span class="number">1</span></span><br><span class="line">        b = <span class="number">2</span></span><br><span class="line">        temp = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,n):</span><br><span class="line">            temp =a + b</span><br><span class="line">            a,b = b,temp</span><br><span class="line">        <span class="keyword">return</span> temp</span><br></pre></td></tr></table></figure></p>
 <h2 id="买卖股票的最佳时机１"><a href="#买卖股票的最佳时机１" class="headerlink" title="买卖股票的最佳时机１"></a>买卖股票的最佳时机１</h2><pre><code>假设你有一个数组，其中第 i 个元素是一支给定股票第 i 天的价格。
@@ -617,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动归初级三连"><span class="nav-number">1.</span> <span class="nav-text">动归初级三连</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#上楼梯"><span class="nav-number">1.1.</span> <span class="nav-text">上楼梯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#买卖股票的最佳时机１"><span class="nav-number">1.2.</span> <span class="nav-text">买卖股票的最佳时机１</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大子序和"><span class="nav-number">1.3.</span> <span class="nav-text">最大子序和</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#上楼梯"><span class="nav-number">1.</span> <span class="nav-text">上楼梯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#买卖股票的最佳时机１"><span class="nav-number">2.</span> <span class="nav-text">买卖股票的最佳时机１</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大子序和"><span class="nav-number">3.</span> <span class="nav-text">最大子序和</span></a></li></ol></div>
             
 
           </div>

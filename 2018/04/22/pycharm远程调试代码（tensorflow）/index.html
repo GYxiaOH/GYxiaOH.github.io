@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="pycharm远程调试代码（tensorflow）　　以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。  　　本文主要参考PyCharm 配置远程python解释器和在本地修改服务器代码。遇到的坑如下：">
+<meta name="description" content="以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。">
 <meta name="keywords" content="pytcharm,远程,工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pycharm远程调试代码（tensorflow）">
 <meta property="og:url" content="https://www.gyxiaoh.com/2018/04/22/pycharm远程调试代码（tensorflow）/index.html">
 <meta property="og:site_name" content="小 君">
-<meta property="og:description" content="pycharm远程调试代码（tensorflow）　　以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。  　　本文主要参考PyCharm 配置远程python解释器和在本地修改服务器代码。遇到的坑如下：">
+<meta property="og:description" content="以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-02T13:48:27.164Z">
+<meta property="og:updated_time" content="2018-05-06T09:27:00.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pycharm远程调试代码（tensorflow）">
-<meta name="twitter:description" content="pycharm远程调试代码（tensorflow）　　以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。  　　本文主要参考PyCharm 配置远程python解释器和在本地修改服务器代码。遇到的坑如下：">
+<meta name="twitter:description" content="以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。">
 
 
 
@@ -382,7 +382,7 @@
       
 
       
-        <h1 id="pycharm远程调试代码（tensorflow）"><a href="#pycharm远程调试代码（tensorflow）" class="headerlink" title="pycharm远程调试代码（tensorflow）"></a>pycharm远程调试代码（tensorflow）</h1><p>　　以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。<br>  　　本文主要参考<a href="https://www.cnblogs.com/xiongmao-cpp/p/7856596.html" target="_blank" rel="noopener">PyCharm 配置远程python解释器和在本地修改服务器代码</a>。遇到的坑如下：  </p>
+        <p>　　以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。<br><a id="more"></a>　<br>  　　本文主要参考<a href="https://www.cnblogs.com/xiongmao-cpp/p/7856596.html" target="_blank" rel="noopener">PyCharm 配置远程python解释器和在本地修改服务器代码</a>。遇到的坑如下：  </p>
 <ol>
 <li>配置Deployment的Mapping的Deployment path on server时，一定要配置的是自己的工作目录，如果用默认的根目录的话你无法down你的服务器上的代码，会提示没有这个文件或者目录</li>
 <li>配置Python解释器的时候，不知道是不是版本的原因，我是2018最新版本，是没有Add remote 这个选项的，需要用Add按钮，然后在ssh interpreter里选择服务器的配置。</li>
@@ -504,17 +504,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -606,22 +597,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pycharm远程调试代码（tensorflow）"><span class="nav-number">1.</span> <span class="nav-text">pycharm远程调试代码（tensorflow）</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
