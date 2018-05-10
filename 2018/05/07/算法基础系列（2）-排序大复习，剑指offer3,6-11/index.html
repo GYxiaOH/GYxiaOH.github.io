@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "db8b42fc"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试,算法,算法基础," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="今天看的书大致把排序的相关基础算法和练习都过了一遍，现在这里做了个记录。顺便感谢搜狗对我的肯定！据说有offer了！">
+<meta name="keywords" content="面试,算法,算法基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法基础系列（2）-排序大复习，剑指offer3,6-11">
+<meta property="og:url" content="https://www.gyxiaoh.com/2018/05/07/算法基础系列（2）-排序大复习，剑指offer3,6-11/index.html">
+<meta property="og:site_name" content="小 君">
+<meta property="og:description" content="今天看的书大致把排序的相关基础算法和练习都过了一遍，现在这里做了个记录。顺便感谢搜狗对我的肯定！据说有offer了！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-10T15:57:14.573Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法基础系列（2）-排序大复习，剑指offer3,6-11">
+<meta name="twitter:description" content="今天看的书大致把排序的相关基础算法和练习都过了一遍，现在这里做了个记录。顺便感谢搜狗对我的肯定！据说有offer了！">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.gyxiaoh.com/2018/05/07/算法基础系列（2）-排序大复习，剑指offer3,6-11/"/>
+
+
+
+
+
+  <title>算法基础系列（2）-排序大复习，剑指offer3,6-11 | 小 君</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8ad16d364f0235b40e33f9ac13ce6d97";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小 君</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">One Day I'll Fly Away<br>leave all this to yesterday</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/05/07/算法基础系列（2）-排序大复习，剑指offer3,6-11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GYxiaOH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/face.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小 君">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法基础系列（2）-排序大复习，剑指offer3,6-11</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T20:36:00+08:00">
+                2018-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法基础复习/" itemprop="url" rel="index">
+                    <span itemprop="name">算法基础复习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/05/07/算法基础系列（2）-排序大复习，剑指offer3,6-11/" class="leancloud_visitors" data-flag-title="算法基础系列（2）-排序大复习，剑指offer3,6-11">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天看的书大致把排序的相关基础算法和练习都过了一遍，现在这里做了个记录。顺便感谢搜狗对我的肯定！据说有offer了！　<br><a id="more"></a>　</p>
+<h2 id="时间复杂度，空间复杂度以及稳定性"><a href="#时间复杂度，空间复杂度以及稳定性" class="headerlink" title="时间复杂度，空间复杂度以及稳定性"></a>时间复杂度，空间复杂度以及稳定性</h2><p>　　<code>时间复杂度</code><br>　　O(n):桶排序：基数排序，计数排序<br>　　O(nlogn):快速排序，堆排序，归并排序，希尔排序<br>　　O(n平方):冒泡排序，插入排序，选择排序<br>  　　<code>空间复杂度</code><br>　　O(1):插入排序，选择排序，堆排序，冒泡排序，希尔排序<br>　　O(nlogn)~O(n):快速排序(主要是栈空间，它不用辅助空间，但是全会递归logn或者n次)<br>　　O(n):归并排序<br>　　O(m):桶的个数<br>　　<code>稳定性</code><br>　　稳定:插入排序，归并排序，冒泡排序，希尔排序，计数排序<br>　　不稳定:希尔排序（5115），堆排序（4333），快速排序（333），选择排序（1222）</p>
+<h2 id="排序练习题"><a href="#排序练习题" class="headerlink" title="排序练习题"></a>排序练习题</h2><h3 id="题目1"><a href="#题目1" class="headerlink" title="题目1"></a>题目1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">已知一个几乎有序的数组，几乎有序是指，如果把数组排好顺序的话，每个元素移动的距离可以不超过k，并且k相对于数组来说比较小。请选择一个合适的排序算法针对这个数据进行排序.</span><br></pre></td></tr></table></figure>
+<p>　　计数和基数不考虑，因为不知道范围。<br>　　冒泡和选择排序与初始数组顺序无关，时间复杂度依旧是O(ｎ平方)<br>　　插入排序因为买次向前插入移动不超过ｋ次，所以复杂度进化到O(nk)<br>　　归并和快排依旧是O(nlogn)<br>　　最快的是对堆排做一些修改。如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">leftc</span><span class="params">(numa)</span>:</span></span><br><span class="line">    <span class="keyword">return</span>  <span class="number">2</span> * numa +<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rightc</span><span class="params">(numa)</span>:</span></span><br><span class="line">    <span class="keyword">return</span>  <span class="number">2</span> * numa + <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">minheapfy</span><span class="params">(heap,node,heapsize)</span>:</span></span><br><span class="line">    left = leftc(node)</span><br><span class="line">    minvalue = node</span><br><span class="line"><span class="comment">#    print heapsize</span></span><br><span class="line">    <span class="keyword">if</span> left &gt;= heapsize:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> heap[minvalue]&gt; heap[left]:</span><br><span class="line">        minvalue = left</span><br><span class="line">    right = rightc(node)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> right &lt; heapsize <span class="keyword">and</span> heap[minvalue] &gt; heap[right]:</span><br><span class="line">        minvalue = right</span><br><span class="line">    <span class="keyword">if</span> minvalue!=node:</span><br><span class="line">        heap[node],heap[minvalue] = heap[minvalue],heap[node]</span><br><span class="line">        minheapfy(heap,minvalue,heapsize)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildheap</span><span class="params">(heap)</span>:</span></span><br><span class="line">    heapsize = len(heap)</span><br><span class="line">    <span class="keyword">if</span> heapsize &gt; <span class="number">1</span>:</span><br><span class="line">        node = heapsize/<span class="number">2</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span>(node &gt;= <span class="number">0</span>):</span><br><span class="line">            minheapfy(heap,node,heapsize)</span><br><span class="line">            node -= <span class="number">1</span>       </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sortheap</span><span class="params">(heap)</span>:</span></span><br><span class="line">    buildheap(heap)</span><br><span class="line">    heapsize = len(heap)</span><br><span class="line">    <span class="keyword">while</span>(heapsize &gt;<span class="number">0</span>):</span><br><span class="line">        heap[<span class="number">0</span>],heap[heapsize<span class="number">-1</span>] = heap[heapsize<span class="number">-1</span>],heap[<span class="number">0</span>]</span><br><span class="line">        heapsize -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">print</span> heap</span><br><span class="line">        minheapfy(heap,<span class="number">0</span>,heapsize)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sortheapk</span><span class="params">(heap,k)</span>:</span></span><br><span class="line"></span><br><span class="line">    lasthalf = heap[k:]</span><br><span class="line">    heapsize = len(heap)</span><br><span class="line">    heap = heap[<span class="number">0</span>:k]</span><br><span class="line">    buildheap(heap)</span><br><span class="line">    <span class="keyword">print</span> heap</span><br><span class="line">    end = []</span><br><span class="line">    <span class="keyword">while</span>(heapsize &gt;<span class="number">0</span>):</span><br><span class="line">        <span class="keyword">if</span> heapsize&gt;k:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'big'</span></span><br><span class="line">            end.append(heap[<span class="number">0</span>])</span><br><span class="line">            heap[<span class="number">0</span>] = lasthalf.pop(<span class="number">0</span>)</span><br><span class="line">            minheapfy(heap,<span class="number">0</span>,k)</span><br><span class="line">            heapsize -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            end.append(heap[<span class="number">0</span>])</span><br><span class="line">            heap[<span class="number">0</span>] = heap[heapsize<span class="number">-1</span>]</span><br><span class="line">            heapsize -= <span class="number">1</span></span><br><span class="line">            minheapfy(heap,<span class="number">0</span>,heapsize)</span><br><span class="line">        <span class="keyword">print</span> end</span><br><span class="line">    <span class="keyword">return</span> end</span><br><span class="line">            </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span> :   </span><br><span class="line">    A = [<span class="number">2</span>, <span class="number">-3</span>, <span class="number">10</span>, <span class="number">7</span>]</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Before sort:'</span>,A  </span><br><span class="line">    A = sortheapk(A,<span class="number">2</span>) </span><br><span class="line">    <span class="keyword">print</span> <span class="string">'After sort:'</span>,A</span><br></pre></td></tr></table></figure></p>
+<h3 id="题目2"><a href="#题目2" class="headerlink" title="题目2"></a>题目2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">检查数组里是否有重复数值，必须保证空间复杂度为O（1）</span><br></pre></td></tr></table></figure>
+<p>如果没有空间复杂度的限制，应该想到用哈希表<br>有了空间复杂度的限制，先排序后，想到与在O（1）里找最快的，这里用的是非递归的堆排序。　　</p>
+<p>　　代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">leftc</span><span class="params">(numa)</span>:</span></span><br><span class="line">    <span class="keyword">return</span>  <span class="number">2</span> * numa +<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rightc</span><span class="params">(numa)</span>:</span></span><br><span class="line">    <span class="keyword">return</span>  <span class="number">2</span> * numa + <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">minheapfy</span><span class="params">(heap,node,heapsize)</span>:</span></span><br><span class="line">    left = leftc(node)</span><br><span class="line">    minvalue = node</span><br><span class="line"><span class="comment">#    print heapsize</span></span><br><span class="line">    <span class="keyword">if</span> left &gt;= heapsize:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> heap[minvalue]&gt; heap[left]:</span><br><span class="line">        minvalue = left</span><br><span class="line">    right = rightc(node)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> right &lt; heapsize <span class="keyword">and</span> heap[minvalue] &gt; heap[right]:</span><br><span class="line">        minvalue = right</span><br><span class="line">    <span class="keyword">while</span>(minvalue!=node):</span><br><span class="line">        heap[node],heap[minvalue] = heap[minvalue],heap[node]</span><br><span class="line">        node = minvalue</span><br><span class="line">        left = leftc(node)</span><br><span class="line">        minvalue = node</span><br><span class="line">    <span class="comment">#    print heapsize</span></span><br><span class="line">        <span class="keyword">if</span> left &gt;= heapsize:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span> heap[minvalue]&gt; heap[left]:</span><br><span class="line">            minvalue = left</span><br><span class="line">        right = rightc(node)</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span> right &lt; heapsize <span class="keyword">and</span> heap[minvalue] &gt; heap[right]:</span><br><span class="line">            minvalue = right</span><br><span class="line"><span class="comment">#    if minvalue!=node:</span></span><br><span class="line"><span class="comment">#        heap[node],heap[minvalue] = heap[minvalue],heap[node]</span></span><br><span class="line"><span class="comment">#        minheapfy(heap,minvalue,heapsize)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">buildheap</span><span class="params">(heap)</span>:</span></span><br><span class="line">    heapsize = len(heap)</span><br><span class="line">    <span class="keyword">if</span> heapsize &gt; <span class="number">1</span>:</span><br><span class="line">        node = heapsize/<span class="number">2</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span>(node &gt;= <span class="number">0</span>):</span><br><span class="line">            minheapfy(heap,node,heapsize)</span><br><span class="line">            node -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sortheap</span><span class="params">(heap)</span>:</span></span><br><span class="line">    buildheap(heap)</span><br><span class="line">    heapsize = len(heap)</span><br><span class="line">    <span class="keyword">while</span>(heapsize &gt;<span class="number">0</span>):</span><br><span class="line">        heap[<span class="number">0</span>],heap[heapsize<span class="number">-1</span>] = heap[heapsize<span class="number">-1</span>],heap[<span class="number">0</span>]</span><br><span class="line">        heapsize -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">print</span> heap</span><br><span class="line">        minheapfy(heap,<span class="number">0</span>,heapsize)</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span> :  </span><br><span class="line">   </span><br><span class="line">    A = [<span class="number">10</span>, <span class="number">-3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">7</span>]</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Before sort:'</span>,A  </span><br><span class="line">    sort_heap(A) </span><br><span class="line">    <span class="keyword">print</span> <span class="string">'After sort:'</span>,A</span><br></pre></td></tr></table></figure></p>
+<h3 id="题目３"><a href="#题目３" class="headerlink" title="题目３"></a>题目３</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将两个有序数组合并，第一个数组的空间刚好能容纳合并后的数组</span><br></pre></td></tr></table></figure>
+<p>这题因为python不需要人工考虑数组大小，这里只是模拟一下　　</p>
+<p>　　代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">combine</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    first = len(x)<span class="number">-1</span></span><br><span class="line">    second = len(y) - <span class="number">1</span></span><br><span class="line">    end = len(x) + len(y) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(y)):</span><br><span class="line">        x.append(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">while</span> end &gt;<span class="number">-1</span> <span class="keyword">and</span> first &gt;=<span class="number">0</span> <span class="keyword">and</span> second &gt;=<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> x[first] &gt;= y[second]:</span><br><span class="line">            x[end] = x[first]</span><br><span class="line">            end -= <span class="number">1</span></span><br><span class="line">            first -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            x[end] = y[second]</span><br><span class="line">            second -= <span class="number">1</span></span><br><span class="line">            end -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> first &gt;<span class="number">0</span>:</span><br><span class="line">        x[end] = x[first]</span><br><span class="line">        end -= <span class="number">1</span></span><br><span class="line">        first -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> second &gt;<span class="number">0</span>:</span><br><span class="line">        x[end] = y[second]</span><br><span class="line">        end -= <span class="number">1</span></span><br><span class="line">        second -= <span class="number">1</span></span><br><span class="line">          </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span> :  </span><br><span class="line">    a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">    b = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Before combine:'</span>,a  </span><br><span class="line">    combine(a,b) </span><br><span class="line">    <span class="keyword">print</span> <span class="string">'After combine:'</span>,a</span><br></pre></td></tr></table></figure></p>
+<h3 id="题目4"><a href="#题目4" class="headerlink" title="题目4"></a>题目4</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。</span><br><span class="line"></span><br><span class="line">此题中，我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。</span><br><span class="line"></span><br><span class="line">注意:</span><br><span class="line">不能使用代码库中的排序函数来解决这道题。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: [2,0,2,1,1,0]</span><br><span class="line">输出: [0,0,1,1,2,2]</span><br><span class="line">进阶：</span><br><span class="line"></span><br><span class="line">一个直观的解决方案是使用计数排序的两趟扫描算法。</span><br><span class="line">首先，迭代计算出0、1 和 2 元素的个数，然后按照0、1、2的排序，重写当前数组。</span><br><span class="line">你能想出一个仅使用常数空间的一趟扫描算法吗？</span><br></pre></td></tr></table></figure>
+<p>　　荷兰国旗问题，可以优化快速排序算法，就和快速排序的一趟partion一样，只不过中间的值都是想同的而不是一个　</p>
+<p>　　代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortColors</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: void Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        left = <span class="number">-1</span> </span><br><span class="line">        right = len(nums)</span><br><span class="line">        cur = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) == <span class="number">0</span> <span class="keyword">or</span> len(nums) == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line">        <span class="keyword">while</span>(cur!= right ):</span><br><span class="line">            <span class="keyword">if</span> nums[cur]&lt;<span class="number">1</span>:</span><br><span class="line">                nums[cur],nums[left+<span class="number">1</span>] = nums[left+<span class="number">1</span>],nums[cur]</span><br><span class="line">                left +=<span class="number">1</span></span><br><span class="line">                cur += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> nums[cur]&gt;<span class="number">1L</span>:</span><br><span class="line">                nums[cur],nums[right<span class="number">-1</span>] = nums[right<span class="number">-1</span>],nums[cur]</span><br><span class="line">                right -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> right == cur:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                cur += <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="题目5，题目6"><a href="#题目5，题目6" class="headerlink" title="题目5，题目6"></a>题目5，题目6</h3><p>题目5就是之前基础复习里的二维数组查找问题,以下是题目6：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。</span><br><span class="line"></span><br><span class="line">此题中，我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。</span><br><span class="line"></span><br><span class="line">注意:</span><br><span class="line">不能使用代码库中的排序函数来解决这道题。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: [2,0,2,1,1,0]</span><br><span class="line">输出: [0,0,1,1,2,2]</span><br><span class="line">进阶：</span><br><span class="line"></span><br><span class="line">一个直观的解决方案是使用计数排序的两趟扫描算法。</span><br><span class="line">首先，迭代计算出0、1 和 2 元素的个数，然后按照0、1、2的排序，重写当前数组。</span><br><span class="line">你能想出一个仅使用常数空间的一趟扫描算法吗？</span><br></pre></td></tr></table></figure></p>
+<p>　　荷兰国旗问题，可以优化快速排序算法，就和快速排序的一趟partion一样，只不过中间的值都是想同的而不是一个　</p>
+<p>　　代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortColors</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: void Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        left = <span class="number">-1</span> </span><br><span class="line">        right = len(nums)</span><br><span class="line">        cur = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) == <span class="number">0</span> <span class="keyword">or</span> len(nums) == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line">        <span class="keyword">while</span>(cur!= right ):</span><br><span class="line">            <span class="keyword">if</span> nums[cur]&lt;<span class="number">1</span>:</span><br><span class="line">                nums[cur],nums[left+<span class="number">1</span>] = nums[left+<span class="number">1</span>],nums[cur]</span><br><span class="line">                left +=<span class="number">1</span></span><br><span class="line">                cur += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> nums[cur]&gt;<span class="number">1L</span>:</span><br><span class="line">                nums[cur],nums[right<span class="number">-1</span>] = nums[right<span class="number">-1</span>],nums[cur]</span><br><span class="line">                right -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> right == cur:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                cur += <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="题目7"><a href="#题目7" class="headerlink" title="题目7"></a>题目7</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">给定一个整数数组，你需要寻找一个连续的子数组，如果对这个子数组进行升序排序，那么整个数组都会变为升序排序。</span><br><span class="line"></span><br><span class="line">你找到的子数组应是最短的，请输出它的长度。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: [2, 6, 4, 8, 10, 9, 15]</span><br><span class="line">输出: 5</span><br><span class="line">解释: 你只需要对 [6, 4, 8, 10, 9] 进行升序排序，那么整个表都会变为升序排序。</span><br><span class="line">说明 :</span><br><span class="line"></span><br><span class="line">输入的数组长度范围在 [1, 10,000]。</span><br><span class="line">输入的数组可能包含重复元素 ，所以升序的意思是&lt;=。</span><br></pre></td></tr></table></figure>
+<p>　　前后扫描一遍，基本思路是从前往后最大的数应该在未排序子数组的最右边，从后往前最小的数应该在未排序子数组的最左边<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findUnsortedSubarray</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> (len(nums) == <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        minv = nums[<span class="number">-1</span>]</span><br><span class="line">        maxv = nums[<span class="number">0</span>]</span><br><span class="line">        </span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = len(nums) - <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] &lt; maxv:</span><br><span class="line">                left = i</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                maxv = nums[i]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(nums)<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> nums[j] &gt;minv:</span><br><span class="line">                right = j</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                minv = nums[j]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> left - right + <span class="number">1</span> &lt; <span class="number">0</span>:</span><br><span class="line">            end = <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            end = left - right + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> end</span><br></pre></td></tr></table></figure></p>
+<h3 id="题目8"><a href="#题目8" class="headerlink" title="题目8"></a>题目8</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">给定一个无序的数组，找出数组在排序之后，相邻元素之间最大的差值。</span><br><span class="line"></span><br><span class="line">如果数组元素个数小于 2，则返回 0。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: [3,6,9,1]</span><br><span class="line">输出: 3</span><br><span class="line">解释: 排序后的数组是 [1,3,6,9], 其中相邻元素 (3,6) 和 (6,9) 之间都存在最大差值 3。</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: [10]</span><br><span class="line">输出: 0</span><br><span class="line">解释: 数组元素个数小于 2，因此返回 0。</span><br><span class="line">说明:</span><br><span class="line"></span><br><span class="line">你可以假设数组中所有元素都是非负整数，且数值在 32 位有符号整数范围内。</span><br><span class="line">请尝试在线性时间复杂度和空间复杂度的条件下解决此问题。</span><br></pre></td></tr></table></figure>
+<p>　　桶排序，需要注意的是最大值放在最后一个桶，float可能会损失精度，两个相邻的数一定是后一个桶的最小值和前一个桶的最大值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maximumGap</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) == <span class="number">1</span> <span class="keyword">or</span> len(nums) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        bucket = &#123;&#125;</span><br><span class="line">        minv = float(min(nums))</span><br><span class="line">        maxv = float(max(nums))</span><br><span class="line">        <span class="keyword">if</span> maxv == minv:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)+<span class="number">1</span>):</span><br><span class="line">            bucket[i] = []</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            temp = int(float((nums[j] - minv)) / ((maxv-minv)/float(len(nums))))</span><br><span class="line">            <span class="keyword">if</span> nums[j] == maxv:</span><br><span class="line">                temp = len(nums)</span><br><span class="line">            bucket[temp].append(nums[j])</span><br><span class="line">        </span><br><span class="line">        end = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            <span class="keyword">if</span> bucket[i] != []:</span><br><span class="line">                onemin = max(bucket[i])</span><br><span class="line">                temp = i + <span class="number">1</span></span><br><span class="line">                <span class="keyword">while</span>(temp&lt;len(nums) <span class="keyword">and</span> bucket[temp] == []):</span><br><span class="line">                    temp += <span class="number">1</span></span><br><span class="line">                onemax = min(bucket[temp])</span><br><span class="line">                end = max(end,onemax - onemin)</span><br><span class="line">        <span class="keyword">return</span> end</span><br></pre></td></tr></table></figure></p>
+<h2 id="剑指offer"><a href="#剑指offer" class="headerlink" title="剑指offer"></a>剑指offer</h2><p> 　　可能需要重新学习C++，但是时间不够啊，感觉还是要重新安排下重点学习计划，如果有搜狗的实习是不是项目kaggle这些可以暂时放一下呢emm，因为新版剑指offer有些题目和旧版不同，所以可能序号有些奇怪。</p>
+<h3 id="面试题3-寻找数组重复数字"><a href="#面试题3-寻找数组重复数字" class="headerlink" title="面试题3.寻找数组重复数字"></a>面试题3.寻找数组重复数字</h3><p> 　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">一个长度为 n + 1 的整形数组，其中的数字都在 1 到 n 之间，包括 1 和 n ，可知至少有一个重复的数字存在。假设只有一个数字重复，找出这个重复的数字。</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line"></span><br><span class="line">不能更改数组内容（假设数组是只读的）。</span><br><span class="line">只能使用恒定的额外空间，即要求空间复杂度是 O(1) 。</span><br><span class="line">时间复杂度小于 O(n2)</span><br><span class="line">数组中只有一个数字重复，但它可能不止一次重复出现。</span><br></pre></td></tr></table></figure></p>
+<p>　　一般数字数组的问题要么哈希，要么指针，要么就观察下标和数字的关系，这题就属于最后一种。如果下标和数字对不上，就交换，如果对上了，就看下一个数字。如果交换的时候发现位置上已经有相同的值了，就返回<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findDuplicate</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        i = <span class="number">0</span> </span><br><span class="line">        <span class="keyword">while</span>(i&lt; len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i]!=i+<span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> nums[nums[i]<span class="number">-1</span>] == nums[i] :</span><br><span class="line">                    <span class="keyword">return</span> nums[i]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    temp = nums[i]</span><br><span class="line">                    nums[i] = nums[nums[i] - <span class="number">1</span>]</span><br><span class="line">                    nums[temp - <span class="number">1</span>] = temp</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span></span><br></pre></td></tr></table></figure></p>
+<p>还有到类似的题，一样的思路。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">给定一个整数数组 a，其中1 ≤ a[i] ≤ n （n为数组长度）, 其中有些元素出现两次而其他元素出现一次。</span><br><span class="line"></span><br><span class="line">找到所有出现两次的元素。</span><br><span class="line"></span><br><span class="line">你可以不用到任何额外空间并在O(n)时间复杂度内解决这个问题吗？</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">[4,3,2,7,8,2,3,1]</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">[2,3]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findDuplicates</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        i = <span class="number">0</span> </span><br><span class="line">        end = set()</span><br><span class="line">        <span class="keyword">while</span>(i&lt; len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i]!=i+<span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> nums[nums[i]<span class="number">-1</span>] == nums[i] :</span><br><span class="line">                    end.add(nums[i])</span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    temp = nums[i]</span><br><span class="line">                    nums[i] = nums[nums[i] - <span class="number">1</span>]</span><br><span class="line">                    nums[temp - <span class="number">1</span>] = temp</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> list(end)</span><br></pre></td></tr></table></figure>
+<h3 id="面试题7-二叉树重建"><a href="#面试题7-二叉树重建" class="headerlink" title="面试题7.二叉树重建"></a>面试题7.二叉树重建</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">根据一棵树的前序遍历与中序遍历构造二叉树。</span><br><span class="line"></span><br><span class="line">注意:</span><br><span class="line">你可以假设树中没有重复的元素。</span><br><span class="line"></span><br><span class="line">例如，给出</span><br><span class="line"></span><br><span class="line">前序遍历 preorder = [3,9,20,15,7]</span><br><span class="line">中序遍历 inorder = [9,3,15,20,7]</span><br><span class="line">返回如下的二叉树：</span><br><span class="line"></span><br><span class="line">    3</span><br><span class="line">   / \</span><br><span class="line">  9  20</span><br><span class="line">    /  \</span><br><span class="line">   15   7</span><br></pre></td></tr></table></figure>
+<p>　　递归，前序遍历的第一个点一定是中点，中序遍历中点左边一定是左子树。同理后序遍历和中序遍历也可以重建二叉树<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#前序遍历和中序遍历</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">buildTree</span><span class="params">(self, preorder, inorder)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type preorder: List[int]</span></span><br><span class="line"><span class="string">        :type inorder: List[int]</span></span><br><span class="line"><span class="string">        :rtype: TreeNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(preorder)==<span class="number">0</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span>  </span><br><span class="line">        <span class="keyword">if</span> len(preorder)==<span class="number">1</span>:  </span><br><span class="line">            <span class="keyword">return</span> TreeNode(preorder[<span class="number">0</span>]) </span><br><span class="line">        </span><br><span class="line">        rootNode = TreeNode(preorder[<span class="number">0</span>])</span><br><span class="line">        idx = inorder.index(preorder[<span class="number">0</span>])</span><br><span class="line">        </span><br><span class="line">        rootNode.left = self.buildTree(preorder[<span class="number">1</span>:idx+<span class="number">1</span>],inorder[:idx])</span><br><span class="line">        rootNode.right = self.buildTree(preorder[idx+<span class="number">1</span>:],inorder[idx+<span class="number">1</span>:])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> rootNode</span><br><span class="line">        </span><br><span class="line"><span class="comment">#后序和中序</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">buildTree</span><span class="params">(self, inorder, postorder)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type inorder: List[int]</span></span><br><span class="line"><span class="string">        :type postorder: List[int]</span></span><br><span class="line"><span class="string">        :rtype: TreeNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(postorder)==<span class="number">0</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span>  </span><br><span class="line">        <span class="keyword">if</span> len(postorder)==<span class="number">1</span>:  </span><br><span class="line">            <span class="keyword">return</span> TreeNode(postorder[<span class="number">-1</span>]) </span><br><span class="line">        </span><br><span class="line">        rootNode = TreeNode(postorder[<span class="number">-1</span>])</span><br><span class="line">        idx = inorder.index(postorder[<span class="number">-1</span>])</span><br><span class="line">        </span><br><span class="line">        rootNode.left = self.buildTree(inorder[:idx],postorder[:idx])</span><br><span class="line">        rootNode.right = self.buildTree(inorder[idx+<span class="number">1</span>:],postorder[idx:<span class="number">-1</span>])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> rootNode</span><br></pre></td></tr></table></figure></p>
+<h3 id="面试题4-替换空格"><a href="#面试题4-替换空格" class="headerlink" title="面试题4. 替换空格"></a>面试题4. 替换空格</h3><p>　　大概意思是将字符串里的空格替换成指定数字，python里的字符串太简单了，直接split加join就搞定了，C++里要考虑到字符移动位置的问题，思路是遍历字符串找到空格字数，计算出替换后字符串的长度，比如说原来是15，替换后长度是18，那么我从i=18开始拷贝原数组15的字符，遇到空格就拷贝替换字符，这样扫描一遍就可以解决问题。  </p>
+<h3 id="面试题5-反转输出链表"><a href="#面试题5-反转输出链表" class="headerlink" title="面试题5. 反转输出链表"></a>面试题5. 反转输出链表</h3><p>　　这个题目就真的超简单了，最原始的思路是直接调转链表就好，但是如果不允许修改原数据的话，其实要个栈存链表节点就好，我代码只存了值，并且用了翻转，这样打印简单点。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span><span class="params">(object)</span>:</span></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">         self.val = x</span><br><span class="line">         self.next = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ ==<span class="string">'__main__'</span>:</span><br><span class="line">    a = ListNode(<span class="number">1</span>)</span><br><span class="line">    a.next = ListNode(<span class="number">4</span>)</span><br><span class="line">    a.next.next = ListNode(<span class="number">7</span>)</span><br><span class="line">    a.next.next.next = ListNode(<span class="number">11</span>)</span><br><span class="line">    </span><br><span class="line">    begin = a</span><br><span class="line">    end = []</span><br><span class="line">    <span class="keyword">while</span>(begin):</span><br><span class="line">        end.append(str(begin.val)) <span class="comment">#可以用insert插到最前边，也可以用pop模拟栈，我懒得写了，直接翻转数组，反正翻转也是栈的概念</span></span><br><span class="line">        begin = begin.next</span><br><span class="line">    end.reverse()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">' '</span>.join(end)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #969696;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/算法基础/" rel="tag"># 算法基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/06/Image-Text系列（2）：DSPE+FV/" rel="next" title="Image-Text系列（2）：DSPE+FV">
+                <i class="fa fa-chevron-left"></i> Image-Text系列（2）：DSPE+FV
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTE4MS8xMTcxNg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/face.jpg"
+                alt="GYxiaOH" />
+            
+              <p class="site-author-name" itemprop="name">GYxiaOH</p>
+              <p class="site-description motion-element" itemprop="description">人世不平一剑消</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/3334155" target="_blank" title="Bilibili">
+                      
+                        <i class="fa fa-fw fa-youtube-play"></i>Bilibili</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/GYxiaOH" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhhy1994226@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/1821212904/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#时间复杂度，空间复杂度以及稳定性"><span class="nav-number">1.</span> <span class="nav-text">时间复杂度，空间复杂度以及稳定性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序练习题"><span class="nav-number">2.</span> <span class="nav-text">排序练习题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目1"><span class="nav-number">2.1.</span> <span class="nav-text">题目1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目2"><span class="nav-number">2.2.</span> <span class="nav-text">题目2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目３"><span class="nav-number">2.3.</span> <span class="nav-text">题目３</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目4"><span class="nav-number">2.4.</span> <span class="nav-text">题目4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目5，题目6"><span class="nav-number">2.5.</span> <span class="nav-text">题目5，题目6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目7"><span class="nav-number">2.6.</span> <span class="nav-text">题目7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目8"><span class="nav-number">2.7.</span> <span class="nav-text">题目8</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剑指offer"><span class="nav-number">3.</span> <span class="nav-text">剑指offer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题3-寻找数组重复数字"><span class="nav-number">3.1.</span> <span class="nav-text">面试题3.寻找数组重复数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题7-二叉树重建"><span class="nav-number">3.2.</span> <span class="nav-text">面试题7.二叉树重建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题4-替换空格"><span class="nav-number">3.3.</span> <span class="nav-text">面试题4. 替换空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题5-反转输出链表"><span class="nav-number">3.4.</span> <span class="nav-text">面试题5. 反转输出链表</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GYxiaOH</span>
+
+  
+</div>
+
+
+  <div class="powered-by">fixed by 我自己</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">做个博客好辛苦，不如回家烤红薯 </div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>Visitors
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>Total
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Ce6XhNEEnEkqv5BMidLlCs3l-gzGzoHsz", "zOAGhRSjtBhtu0LkRzxemw25");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
