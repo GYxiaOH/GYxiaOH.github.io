@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="小 君">
 <meta property="og:description" content="抱歉，本来打算前两天就写的，但是果然既读论文，又刷题还要总结的话，时间总是非常不够用，昨天去面试搜狗的面试官，在被其他公司的面试官爆锤之后感觉搜狗的面试官异常的温柔，最后还夸了下我，感动了5555555~。趁今天星期天实验室没什么事我也放松一下，把这次论文的内容稍微总结一下。这次的论文跳度比较大，已经算是比较成熟近期的框架了，但是我看了下其他在中中间的框架多多少少都用了一些detection的方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-10T02:09:27.334Z">
+<meta property="og:updated_time" content="2018-05-22T14:34:32.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Image-Text系列（2）：DSPE+FV">
 <meta name="twitter:description" content="抱歉，本来打算前两天就写的，但是果然既读论文，又刷题还要总结的话，时间总是非常不够用，昨天去面试搜狗的面试官，在被其他公司的面试官爆锤之后感觉搜狗的面试官异常的温柔，最后还夸了下我，感动了5555555~。趁今天星期天实验室没什么事我也放松一下，把这次论文的内容稍微总结一下。这次的论文跳度比较大，已经算是比较成熟近期的框架了，但是我看了下其他在中中间的框架多多少少都用了一些detection的方法">
@@ -392,7 +392,7 @@
 <li>使用类似Deep CCA的方法，在loss之前使用了BN和L2 Norm</li>
 </ol>
 <p>　　这里作者还没有说的是他比较了w2v,tf-idf和FV的文本特征表示方法，最后取得了不错的效果。</p>
-<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>　　正如上节所说，整体的网络架构就是分别从两个通道得到图像特征X和文本特征Y，然后做BN然后是FC-&gt;RELU-&gt;FC-&gt;L2 Norm-&gt;FC,然后就到了embedding space。文章里说得到特征的预训练网络也可以在训练embedding过程中同时训练，不过本文是直接用的效果已经很不错了。<br>　　LOSS就是刚才说的4个hinge rank loss加起来，除了正确图像和正确文本的loss权重固定为1，其他的权重作者都有调试过，大概取得是2,0.1,0,2。<br>　　对于输入，每个图像x的特征是直接抽取VGG19的最后一层，每个文本y的特征是用上文讲的FV，它说它去了HGLMM模型的特征就取得了最好的效果，具体可以参考上节，它将300维的word2vec作为原始特征，然后取k=30，但是它只取了fv的一阶和二阶信息（我觉得就是均值梯度和方差梯度），所以最后得到了300<em>30</em>2 = 18000维度的特征，然后用PCA降到了6000维（这里没有说清楚，每个句子它是直接用word2vec mean然后求FV，还是求完FV再求mean，有空去看看源码）。在没有结构约束的情况下它取了大概每个mini-batch是1500对(x,y)(这真的是mini-batch？），然后rank loss的时候去负样本大概是去每个batch中排名前50的作为训练用负样本。然后如果有结构约束的话，为了确保每个正确样本能至少凑成一对，它会认为的对每ge正确样本增加一对。也就是mini-batch大概翻了三倍。</p>
+<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>　　正如上节所说，整体的网络架构就是分别从两个通道得到图像特征X和文本特征Y，然后做BN然后是FC-&gt;RELU-&gt;FC-&gt;L2 Norm-&gt;FC,然后就到了embedding space。文章里说得到特征的预训练网络也可以在训练embedding过程中同时训练，不过本文是直接用的效果已经很不错了。<br>　　LOSS就是刚才说的4个hinge rank loss加起来，除了正确图像和正确文本的loss权重固定为1，其他的权重作者都有调试过，大概取得是2,0.1,0,2。<br>　　对于输入，每个图像x的特征是直接抽取VGG19的最后一层，每个文本y的特征是用上文讲的FV，它说它去了HGLMM模型的特征就取得了最好的效果，具体可以参考上节，它将300维的word2vec作为原始特征，然后取k=30，但是它只取了fv的一阶和二阶信息（我觉得就是均值梯度和方差梯度），所以最后得到了300x30X2 = 18000维度的特征，然后用PCA降到了6000维（这里没有说清楚，每个句子它是直接用word2vec mean然后求FV，还是求完FV再求mean，有空去看看源码）。在没有结构约束的情况下它取了大概每个mini-batch是1500对(x,y)(这真的是mini-batch？），然后rank loss的时候去负样本大概是去每个batch中排名前50的作为训练用负样本。然后如果有结构约束的话，为了确保每个正确样本能至少凑成一对，它会认为的对每个正确样本增加一对。也就是mini-batch大概翻了三倍。</p>
 <h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p>　　大概的实验结果就是非常酷，但是在Flickr30K数据集上，FV的效果并没有比tf-idf好很多，作者想可能是FV这样的非线性表达在这个模型里可能没有那么重要，也有可能是word2vec是从其他语料库里训练出来的可能对这个任务不是那么适用。</p>
 
       
@@ -536,7 +536,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
