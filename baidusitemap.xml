@@ -4,16 +4,40 @@
 
     
   <url>
-    <loc>https://www.gyxiaoh.com/2018/05/31/%E5%85%B6%E4%BB%96%E8%AE%BA%E6%96%87%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89%EF%BC%9ALearning%20Semantic%20Hierarchies%20via%20Word%20Embeddings/</loc>
-    <lastmod>2018-05-31T15:59:28.153Z</lastmod>
+    <loc>https://www.gyxiaoh.com/2018/06/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%EF%BC%885%EF%BC%89-%E5%93%88%E5%B8%8C%E8%A1%A8%EF%BC%8C%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%8C%E5%89%91%E6%8C%87offer23-27/</loc>
+    <lastmod>2018-07-14T07:49:50.093Z</lastmod>
     <data>
         <display>
-        <title>其他论文系列（1）：Learning Semantic Hierarchies via Word Embeddings</title>
-        <pubTime>2018-05-31T15:09:00.000Z</pubTime>
+        <title>算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27</title>
+        <pubTime>2018-06-29T06:31:00.000Z</pubTime>
         
-        <tag>前沿</tag>
+        <tag>面试</tag>
          
-        <tag>word embeding</tag>
+        <tag>算法</tag>
+         
+        <tag>算法基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法基础复习" url="https://www.gyxiaoh.com/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.gyxiaoh.com/2018/07/07/%E6%9C%80%E8%BF%91%E7%9C%8B%E7%9A%84%E8%AE%BA%E6%96%87%E4%B8%80%E4%BA%9B%E8%B5%84%E6%96%99/</loc>
+    <lastmod>2018-07-12T08:00:04.613Z</lastmod>
+    <data>
+        <display>
+        <title>最近看的论文一些资料</title>
+        <pubTime>2018-07-07T08:44:00.000Z</pubTime>
+        
+        <tag>论文</tag>
+         
+        <tag>实习</tag>
          
          
            
@@ -27,7 +51,7 @@
     
   <url>
     <loc>https://www.gyxiaoh.com/2018/05/30/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%EF%BC%884%EF%BC%89-%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%8C%E5%89%91%E6%8C%87offer18-22/</loc>
-    <lastmod>2018-05-30T12:30:14.635Z</lastmod>
+    <lastmod>2018-06-01T06:49:43.990Z</lastmod>
     <data>
         <display>
         <title>算法基础系列（4）-二叉树，剑指offer18-22</title>
@@ -43,6 +67,28 @@
            
              
               <breadCrumb title="算法基础复习" url="https://www.gyxiaoh.com/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.gyxiaoh.com/2018/05/31/%E5%85%B6%E4%BB%96%E8%AE%BA%E6%96%87%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89%EF%BC%9ALearning%20Semantic%20Hierarchies%20via%20Word%20Embeddings/</loc>
+    <lastmod>2018-05-31T15:59:28.153Z</lastmod>
+    <data>
+        <display>
+        <title>其他论文系列（1）：Learning Semantic Hierarchies via Word Embeddings</title>
+        <pubTime>2018-05-31T15:09:00.000Z</pubTime>
+        
+        <tag>前沿</tag>
+         
+        <tag>word embeding</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度（机器）学习" url="https://www.gyxiaoh.com/categories/%E6%B7%B1%E5%BA%A6%EF%BC%88%E6%9C%BA%E5%99%A8%EF%BC%89%E5%AD%A6%E4%B9%A0/"/>
           
         </display>
     </data>

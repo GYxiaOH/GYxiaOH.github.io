@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "db8b42fc"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试,算法,算法基础," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最近一个月。。。疯狂赶实验。实在是没时间，不过剑指offer我已经看完了，基础我也看完了，最近边实习边刷题应该就好吧。不过实验居然还没有做完，我的天啊！">
+<meta name="keywords" content="面试,算法,算法基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27">
+<meta property="og:url" content="https://www.gyxiaoh.com/2018/06/29/算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27/index.html">
+<meta property="og:site_name" content="小 君">
+<meta property="og:description" content="最近一个月。。。疯狂赶实验。实在是没时间，不过剑指offer我已经看完了，基础我也看完了，最近边实习边刷题应该就好吧。不过实验居然还没有做完，我的天啊！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-14T07:49:50.093Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27">
+<meta name="twitter:description" content="最近一个月。。。疯狂赶实验。实在是没时间，不过剑指offer我已经看完了，基础我也看完了，最近边实习边刷题应该就好吧。不过实验居然还没有做完，我的天啊！">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.gyxiaoh.com/2018/06/29/算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27/"/>
+
+
+
+
+
+  <title>算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27 | 小 君</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8ad16d364f0235b40e33f9ac13ce6d97";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小 君</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">One Day I'll Fly Away<br>leave all this to yesterday</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/06/29/算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GYxiaOH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/face.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小 君">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T14:31:00+08:00">
+                2018-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法基础复习/" itemprop="url" rel="index">
+                    <span itemprop="name">算法基础复习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/06/29/算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27/" class="leancloud_visitors" data-flag-title="算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近一个月。。。疯狂赶实验。实在是没时间，不过剑指offer我已经看完了，基础我也看完了，最近边实习边刷题应该就好吧。不过实验居然还没有做完，我的天啊！<br><a id="more"></a>　</p>
+<h2 id="相关概念题目"><a href="#相关概念题目" class="headerlink" title="相关概念题目"></a>相关概念题目</h2><h3 id="题目1"><a href="#题目1" class="headerlink" title="题目1"></a>题目1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">哈希表和哈希函数</span><br></pre></td></tr></table></figure>
+<p>　　哈希函数5个特点，输入域无穷，输出域有限，相同输入输出相同，不同输入可能有相同输出，在大量输入时，返回值分布较为均匀。两个哈希函数的组合依旧是独立的哈希函数。<br>  哈希函数传统实现拉链法，java里是数组跟着红黑树。提升扩容性能的方法：离线扩容。</p>
+<h3 id="题目2"><a href="#题目2" class="headerlink" title="题目2"></a>题目2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">布隆过滤器</span><br></pre></td></tr></table></figure>
+<p>　　顾名思义，用作过滤，如网页黑名单。目的是为了减少使用哈希表的空间占用，思路是开一个数组，如int[1000]则我们有32000位的数组，只有0,1两个值，布隆过滤器的意思就是面对一个输入（如黑名单网页），用多个哈希函数算出值，并将对应数组的位置涂黑（置1）。因此给定输入，通过计算多个哈希函数输出值的数组位置是否为1就可以判断它是否在我们的黑名单中。由于哈希函数的性质，它是有可能有失误率的，但是大大节省了空间效率。关于开的数组大小是有固定的公式计算的。</p>
+<h3 id="题目３"><a href="#题目３" class="headerlink" title="题目３"></a>题目３</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">设计RandomPool结构</span><br><span class="line">【题目】 设计一种结构，在该结构中有如下三个功能：</span><br><span class="line">insert(key)：将某个key加入到该结构，做到不重复加入。</span><br><span class="line">delete(key)：将原本在结构中的某个key移除。 getRandom()：</span><br><span class="line">等概率随机返回结构中的任何一个key。</span><br><span class="line">【要求】 Insert、delete和getRandom方法的时间复杂度都是</span><br><span class="line">O(1)</span><br></pre></td></tr></table></figure>
+<p>准备两个哈希表，分别是key-value，和value-key，这样通过第二张表和表长通过random函数就可以等概率返回。删除的时候，为了使多次删除后时间复杂度依旧很低，我们可以采取用最后的一个节点去替代删除节点，比如删除‘a’-‘11’这个节点，最后一个节点是‘z’-‘24’。我们将‘z’=‘11’，删除a这个几点，在第二张哈希表将‘11’ = ‘z’，然后size-1就可以了<br>　　代码如下：</p>
+<h3 id="题目4"><a href="#题目4" class="headerlink" title="题目4"></a>题目4</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一致性哈希与虚拟节点</span><br></pre></td></tr></table></figure>
+<p>　　为了处理负载均衡问题提出的结构。简单的说若干个请求，我想平均分在后台所有的每一台服务器处理，如果有普通的哈希函数，如果增加机器的时候迁移的负担会非常大，需要将每个数据重新计算哈希值和分配的电脑。为了解决这个问题，提出了一致性哈希，基本思路是把哈希函数的输出想象成一个环，假设每个服务器有一个自己的哈希值，那么对于每一个请求，我们计算请求的哈希值，在环上找顺时针最近的服务器处理请求（即第一个大于请求哈希值的服务器哈希值）。这样有个问题，就是无法把所有服务器平均分在换上，或者增加服务器后<br>没有办法保持均衡。因此又提出了虚拟节点，简单的说就是每一个服务器设置很多个虚拟节点，设置路由表，因为大量数据在环上的分布就近似平均，这样就可以解决服务平均问题。
+　　</p>
+<h3 id="题目5"><a href="#题目5" class="headerlink" title="题目5"></a>题目5</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">并查集</span><br></pre></td></tr></table></figure>
+<p>　　顾名思义，为了优化集合的查找与合并而出现的数据结构。基本结构是每一个数据都额外多一个指针，每个集合选出一个节点为代表节点，所有节点的额外指针指向代表节点，代表节点指向自己，这样只需要遍历查找额外指针指向自己的就是所在集合。为了进一步优化查找速度，每一次查找的时候将链上节点全部单独指向代表节点，即扁平化。合并节点只需要将节点少的集合代表节点额外指针指向节点多的集合的代表节点。</p>
+<h3 id="题目6"><a href="#题目6" class="headerlink" title="题目6"></a>题目6</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">前缀树</span><br></pre></td></tr></table></figure>
+<p>　　将字符串每个字符作为节点，构建的树（图），好处是很轻松的能找到相同前缀的字符串，每个节点有是否为尾节点，以及多少个单词路过该节点。</p>
+<h3 id="题目7-岛屿的个数"><a href="#题目7-岛屿的个数" class="headerlink" title="题目7 岛屿的个数"></a>题目7 岛屿的个数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">给定一个由 &apos;1&apos;（陆地）和 &apos;0&apos;（水）组成的的二维网格，计算岛屿的数量。一个岛被水包围，并且它是通过水平方向或垂直方向上相邻的陆地连接而成的。你可以假设网格的四个边均被水包围。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">11110</span><br><span class="line">11010</span><br><span class="line">11000</span><br><span class="line">00000</span><br><span class="line"></span><br><span class="line">输出: 1</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">11000</span><br><span class="line">11000</span><br><span class="line">00100</span><br><span class="line">00011</span><br><span class="line"></span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
+<p>　　普通的想到思路就不难，遍历，如果遇到1，全部感染成2，并且加1，最后输出结果。如果考大数据的话，可以用到并查集，将一张图分成多块分别跑，最后合并，检查边界数据，如果是一个岛屿的话，用并查集合并成一个集合，总岛数减一<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">ganran</span><span class="params">(self,grid,x,y)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> x&lt;<span class="number">0</span> <span class="keyword">or</span> y&lt;<span class="number">0</span> <span class="keyword">or</span> x&gt;len(grid)<span class="number">-1</span> <span class="keyword">or</span> y&gt;len(grid[<span class="number">0</span>])<span class="number">-1</span> <span class="keyword">or</span> grid[x][y]!=<span class="string">'1'</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        grid[x][y] = <span class="string">'2'</span></span><br><span class="line">        self.ganran(grid,x<span class="number">-1</span>,y)</span><br><span class="line">        self.ganran(grid,x+<span class="number">1</span>,y)</span><br><span class="line">        self.ganran(grid,x,y<span class="number">-1</span>)</span><br><span class="line">        self.ganran(grid,x,y+<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numIslands</span><span class="params">(self, grid)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type grid: List[List[str]]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        end = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(grid)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(len(grid[<span class="number">0</span>])):</span><br><span class="line">                <span class="keyword">if</span> grid[i][j] == <span class="string">'1'</span>:</span><br><span class="line">                    self.ganran(grid,i,j)</span><br><span class="line">                    end += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> end</span><br></pre></td></tr></table></figure></p>
+<h3 id="面试题23-链表环入口"><a href="#面试题23-链表环入口" class="headerlink" title="面试题23.链表环入口"></a>面试题23.链表环入口</h3><p> 　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</span><br><span class="line"></span><br><span class="line">说明：不允许修改给定的链表。</span><br><span class="line"></span><br><span class="line">进阶：</span><br><span class="line">你是否可以不用额外空间解决此题？</span><br></pre></td></tr></table></figure></p>
+<p>　　可以先找长度，然后长的先走，在一起走。可以先放到哈希表里，找第一个相同的值。最鸡蛋的就是用快慢指针，碰到就是有环。碰到后一个会起点然后一起走，再次碰到为入口。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">detectCycle</span><span class="params">(self, head)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> (head):</span><br><span class="line">            slow = head</span><br><span class="line">            fast = head</span><br><span class="line">            <span class="keyword">while</span>(fast):</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    slow = slow.next</span><br><span class="line">                    fast = fast.next.next</span><br><span class="line">                    <span class="keyword">if</span> slow == fast:</span><br><span class="line">                        fast = head</span><br><span class="line">                        <span class="keyword">while</span>(fast != slow):</span><br><span class="line">                            fast = fast.next</span><br><span class="line">                            slow = slow.next</span><br><span class="line">                        <span class="keyword">return</span> fast</span><br><span class="line">                <span class="keyword">except</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="面试题24-反转链表"><a href="#面试题24-反转链表" class="headerlink" title="面试题24. 反转链表"></a>面试题24. 反转链表</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">反转一个单链表。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</span><br><span class="line">输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</span><br><span class="line">进阶:</span><br><span class="line">你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</span><br></pre></td></tr></table></figure>
+<p>　　以前就做过，比较简单。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">detectCycle</span><span class="params">(self, head)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> (head):</span><br><span class="line">            slow = head</span><br><span class="line">            fast = head</span><br><span class="line">            <span class="keyword">while</span>(fast):</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    slow = slow.next</span><br><span class="line">                    fast = fast.next.next</span><br><span class="line">                    <span class="keyword">if</span> slow == fast:</span><br><span class="line">                        fast = head</span><br><span class="line">                        <span class="keyword">while</span>(fast != slow):</span><br><span class="line">                            fast = fast.next</span><br><span class="line">                            slow = slow.next</span><br><span class="line">                        <span class="keyword">return</span> fast</span><br><span class="line">                <span class="keyword">except</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="面试题25-合并两个有序链表"><a href="#面试题25-合并两个有序链表" class="headerlink" title="面试题25. 合并两个有序链表"></a>面试题25. 合并两个有序链表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"></span><br><span class="line">输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4</span><br><span class="line">输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</span><br></pre></td></tr></table></figure>
+<p>　　我写了两种解法，一个是自己想的，就是把数字转换成二进制，遇到1就加1.另一种是剑指offer上的写法，每次减一和自己异或就是把二进制的最右边的1变成0<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#非递归</span></span><br><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeTwoLists</span><span class="params">(self, l1, l2)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type l1: ListNode</span></span><br><span class="line"><span class="string">        :type l2: ListNode</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        cur1 = l1</span><br><span class="line">        cur2 = l2</span><br><span class="line">        head = ListNode(<span class="number">0</span>)</span><br><span class="line">        cur = head</span><br><span class="line">        <span class="keyword">while</span>(cur1 <span class="keyword">and</span> cur2):</span><br><span class="line">            <span class="keyword">if</span> cur1.val &gt; cur2.val:</span><br><span class="line">                cur.next  = cur2</span><br><span class="line">                cur2 = cur2.next </span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                cur.next  = cur1</span><br><span class="line">                cur1 = cur1.next</span><br><span class="line">            cur = cur.next</span><br><span class="line">        <span class="keyword">if</span>(cur1):</span><br><span class="line">            cur.next = cur1</span><br><span class="line">        <span class="keyword">if</span>(cur2):</span><br><span class="line">            cur.next = cur2</span><br><span class="line">        <span class="keyword">return</span> head.next</span><br><span class="line">        </span><br><span class="line"><span class="comment">#递归 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeTwoLists</span><span class="params">(self, l1, l2)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type l1: ListNode</span></span><br><span class="line"><span class="string">        :type l2: ListNode</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> l1:</span><br><span class="line">            <span class="keyword">return</span> l2</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> l2:</span><br><span class="line">            <span class="keyword">return</span> l1</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> l1.val&lt;l2.val:</span><br><span class="line">            head = l1</span><br><span class="line">            head.next = self.mergeTwoLists(l1.next,l2)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            head = l2</span><br><span class="line">            head.next = self.mergeTwoLists(l1,l2.next)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> head</span><br></pre></td></tr></table></figure></p>
+<h3 id="面试题26-树的子结构"><a href="#面试题26-树的子结构" class="headerlink" title="面试题26. 树的子结构"></a>面试题26. 树的子结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">给定两个非空二叉树 s 和 t，检验 s 中是否包含和 t 具有相同结构和节点值的子树。s 的一个子树包括 s 的一个节点和这个节点的所有子孙。s 也可以看做它自身的一棵子树。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line">给定的树 s:</span><br><span class="line"></span><br><span class="line">     3</span><br><span class="line">    / \</span><br><span class="line">   4   5</span><br><span class="line">  / \</span><br><span class="line"> 1   2</span><br><span class="line">给定的树 t：</span><br><span class="line"></span><br><span class="line">   4 </span><br><span class="line">  / \</span><br><span class="line"> 1   2</span><br><span class="line">返回 true，因为 t 与 s 的一个子树拥有相同的结构和节点值。</span><br><span class="line"></span><br><span class="line">示例 2:</span><br><span class="line">给定的树 s：</span><br><span class="line"></span><br><span class="line">     3</span><br><span class="line">    / \</span><br><span class="line">   4   5</span><br><span class="line">  / \</span><br><span class="line"> 1   2</span><br><span class="line">    /</span><br><span class="line">   0</span><br><span class="line">给定的树 t：</span><br><span class="line"></span><br><span class="line">   4</span><br><span class="line">  / \</span><br><span class="line"> 1   2</span><br><span class="line">返回 false。</span><br></pre></td></tr></table></figure>
+<p>　　用递归的思路，其实应该可以遍历然后用kmp比较字符串。。。但是我不会kmp。。。并且这题比较特殊，书上的题目是只要有就子结构，这题要求必须完全一样，也就是t的左边右边没有，s的就必须没有。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">leftandright</span><span class="params">(self,s,t)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> t <span class="keyword">and</span> <span class="keyword">not</span> s:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> s <span class="keyword">or</span> <span class="keyword">not</span> t:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">if</span> s.val != t.val:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> self.leftandright(s.left,t.left) <span class="keyword">and</span> self.leftandright(s.right,t.right) </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSubtree</span><span class="params">(self, s, t)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: TreeNode</span></span><br><span class="line"><span class="string">        :type t: TreeNode</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        result = <span class="keyword">False</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(s <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">and</span> t <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>):</span><br><span class="line">            <span class="keyword">if</span> s.val == t.val:</span><br><span class="line">                result = self.leftandright(s,t)</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">not</span> result):</span><br><span class="line">                result = self.isSubtree(s.left,t)</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">not</span> result):</span><br><span class="line">                result = self.isSubtree(s.right,t)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">                </span><br><span class="line">        </span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 面试题27. 镜像二叉树</span></span><br></pre></td></tr></table></figure></p>
+<p>给定一棵树，输出它的镜像二叉树<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">　　简单递归</span><br><span class="line">```python</span><br><span class="line"># Definition for a binary tree node.</span><br><span class="line"># class TreeNode(object):</span><br><span class="line">#     def __init__(self, x):</span><br><span class="line">#         self.val = x</span><br><span class="line">#         self.left = None</span><br><span class="line">#         self.right = None</span><br><span class="line"></span><br><span class="line">class Solution(object):</span><br><span class="line">    def Symmetric(self, root):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type root: TreeNode</span><br><span class="line">        :rtype: bool</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if not root:</span><br><span class="line">        	return </span><br><span class="line">        if not root.left or not root.right:</span><br><span class="line">        	return</span><br><span class="line">        </span><br><span class="line">        temp = root.left</span><br><span class="line">        root.left = root.right</span><br><span class="line">        root.right = root.left</span><br><span class="line">        </span><br><span class="line">        if root.left:</span><br><span class="line">        	self.Symmetric(root.left)</span><br><span class="line">        if root.right:</span><br><span class="line">        	self.Symmetric(root.right)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #969696;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/算法基础/" rel="tag"># 算法基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/31/其他论文系列（1）：Learning Semantic Hierarchies via Word Embeddings/" rel="next" title="其他论文系列（1）：Learning Semantic Hierarchies via Word Embeddings">
+                <i class="fa fa-chevron-left"></i> 其他论文系列（1）：Learning Semantic Hierarchies via Word Embeddings
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/07/最近看的论文一些资料/" rel="prev" title="最近看的论文一些资料">
+                最近看的论文一些资料 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTE4MS8xMTcxNg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/face.jpg"
+                alt="GYxiaOH" />
+            
+              <p class="site-author-name" itemprop="name">GYxiaOH</p>
+              <p class="site-description motion-element" itemprop="description">人世不平一剑消</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/3334155" target="_blank" title="Bilibili">
+                      
+                        <i class="fa fa-fw fa-youtube-play"></i>Bilibili</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/GYxiaOH" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhhy1994226@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/1821212904/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关概念题目"><span class="nav-number">1.</span> <span class="nav-text">相关概念题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目1"><span class="nav-number">1.1.</span> <span class="nav-text">题目1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目2"><span class="nav-number">1.2.</span> <span class="nav-text">题目2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目３"><span class="nav-number">1.3.</span> <span class="nav-text">题目３</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目4"><span class="nav-number">1.4.</span> <span class="nav-text">题目4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目5"><span class="nav-number">1.5.</span> <span class="nav-text">题目5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目6"><span class="nav-number">1.6.</span> <span class="nav-text">题目6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目7-岛屿的个数"><span class="nav-number">1.7.</span> <span class="nav-text">题目7 岛屿的个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题23-链表环入口"><span class="nav-number">1.8.</span> <span class="nav-text">面试题23.链表环入口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题24-反转链表"><span class="nav-number">1.9.</span> <span class="nav-text">面试题24. 反转链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题25-合并两个有序链表"><span class="nav-number">1.10.</span> <span class="nav-text">面试题25. 合并两个有序链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题26-树的子结构"><span class="nav-number">1.11.</span> <span class="nav-text">面试题26. 树的子结构</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GYxiaOH</span>
+
+  
+</div>
+
+
+  <div class="powered-by">fixed by 我自己</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">做个博客好辛苦，不如回家烤红薯 </div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>Visitors
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>Total
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Ce6XhNEEnEkqv5BMidLlCs3l-gzGzoHsz", "zOAGhRSjtBhtu0LkRzxemw25");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
