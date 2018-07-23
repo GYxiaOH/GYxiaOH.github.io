@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "db8b42fc"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试,算法,算法基础," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="太慢了！要想清楚重要的事情是什么！要有计划有条理的一件一件的完成事情">
+<meta name="keywords" content="面试,算法,算法基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法基础系列（6）贪心，动归，剑指offer28-32">
+<meta property="og:url" content="https://www.gyxiaoh.com/2018/06/29/算法基础系列（6）贪心，动归，剑指offer28-32/index.html">
+<meta property="og:site_name" content="小 君">
+<meta property="og:description" content="太慢了！要想清楚重要的事情是什么！要有计划有条理的一件一件的完成事情">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-23T12:09:26.862Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法基础系列（6）贪心，动归，剑指offer28-32">
+<meta name="twitter:description" content="太慢了！要想清楚重要的事情是什么！要有计划有条理的一件一件的完成事情">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.gyxiaoh.com/2018/06/29/算法基础系列（6）贪心，动归，剑指offer28-32/"/>
+
+
+
+
+
+  <title>算法基础系列（6）贪心，动归，剑指offer28-32 | 小 君</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8ad16d364f0235b40e33f9ac13ce6d97";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小 君</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">One Day I'll Fly Away<br>leave all this to yesterday</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/06/29/算法基础系列（6）贪心，动归，剑指offer28-32/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GYxiaOH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/face.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小 君">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法基础系列（6）贪心，动归，剑指offer28-32</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T14:31:00+08:00">
+                2018-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法基础复习/" itemprop="url" rel="index">
+                    <span itemprop="name">算法基础复习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/06/29/算法基础系列（6）贪心，动归，剑指offer28-32/" class="leancloud_visitors" data-flag-title="算法基础系列（6）贪心，动归，剑指offer28-32">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>太慢了！要想清楚重要的事情是什么！要有计划有条理的一件一件的完成事情<br><a id="more"></a>　</p>
+<h2 id="相关概念题目"><a href="#相关概念题目" class="headerlink" title="相关概念题目"></a>相关概念题目</h2><h3 id="题目1-最大数"><a href="#题目1-最大数" class="headerlink" title="题目1 最大数"></a>题目1 最大数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: [10,2]</span><br><span class="line">输出: 210</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: [3,30,34,5,9]</span><br><span class="line">输出: 9534330</span><br><span class="line">说明: 输出结果可能非常大，所以你需要返回一个字符串而不是整数。</span><br></pre></td></tr></table></figure>
+<p>　　我觉得这道题不大像贪心，不过说贪心就是自己定义一个方法然后去优化一个问题，这题就是自定义一个比较函数，然后比较拼接就可以了，类似题是拼接字符串，使得拼接的字符串自典型最大，更简单。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">comp</span><span class="params">(self,x, y)</span>:</span></span><br><span class="line">        a = int(x+y)</span><br><span class="line">        b = int(y+x)</span><br><span class="line">        <span class="keyword">if</span> a &lt; b:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> a &gt; b:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">largestNumber</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        nums = map(str,nums)</span><br><span class="line">        nums.sort(self.comp)</span><br><span class="line">        end = <span class="string">''</span></span><br><span class="line">        flag = <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            end += nums[i]</span><br><span class="line">            <span class="keyword">if</span> nums[i] != <span class="string">'0'</span>:</span><br><span class="line">                flag = <span class="keyword">True</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> flag:</span><br><span class="line">            <span class="keyword">return</span> end</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'0'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="题目2"><a href="#题目2" class="headerlink" title="题目2"></a>题目2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">一块金条切成两半， 是需要花费和长度数值一样的铜板的。</span><br><span class="line"></span><br><span class="line">比如长度为20的 金条， 不管切成长度多大的两半， 都要花费20个铜板。</span><br><span class="line"></span><br><span class="line">一群人想整分整块金 条， 怎么分最省铜板？</span><br><span class="line">例如,给定数组&#123;10,20,30&#125;， 代表一共三个人， 整块金条长度为10+20+30=60.</span><br><span class="line"></span><br><span class="line">条要分成10,20,30三个部分。 如果， 先把长度60的金条分成10和50， 花费60 再把长度50的金条分成20和30，</span><br><span class="line">花费50 一共花费110铜板。</span><br><span class="line">但是如果， 先把长度60的金条分成30和30， 花费60 再把长度30金条分成10和20， 花费30 一共花费90铜板。</span><br><span class="line">输入一个数组， 返回分割的最小代价。</span><br></pre></td></tr></table></figure>
+<p>　　理论上这题和一些题目都应该用堆来解决，可是查看Python文档发现他觉得使用排序来直接获得最大最小已经更有效率了，所以它的堆实现的很简单。我一想，对啊！于是用最大最小写，简单了很多。这里有Python如何实现最大最小堆的trick,<a href="https://blog.csdn.net/u010770184/article/details/53349152" target="_blank" rel="noopener">Python的heapq模块实现大顶堆，小顶堆</a>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>]</span><br><span class="line"></span><br><span class="line">cost = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span>(len(a)&gt;<span class="number">1</span>):</span><br><span class="line">    a.sort(reverse = <span class="keyword">True</span>)</span><br><span class="line">    x = a.pop()</span><br><span class="line">    y = a.pop()</span><br><span class="line">    </span><br><span class="line">    curc = x + y</span><br><span class="line">    a.append(curc)</span><br><span class="line">    cost += curc</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> cost</span><br></pre></td></tr></table></figure></p>
+<h3 id="题目３"><a href="#题目３" class="headerlink" title="题目３"></a>题目３</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">假设 LeetCode 即将开始其 IPO。为了以更高的价格将股票卖给风险投资公司，LeetCode希望在 IPO 之前开展一些项目以增加其资本。 由于资源有限，它只能在 IPO 之前完成最多 k 个不同的项目。帮助 LeetCode 设计完成最多 k 个不同项目后得到最大总资本的方式。</span><br><span class="line"></span><br><span class="line">给定若干个项目。对于每个项目 i，它都有一个纯利润 Pi，并且需要最小的资本 Ci 来启动相应的项目。最初，你有 W 资本。当你完成一个项目时，你将获得纯利润，且利润将被添加到你的总资本中。</span><br><span class="line"></span><br><span class="line">总而言之，从给定项目中选择最多 k 个不同项目的列表，以最大化最终资本，并输出最终可获得的最多资本。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: k=2, W=0, Profits=[1,2,3], Capital=[0,1,1].</span><br><span class="line"></span><br><span class="line">输出: 4</span><br><span class="line"></span><br><span class="line">解释:</span><br><span class="line">由于你的初始资本为 0，你尽可以从 0 号项目开始。</span><br><span class="line">在完成后，你将获得 1 的利润，你的总资本将变为 1。</span><br><span class="line">此时你可以选择开始 1 号或 2 号项目。</span><br><span class="line">由于你最多可以选择两个项目，所以你需要完成 2 号项目以获得最大的资本。</span><br><span class="line">因此，输出最后最大化的资本，为 0 + 1 + 3 = 4。</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">注意:</span><br><span class="line"></span><br><span class="line">假设所有输入数字都是非负整数。</span><br><span class="line">表示利润和资本的数组的长度不超过 50000。</span><br><span class="line">答案保证在 32 位有符号整数范围内。</span><br></pre></td></tr></table></figure>
+<p>其实还是两个最大最小堆切换，但是Python提交好像老是超时，我对比了下，应该是Python的问题，这里把Python的写法写在下面。<br>　　代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findMaximizedCapital</span><span class="params">(self, k, W, Profits, Capital)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :type W: int</span></span><br><span class="line"><span class="string">        :type Profits: List[int]</span></span><br><span class="line"><span class="string">        :type Capital: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        minhead = zip(Capital,Profits)</span><br><span class="line">        maxhead = []</span><br><span class="line">        cur = W</span><br><span class="line">        minhead.sort(key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>])</span><br><span class="line">        times = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span>(times &lt;k):</span><br><span class="line">            <span class="keyword">while</span>(minhead <span class="keyword">and</span> minhead[<span class="number">0</span>][<span class="number">0</span>]&lt;=cur):</span><br><span class="line">                maxhead.append(minhead[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">                <span class="keyword">del</span> minhead[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">if</span> maxhead:</span><br><span class="line">                maxhead.sort()</span><br><span class="line">                cur += maxhead.pop()</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            times += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> cur</span><br><span class="line">        </span><br><span class="line"><span class="comment">#head</span></span><br><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findMaximizedCapital</span><span class="params">(self, k, W, Profits, Capital)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :type W: int</span></span><br><span class="line"><span class="string">        :type Profits: List[int]</span></span><br><span class="line"><span class="string">        :type Capital: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        minhead = zip(Capital,Profits)</span><br><span class="line">        heapq.heapify(minhead)</span><br><span class="line">        maxhead = []</span><br><span class="line">        cur = W</span><br><span class="line">        times = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span>(times &lt;k):</span><br><span class="line">            <span class="keyword">while</span>(minhead <span class="keyword">and</span> minhead[<span class="number">0</span>][<span class="number">0</span>]&lt;=cur):</span><br><span class="line">                temp = heapq.heappop(minhead)</span><br><span class="line">                heapq.heappush(maxhead,-temp[<span class="number">1</span>])</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">if</span> maxhead:</span><br><span class="line">                heapq.heapify(maxhead)</span><br><span class="line">                cur += -heapq.heappop(maxhead)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            times += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> cur</span><br></pre></td></tr></table></figure></p>
+<h3 id="题目4"><a href="#题目4" class="headerlink" title="题目4"></a>题目4</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一些项目要占用一个会议室宣讲，会议室不能同时容纳两个项目的宣讲。 给你每一个项目开始的时间和结束的时间(给你一个数组，里面 是一个个具体的项目)，你来安排宣讲的日程，要求会议室进行 的宣讲的场次最多。返回这个最多的宣讲场次。</span><br></pre></td></tr></table></figure>
+<p>　　懒得写了，按照结束时间最早的来贪心就好。
+　　</p>
+<h3 id="题目5"><a href="#题目5" class="headerlink" title="题目5"></a>题目5</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。</span><br><span class="line"></span><br><span class="line">说明：解集不能包含重复的子集。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: nums = [1,2,3]</span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">  [3],</span><br><span class="line">  [1],</span><br><span class="line">  [2],</span><br><span class="line">  [1,2,3],</span><br><span class="line">  [1,3],</span><br><span class="line">  [2,3],</span><br><span class="line">  [1,2],</span><br><span class="line">  []</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>　　这题搞死我了，我怀疑是Python垃圾回收的问题，return之后应该会把所有变量给释放了，所以递归的话直接传原列表会返回NoneType，直接用+号就对了，当然我还是不大清楚是不是这个问题呢。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def subsets(self, nums):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: List[List[int]]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        endlist = []</span><br><span class="line">        def printSub(n,end,nums):</span><br><span class="line">            if n == len(nums):</span><br><span class="line">                endlist.append(end)</span><br><span class="line">                return</span><br><span class="line">            printSub(n+1,end,nums)</span><br><span class="line">            printSub(n+1,end+[nums[n]],nums)</span><br><span class="line">            </span><br><span class="line">        printSub(0,[],nums)</span><br><span class="line">        return endlist</span><br></pre></td></tr></table></figure></p>
+<h3 id="题目6"><a href="#题目6" class="headerlink" title="题目6"></a>题目6</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？</span><br></pre></td></tr></table></figure>
+<p>　　动归入门题，想当年还是HDU Acm上看到的，就是n-3 + n-1，先把前四个写好递归就行。</p>
+<h3 id="题目7-岛屿的个数"><a href="#题目7-岛屿的个数" class="headerlink" title="题目7 岛屿的个数"></a>题目7 岛屿的个数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">给定一个由 &apos;1&apos;（陆地）和 &apos;0&apos;（水）组成的的二维网格，计算岛屿的数量。一个岛被水包围，并且它是通过水平方向或垂直方向上相邻的陆地连接而成的。你可以假设网格的四个边均被水包围。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">11110</span><br><span class="line">11010</span><br><span class="line">11000</span><br><span class="line">00000</span><br><span class="line"></span><br><span class="line">输出: 1</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">11000</span><br><span class="line">11000</span><br><span class="line">00100</span><br><span class="line">00011</span><br><span class="line"></span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
+<p>　　普通的想到思路就不难，遍历，如果遇到1，全部感染成2，并且加1，最后输出结果。如果考大数据的话，可以用到并查集，将一张图分成多块分别跑，最后合并，检查边界数据，如果是一个岛屿的话，用并查集合并成一个集合，总岛数减一<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">ganran</span><span class="params">(self,grid,x,y)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> x&lt;<span class="number">0</span> <span class="keyword">or</span> y&lt;<span class="number">0</span> <span class="keyword">or</span> x&gt;len(grid)<span class="number">-1</span> <span class="keyword">or</span> y&gt;len(grid[<span class="number">0</span>])<span class="number">-1</span> <span class="keyword">or</span> grid[x][y]!=<span class="string">'1'</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        grid[x][y] = <span class="string">'2'</span></span><br><span class="line">        self.ganran(grid,x<span class="number">-1</span>,y)</span><br><span class="line">        self.ganran(grid,x+<span class="number">1</span>,y)</span><br><span class="line">        self.ganran(grid,x,y<span class="number">-1</span>)</span><br><span class="line">        self.ganran(grid,x,y+<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numIslands</span><span class="params">(self, grid)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type grid: List[List[str]]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        end = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(grid)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(len(grid[<span class="number">0</span>])):</span><br><span class="line">                <span class="keyword">if</span> grid[i][j] == <span class="string">'1'</span>:</span><br><span class="line">                    self.ganran(grid,i,j)</span><br><span class="line">                    end += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> end</span><br></pre></td></tr></table></figure></p>
+<h3 id="面试题28-对称二叉树"><a href="#面试题28-对称二叉树" class="headerlink" title="面试题28.对称二叉树"></a>面试题28.对称二叉树</h3><p> 　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">给定一个二叉树，检查它是否是镜像对称的。</span><br><span class="line"></span><br><span class="line">例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</span><br><span class="line"></span><br><span class="line">    1</span><br><span class="line">   / \</span><br><span class="line">  2   2</span><br><span class="line"> / \ / \</span><br><span class="line">3  4 4  3</span><br><span class="line">但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</span><br><span class="line"></span><br><span class="line">    1</span><br><span class="line">   / \</span><br><span class="line">  2   2</span><br><span class="line">   \   \</span><br><span class="line">   3    3？</span><br></pre></td></tr></table></figure></p>
+<p>　　发现递归都是一个套路，专门写一个函数处理，在主函数里调用，先判断结束条件，然后调用自己。这题就是左子树是不是等于右子树。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSymmetric</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> self.panduan(root.left,root.right)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">panduan</span><span class="params">(self,left,right)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> left <span class="keyword">and</span> <span class="keyword">not</span> right:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> left <span class="keyword">or</span> <span class="keyword">not</span> right:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">if</span> left.val!=right.val:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> self.panduan(left.left,right.right) <span class="keyword">and</span> self.panduan(left.right,right.left)</span><br></pre></td></tr></table></figure></p>
+<h3 id="面试题29-顺时针打印矩阵"><a href="#面试题29-顺时针打印矩阵" class="headerlink" title="面试题29 . 顺时针打印矩阵"></a>面试题29 . 顺时针打印矩阵</h3><p>　　在系列3中有，主要是判断麻烦，思路是左上右下判断。</p>
+<h3 id="面试题30-包含min的栈"><a href="#面试题30-包含min的栈" class="headerlink" title="面试题30. 包含min的栈"></a>面试题30. 包含min的栈</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">设计一个支持 push，pop，top 操作，并能在常数时间内检索到最小元素的栈。</span><br><span class="line"></span><br><span class="line">push(x) -- 将元素 x 推入栈中。</span><br><span class="line">pop() -- 删除栈顶的元素。</span><br><span class="line">top() -- 获取栈顶元素。</span><br><span class="line">getMin() -- 检索栈中的最小元素。</span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">MinStack minStack = new MinStack();</span><br><span class="line">minStack.push(-2);</span><br><span class="line">minStack.push(0);</span><br><span class="line">minStack.push(-3);</span><br><span class="line">minStack.getMin();   --&gt; 返回 -3.</span><br><span class="line">minStack.pop();</span><br><span class="line">minStack.top();      --&gt; 返回 0.</span><br><span class="line">minStack.getMin();   --&gt; 返回 -2.</span><br></pre></td></tr></table></figure>
+<p>　　应该也做过，思路是准备一个辅助栈，同步压入最小值。因为该栈最后一个元素一定是之前最小，所以压入只需比较当前值和栈顶元素。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">设计一个支持 push，pop，top 操作，并能在常数时间内检索到最小元素的栈。</span><br><span class="line"></span><br><span class="line">push(x) -- 将元素 x 推入栈中。</span><br><span class="line">pop() -- 删除栈顶的元素。</span><br><span class="line">top() -- 获取栈顶元素。</span><br><span class="line">getMin() -- 检索栈中的最小元素。</span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">MinStack minStack = new MinStack();</span><br><span class="line">minStack.push(<span class="number">-2</span>);</span><br><span class="line">minStack.push(<span class="number">0</span>);</span><br><span class="line">minStack.push(<span class="number">-3</span>);</span><br><span class="line">minStack.getMin();   --&gt; 返回 -3.</span><br><span class="line">minStack.pop();</span><br><span class="line">minStack.top();      --&gt; 返回 0.</span><br><span class="line">minStack.getMin();   --&gt; 返回 -2.</span><br></pre></td></tr></table></figure></p>
+<h3 id="面试题31-栈的压入压出"><a href="#面试题31-栈的压入压出" class="headerlink" title="面试题31. 栈的压入压出"></a>面试题31. 栈的压入压出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）</span><br></pre></td></tr></table></figure>
+<p>　　特别简单的判断，辅助栈就好。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">IsPopOrder</span><span class="params">(self, pushV, popV)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        pushs = []</span><br><span class="line">        <span class="keyword">while</span>(popV):</span><br><span class="line">            <span class="keyword">if</span> pushs <span class="keyword">and</span> (pushs[<span class="number">-1</span>] == popV[<span class="number">0</span>]):</span><br><span class="line">                    pushs.pop()</span><br><span class="line">                    popV.pop(<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">elif</span> pushV:</span><br><span class="line">                pushs.append(pushV.pop(<span class="number">0</span>))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 面试题31. 从上到下打印二叉树</span></span><br></pre></td></tr></table></figure></p>
+<p>不分行，分行，之字形<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　之前的二叉树那里做过，无非是按层遍历（队列）打印，分行要两个指针，先插入队列在判断指针是否需要改变，之字形在加个变量判断下放栈里就好了</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #969696;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/算法基础/" rel="tag"># 算法基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/29/算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27/" rel="next" title="算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27">
+                <i class="fa fa-chevron-left"></i> 算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/07/最近看的论文一些资料/" rel="prev" title="最近看的论文一些资料">
+                最近看的论文一些资料 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTE4MS8xMTcxNg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/face.jpg"
+                alt="GYxiaOH" />
+            
+              <p class="site-author-name" itemprop="name">GYxiaOH</p>
+              <p class="site-description motion-element" itemprop="description">人世不平一剑消</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/3334155" target="_blank" title="Bilibili">
+                      
+                        <i class="fa fa-fw fa-youtube-play"></i>Bilibili</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/GYxiaOH" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhhy1994226@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/1821212904/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关概念题目"><span class="nav-number">1.</span> <span class="nav-text">相关概念题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目1-最大数"><span class="nav-number">1.1.</span> <span class="nav-text">题目1 最大数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目2"><span class="nav-number">1.2.</span> <span class="nav-text">题目2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目３"><span class="nav-number">1.3.</span> <span class="nav-text">题目３</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目4"><span class="nav-number">1.4.</span> <span class="nav-text">题目4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目5"><span class="nav-number">1.5.</span> <span class="nav-text">题目5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目6"><span class="nav-number">1.6.</span> <span class="nav-text">题目6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目7-岛屿的个数"><span class="nav-number">1.7.</span> <span class="nav-text">题目7 岛屿的个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题28-对称二叉树"><span class="nav-number">1.8.</span> <span class="nav-text">面试题28.对称二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题29-顺时针打印矩阵"><span class="nav-number">1.9.</span> <span class="nav-text">面试题29 . 顺时针打印矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题30-包含min的栈"><span class="nav-number">1.10.</span> <span class="nav-text">面试题30. 包含min的栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试题31-栈的压入压出"><span class="nav-number">1.11.</span> <span class="nav-text">面试题31. 栈的压入压出</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GYxiaOH</span>
+
+  
+</div>
+
+
+  <div class="powered-by">fixed by 我自己</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">做个博客好辛苦，不如回家烤红薯 </div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>Visitors
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>Total
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Ce6XhNEEnEkqv5BMidLlCs3l-gzGzoHsz", "zOAGhRSjtBhtu0LkRzxemw25");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
