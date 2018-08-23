@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="小 君">
 <meta property="og:description" content="刚开始实习！最近在复现light heda RCNN里的特征xception网络，因为之前没接触过，所以恶补了几篇论文，现把相关资料放在这，以便于复习：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-12T08:00:04.613Z">
+<meta property="og:updated_time" content="2018-08-14T09:06:13.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最近看的论文一些资料">
 <meta name="twitter:description" content="刚开始实习！最近在复现light heda RCNN里的特征xception网络，因为之前没接触过，所以恶补了几篇论文，现把相关资料放在这，以便于复习：">
@@ -383,7 +383,7 @@
 
       
         <p>刚开始实习！最近在复现light heda RCNN里的特征xception网络，因为之前没接触过，所以恶补了几篇论文，现把相关资料放在这，以便于复习：<br><a id="more"></a>　</p>
-<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>　　主要是结构上来说从inception到xception，从网络上来说主要是googlenet，mobilenet，shufflenet，从公司上…..算了就那个几个公司。目前主要的压缩，应该说是减少模型参数量的方法还是着眼于去除网络冗余。这几年的主要变化就是将卷积拆分开来。以下是相关资料：<br><a href="https://www.sohu.com/a/166062301_465914" target="_blank" rel="noopener">无需数学背景，读懂ResNet、Inception和Xception三大变革性架构</a><br><a href="https://blog.csdn.net/qq_14845119/article/details/736481004" target="_blank" rel="noopener">从Inception v1,v2,v3,v4,RexNeXt到Xception再到MobileNets,ShuffleNet,MobileNetV2</a><br><a href="https://blog.csdn.net/u014380165/article/details/75137111" target="_blank" rel="noopener">ShuffleNet算法详解</a><br><a href="https://blog.csdn.net/u011995719/article/details/79135818" target="_blank" rel="noopener">轻量化网络：MobileNet-V2</a><br><a href="https://blog.csdn.net/u013548568/article/details/79910669" target="_blank" rel="noopener">Xception and MobileNet</a>  </p>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>　　主要是结构上来说从inception到xception，从网络上来说主要是googlenet，mobilenet，shufflenet，从公司上…..算了就那个几个公司。目前主要的压缩，应该说是减少模型参数量的方法还是着眼于去除网络冗余。这几年的主要变化就是将卷积拆分开来。以下是相关资料：<br><a href="https://www.sohu.com/a/166062301_465914" target="_blank" rel="noopener">无需数学背景，读懂ResNet、Inception和Xception三大变革性架构</a><br><a href="https://blog.csdn.net/qq_14845119/article/details/73648100" target="_blank" rel="noopener">从Inception v1,v2,v3,v4,RexNeXt到Xception再到MobileNets,ShuffleNet,MobileNetV2</a><br><a href="https://blog.csdn.net/u014380165/article/details/75137111" target="_blank" rel="noopener">ShuffleNet算法详解</a><br><a href="https://blog.csdn.net/u011995719/article/details/79135818" target="_blank" rel="noopener">轻量化网络：MobileNet-V2</a><br><a href="https://blog.csdn.net/u013548568/article/details/79910669" target="_blank" rel="noopener">Xception and MobileNet</a>  </p>
 <h2 id="训练调参"><a href="#训练调参" class="headerlink" title="训练调参"></a>训练调参</h2><p>　　主要是Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour这篇文章，讲的是在并行的多显卡下如何训练模型。主要的问题是batchsize增大的情况下模型会不好训练，这里有很多分布式训练的trick，主要就是warmup的学习率。<br>　　更新，最近看了switchable Norm，新的归一化方法，小批量更稳定，大概能提一到两个点，准备试一试，以及我看它源码使用的cos decay的学习率下降方法，这里也记录下。不过它很奇怪，cos的原文是学习率周期性的上升下降，有助于跳出局部最小，但是它只是用cos进行学习率下降，但是效果就好了很多，感觉奇怪。<br><a href="https://www.zhihu.com/question/60874090" target="_blank" rel="noopener">机器之心提问：如何评价Facebook Training ImageNet in 1 Hour这篇论文?</a><br><a href="https://www.zhihu.com/question/64134994" target="_blank" rel="noopener">如何理解深度学习分布式训练中的large batch size与learning rate的关系？</a><br><a href="https://github.com/switchablenorms/Switchable-Normalization" target="_blank" rel="noopener">Switchable-Normalization</a><br><a href="https://blog.csdn.net/akadiao/article/details/79560731" target="_blank" rel="noopener">TensorFlow学习－－学习率衰减/learning rate decay</a></p>
 
       
@@ -427,8 +427,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/29/算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27/" rel="next" title="算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27">
-                <i class="fa fa-chevron-left"></i> 算法基础系列（5）-哈希表，布隆过滤器，剑指offer23-27
+              <a href="/2018/06/29/算法基础系列（6）贪心，动归，剑指offer28-32/" rel="next" title="算法基础系列（6）贪心，动归，剑指offer28-32">
+                <i class="fa fa-chevron-left"></i> 算法基础系列（6）贪心，动归，剑指offer28-32
               </a>
             
           </div>
@@ -525,7 +525,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
