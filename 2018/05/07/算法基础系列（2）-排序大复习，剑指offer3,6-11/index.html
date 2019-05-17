@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="小 君">
 <meta property="og:description" content="今天看的书大致把排序的相关基础算法和练习都过了一遍，现在这里做了个记录。顺便感谢搜狗对我的肯定！据说有offer了！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-11T03:05:28.680Z">
+<meta property="og:updated_time" content="2018-09-01T07:28:54.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法基础系列（2）-排序大复习，剑指offer3,6-11">
 <meta name="twitter:description" content="今天看的书大致把排序的相关基础算法和练习都过了一遍，现在这里做了个记录。顺便感谢搜狗对我的肯定！据说有offer了！">
@@ -414,7 +414,7 @@
 <h3 id="面试题9-用栈和队列互相实现"><a href="#面试题9-用栈和队列互相实现" class="headerlink" title="面试题9. 用栈和队列互相实现"></a>面试题9. 用栈和队列互相实现</h3><p>　　emmm，懒得写了，就是两个栈（队列）互相倒来倒去，队列的话可以倒完换下名字  </p>
 <h3 id="面试题10-斐波那契数列"><a href="#面试题10-斐波那契数列" class="headerlink" title="面试题10. 斐波那契数列"></a>面试题10. 斐波那契数列</h3><p>　　青蛙跳，爬楼梯，叠方块，都是最简单的动态规划。</p>
 <h3 id="面试题11-旋转数组找最小数字"><a href="#面试题11-旋转数组找最小数字" class="headerlink" title="面试题11. 旋转数组找最小数字"></a>面试题11. 旋转数组找最小数字</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">　　假设按照升序排序的数组在预先未知的某个点上进行了旋转。</span><br><span class="line"></span><br><span class="line">( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。</span><br><span class="line">求旋转数组最小值</span><br></pre></td></tr></table></figure>
-<p>　　注意有三种情况，旋转了0个位置，正常情况，和10111这种中间数字和首位相等的时候，最后一种情况是只能暴力搜索的<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findspin</span><span class="params">(nums)</span>:</span></span><br><span class="line">    left = <span class="number">0</span></span><br><span class="line">    right = len(nums) - <span class="number">1</span></span><br><span class="line">    mid = (right - left) / <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> nums[left]&lt;nums[right]:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> nums[left] == nums[right] <span class="keyword">and</span> nums[left] == nums[mid]:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> nums[i+<span class="number">1</span>] &lt; nums[i]:</span><br><span class="line">                <span class="keyword">return</span> i+<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(left &lt; right):</span><br><span class="line">        mid = (right - left) / <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> nums[mid] &gt;= nums[left]:</span><br><span class="line">            left = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            right =  mid</span><br><span class="line">    mid = left + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> mid</span><br></pre></td></tr></table></figure></p>
+<p>　　注意有三种情况，旋转了0个位置，正常情况，和10111这种中间数字和首位相等的时候，最后一种情况是只能暴力搜索的<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findMin</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = len(nums) - <span class="number">1</span></span><br><span class="line">        mid = (right - left) / <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> len(nums)==<span class="number">1</span> <span class="keyword">or</span> nums[left]&lt;nums[right]:</span><br><span class="line">            <span class="keyword">return</span> nums[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">if</span> nums[left] == nums[right] <span class="keyword">and</span> nums[left] == nums[mid]:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)<span class="number">-1</span>):</span><br><span class="line">                <span class="keyword">if</span> nums[i+<span class="number">1</span>] &lt; nums[i]:</span><br><span class="line">                    <span class="keyword">return</span> nums[i+<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right ):</span><br><span class="line">            mid = (right + left) / <span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid] &gt;= nums[left]:</span><br><span class="line">                <span class="keyword">if</span>(left == mid):</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                left = mid</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                right =  mid</span><br><span class="line">        mid = left + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> nums[mid]</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -557,7 +557,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -568,7 +568,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -579,7 +579,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -660,7 +660,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

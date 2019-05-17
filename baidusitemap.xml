@@ -4,6 +4,183 @@
 
     
   <url>
+    <loc>https://www.gyxiaoh.com/2019/05/17/OCR%E8%B5%84%E6%96%99%E5%8F%8A%E5%BC%80%E7%AF%87-rrpn/</loc>
+    <lastmod>2019-05-17T14:41:54.103Z</lastmod>
+    <data>
+        <display>
+        <title>OCR系列（1）-资料及开篇RRPN</title>
+        <pubTime>2019-05-17T11:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>ORC</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度（机器）学习" url="https://www.gyxiaoh.com/categories/%E6%B7%B1%E5%BA%A6%EF%BC%88%E6%9C%BA%E5%99%A8%EF%BC%89%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.gyxiaoh.com/2018/10/28/Python%E7%9A%84%E6%98%9F%E5%8F%B7/</loc>
+    <lastmod>2018-10-28T09:33:22.092Z</lastmod>
+    <data>
+        <display>
+        <title>Python的星号</title>
+        <pubTime>2018-10-28T08:44:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="其他学习" url="https://www.gyxiaoh.com/categories/%E5%85%B6%E4%BB%96%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.gyxiaoh.com/2018/05/31/%E5%85%B6%E4%BB%96%E8%AE%BA%E6%96%87%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89%EF%BC%9ALearning%20Semantic%20Hierarchies%20via%20Word%20Embeddings/</loc>
+    <lastmod>2018-10-28T09:30:31.911Z</lastmod>
+    <data>
+        <display>
+        <title>其他论文系列（1）：Learning Semantic Hierarchies via Word Embeddings</title>
+        <pubTime>2018-05-31T15:09:00.000Z</pubTime>
+        
+        <tag>前沿</tag>
+         
+        <tag>word embeding</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度（机器）学习" url="https://www.gyxiaoh.com/categories/%E6%B7%B1%E5%BA%A6%EF%BC%88%E6%9C%BA%E5%99%A8%EF%BC%89%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.gyxiaoh.com/2018/06/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%EF%BC%886%EF%BC%89%E8%B4%AA%E5%BF%83%EF%BC%8C%E5%8A%A8%E5%BD%92%EF%BC%8C%E5%89%91%E6%8C%87offer28-32/</loc>
+    <lastmod>2018-09-18T08:23:29.314Z</lastmod>
+    <data>
+        <display>
+        <title>算法基础系列（6）贪心，动归，剑指offer28-32</title>
+        <pubTime>2018-06-29T06:31:00.000Z</pubTime>
+        
+        <tag>面试</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>算法基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法基础复习" url="https://www.gyxiaoh.com/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.gyxiaoh.com/2018/07/31/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%EF%BC%888%EF%BC%89%E5%8A%A8%E5%BD%92%EF%BC%8C%E5%89%91%E6%8C%87offer38-42/</loc>
+    <lastmod>2018-09-18T08:22:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>算法基础系列（8）动归，剑指offer38-42</title>
+        <pubTime>2018-07-31T12:31:00.000Z</pubTime>
+        
+        <tag>面试</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>算法基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法基础复习" url="https://www.gyxiaoh.com/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.gyxiaoh.com/2018/05/30/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%EF%BC%884%EF%BC%89-%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%8C%E5%89%91%E6%8C%87offer18-22/</loc>
+    <lastmod>2018-09-05T11:25:56.713Z</lastmod>
+    <data>
+        <display>
+        <title>算法基础系列（4）-二叉树，剑指offer18-22</title>
+        <pubTime>2018-05-30T06:31:00.000Z</pubTime>
+        
+        <tag>面试</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>算法基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法基础复习" url="https://www.gyxiaoh.com/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.gyxiaoh.com/2018/05/07/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%EF%BC%882%EF%BC%89-%E6%8E%92%E5%BA%8F%E5%A4%A7%E5%A4%8D%E4%B9%A0%EF%BC%8C%E5%89%91%E6%8C%87offer3,6-11/</loc>
+    <lastmod>2018-09-01T07:28:54.532Z</lastmod>
+    <data>
+        <display>
+        <title>算法基础系列（2）-排序大复习，剑指offer3,6-11</title>
+        <pubTime>2018-05-07T12:36:00.000Z</pubTime>
+        
+        <tag>面试</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>算法基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法基础复习" url="https://www.gyxiaoh.com/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.gyxiaoh.com/2018/08/31/Detectron-pytorch-%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D%EF%BC%881%EF%BC%89-coco%E5%92%8Cvoc%E6%95%B0%E6%8D%AE%E9%9B%86/</loc>
+    <lastmod>2018-08-31T03:56:27.988Z</lastmod>
+    <data>
+        <display>
+        <title>Detectron-pytorch 相关介绍（1） - coco和voc数据集</title>
+        <pubTime>2018-08-31T03:04:54.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://www.gyxiaoh.com/2018/08/22/%E5%89%91%E6%8C%87offer43-20/</loc>
     <lastmod>2018-08-23T15:32:55.926Z</lastmod>
     <data>
@@ -41,84 +218,12 @@
 
     
   <url>
-    <loc>https://www.gyxiaoh.com/2018/07/31/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%EF%BC%888%EF%BC%89%E5%8A%A8%E5%BD%92%EF%BC%8C%E5%89%91%E6%8C%87offer38-42/</loc>
-    <lastmod>2018-08-14T07:00:26.995Z</lastmod>
-    <data>
-        <display>
-        <title>算法基础系列（8）动归，剑指offer38-42</title>
-        <pubTime>2018-07-31T12:31:00.000Z</pubTime>
-        
-        <tag>面试</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>算法基础</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法基础复习" url="https://www.gyxiaoh.com/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.gyxiaoh.com/2018/05/07/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%EF%BC%882%EF%BC%89-%E6%8E%92%E5%BA%8F%E5%A4%A7%E5%A4%8D%E4%B9%A0%EF%BC%8C%E5%89%91%E6%8C%87offer3,6-11/</loc>
-    <lastmod>2018-08-11T03:05:28.680Z</lastmod>
-    <data>
-        <display>
-        <title>算法基础系列（2）-排序大复习，剑指offer3,6-11</title>
-        <pubTime>2018-05-07T12:36:00.000Z</pubTime>
-        
-        <tag>面试</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>算法基础</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法基础复习" url="https://www.gyxiaoh.com/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.gyxiaoh.com/2018/07/26/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%EF%BC%887%EF%BC%89%E5%8A%A8%E5%BD%92%EF%BC%8C%E5%89%91%E6%8C%87offer33-37/</loc>
     <lastmod>2018-07-30T08:07:11.021Z</lastmod>
     <data>
         <display>
         <title>算法基础系列（7）动归，剑指offer33-37</title>
         <pubTime>2018-07-26T10:31:00.000Z</pubTime>
-        
-        <tag>面试</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>算法基础</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法基础复习" url="https://www.gyxiaoh.com/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.gyxiaoh.com/2018/06/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%EF%BC%886%EF%BC%89%E8%B4%AA%E5%BF%83%EF%BC%8C%E5%8A%A8%E5%BD%92%EF%BC%8C%E5%89%91%E6%8C%87offer28-32/</loc>
-    <lastmod>2018-07-23T12:09:26.862Z</lastmod>
-    <data>
-        <display>
-        <title>算法基础系列（6）贪心，动归，剑指offer28-32</title>
-        <pubTime>2018-06-29T06:31:00.000Z</pubTime>
         
         <tag>面试</tag>
          
@@ -154,52 +259,6 @@
            
              
               <breadCrumb title="算法基础复习" url="https://www.gyxiaoh.com/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.gyxiaoh.com/2018/05/30/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%EF%BC%884%EF%BC%89-%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%8C%E5%89%91%E6%8C%87offer18-22/</loc>
-    <lastmod>2018-06-01T06:49:43.990Z</lastmod>
-    <data>
-        <display>
-        <title>算法基础系列（4）-二叉树，剑指offer18-22</title>
-        <pubTime>2018-05-30T06:31:00.000Z</pubTime>
-        
-        <tag>面试</tag>
-         
-        <tag>算法</tag>
-         
-        <tag>算法基础</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法基础复习" url="https://www.gyxiaoh.com/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.gyxiaoh.com/2018/05/31/%E5%85%B6%E4%BB%96%E8%AE%BA%E6%96%87%E7%B3%BB%E5%88%97%EF%BC%881%EF%BC%89%EF%BC%9ALearning%20Semantic%20Hierarchies%20via%20Word%20Embeddings/</loc>
-    <lastmod>2018-05-31T15:59:28.153Z</lastmod>
-    <data>
-        <display>
-        <title>其他论文系列（1）：Learning Semantic Hierarchies via Word Embeddings</title>
-        <pubTime>2018-05-31T15:09:00.000Z</pubTime>
-        
-        <tag>前沿</tag>
-         
-        <tag>word embeding</tag>
-         
-         
-           
-             
-              <breadCrumb title="深度（机器）学习" url="https://www.gyxiaoh.com/categories/%E6%B7%B1%E5%BA%A6%EF%BC%88%E6%9C%BA%E5%99%A8%EF%BC%89%E5%AD%A6%E4%B9%A0/"/>
           
         </display>
     </data>

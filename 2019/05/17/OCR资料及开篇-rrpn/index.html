@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "db8b42fc"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,ORC," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="久违的更新！莫名的被提前拉来实习，承担了莫名的压力~学起来…….大概吧">
+<meta name="keywords" content="Python,ORC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OCR系列（1）-资料及开篇RRPN">
+<meta property="og:url" content="https://www.gyxiaoh.com/2019/05/17/OCR资料及开篇-rrpn/index.html">
+<meta property="og:site_name" content="小 君">
+<meta property="og:description" content="久违的更新！莫名的被提前拉来实习，承担了莫名的压力~学起来…….大概吧">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-d39ddb2e8e4e58b67f58b59b6d5b6645_hd.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-75166118f5c7aeb66a6316e79d5c19ff_hd.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-0f9dbcb18d842cd44f1d04d9a75ddf61_hd.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-bdb195fd4787c7b65b049230d4de2a28_hd.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-5a870a594de37cf1753513f9f47416ca_hd.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-63b87137017eb4600081687a11c31508_hd.jpg">
+<meta property="og:updated_time" content="2019-05-17T14:41:54.103Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OCR系列（1）-资料及开篇RRPN">
+<meta name="twitter:description" content="久违的更新！莫名的被提前拉来实习，承担了莫名的压力~学起来…….大概吧">
+<meta name="twitter:image" content="https://pic2.zhimg.com/80/v2-d39ddb2e8e4e58b67f58b59b6d5b6645_hd.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.gyxiaoh.com/2019/05/17/OCR资料及开篇-rrpn/"/>
+
+
+
+
+
+  <title>OCR系列（1）-资料及开篇RRPN | 小 君</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8ad16d364f0235b40e33f9ac13ce6d97";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小 君</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">One Day I'll Fly Away<br>leave all this to yesterday</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2019/05/17/OCR资料及开篇-rrpn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GYxiaOH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/face.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小 君">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OCR系列（1）-资料及开篇RRPN</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-17T19:00:00+08:00">
+                2019-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度（机器）学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度（机器）学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/17/OCR资料及开篇-rrpn/" class="leancloud_visitors" data-flag-title="OCR系列（1）-资料及开篇RRPN">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>久违的更新！莫名的被提前拉来实习，承担了莫名的压力<del>~</del>学起来…….大概吧<br><a id="more"></a>　</p>
+<h2 id="总集"><a href="#总集" class="headerlink" title="总集"></a>总集</h2><p>　　首先是github上几个两个不错的论文总结（其实不止是论文）：<br>　　<a href="https://github.com/ChanChiChoi/awesome-ocr" target="_blank" rel="noopener">比较全的按时间排序awesome-ocr</a><br>　　<a href="https://github.com/hwalsuklee/awesome-deep-text-detection-recognition" target="_blank" rel="noopener">按照detection，Recognition分好的awesome-deep-text-detection-recognition</a><br>　　然后还有一个<a href="https://github.com/whitelok/image-text-localization-recognition" target="_blank" rel="noopener">按照研究机构分的image-text-localization-recognition</a><br>  　　另外就是overview，就是这篇<a href="(https://arxiv.org/abs/1811.04256">Scene Text Detection and Recognition: The Deep Learning Era</a>),它自己也有个总的<a href="https://github.com/Jyouhou/SceneTextPapers" target="_blank" rel="noopener">论文集</a>,不过我感觉这篇overview我看的有点头晕，不过还是按照他的分类看下去吧。<br>   　　首先OCR可以简单的分为三大块，即上文提到的Detection，Recognition以及Other。第一个是Text Detection，论文里将其分为了两大块一个是Anchor-based method和Region based method，不过我感觉其实一个就是基于one step的detection方法（SSD之类的）一个就是基于two step的detection方法（也就是RCNN那边的），因为我对one step的方法没什么研究，所以先看region的，首先就是第一篇<a href="https://arxiv.org/pdf/1703.01086.pdf" target="_blank" rel="noopener">Arbitrary-Oriented Scene Text Detection via Rotation Proposals</a>,<a href="https://github.com/mjq11302010044/RRPN" target="_blank" rel="noopener">code</a>,由于RROI那部分实在对算法那里没看懂，所以这篇论文顶多算是半精度吧，感觉这样时间还是长了点，希望以后逐渐改进。</p>
+<h2 id="RRPN"><a href="#RRPN" class="headerlink" title="RRPN"></a>RRPN</h2><p>  　　RRPN是基于Faster Rcnn搞的专门针对text的detection方法，针对自然场景中经常出现的文字倾斜现象做了特别优化，它主要的贡献有以下三点：</p>
+<ol>
+<li>在回归过程中引入角度数据，并针对性的提出了RRPN和RROI网络，使得整个结构可以直接预测出带有角度信息的proposal。</li>
+<li>对应提出了一些增强方法，即倾斜举行的IOU计算以及对应的正负样本选取，以及后期的NMS操作（它称作skew nms）</li>
+<li><p>在几个数据集上效果不错<br>　　针对以上几点我们做分别介绍，以下是整个网络的结构图<br> <img src="https://pic2.zhimg.com/80/v2-d39ddb2e8e4e58b67f58b59b6d5b6645_hd.jpg" alt="图片已经消失在人海"></p>
+<h3 id="数据预处理以及RRPN"><a href="#数据预处理以及RRPN" class="headerlink" title="数据预处理以及RRPN"></a>数据预处理以及RRPN</h3><p>　　在数据预处理上，一般RPN输入的左上角坐标和长宽（或者右下的坐标），而RRPN输入的是(x,y,h,w,θ)，其中,x,y为bounding box的几何中心；h为bounding box的短边，w为bounding box的长边；θ为bounding box长边旋转的角度，范围为 -π/4、0、π3/4。<br>　　R-Anchor的锚点由3个尺寸，3个比例以及6个角度组成：3个尺寸分别是8，16，32；3个比例分别为 1:2、1:5、1:8(Faster R-CNN中anchors的定义是以(16,16)为基准,得到三种长宽比(0.5,1,2),三种尺度(8,16,32)的anchors,总共9个。)，6个角度分别是 -π/6、0、π/6、π/3、π/2、2π/3。锚点的形状如图2所示。这样对于特征图上每一个点将生成54个Anchor(6种方向，3种大小，3种比例)。因此分类层有108(2<em>54)个输出值，回归层有270(5</em>54)个输出值。<br>　　<strong>在计算正负样本时，规则如下</strong>：</p>
+<ol>
+<li>如果锚点对应的box与gt的iou值最大，标记为正样本。</li>
+<li>如果锚点对应的box与gt的iou&gt;0.7，标记为正样本。</li>
+<li>如果锚点对应的box与gt的夹角小于π/12，标记为正样本。</li>
+<li>iou小于0.3，标记为负样本。</li>
+<li>iou大于0.7，但是夹角大于π/12，标记为负样本。</li>
+<li>剩下的非正非负，不用于训练。</li>
+<li>RRPN中IoU的计算方法<br><strong>在计算IOU时，也和传统的RPN不一样，要考虑到以下三种情况：</strong><br><img src="https://pic4.zhimg.com/80/v2-75166118f5c7aeb66a6316e79d5c19ff_hd.jpg" alt="图片已经消失在人海"><br>伪代码如下：<br><img src="https://pic2.zhimg.com/80/v2-0f9dbcb18d842cd44f1d04d9a75ddf61_hd.jpg" alt="图片已经消失在人海"><br>虽然我觉得伪代码一直很难看懂，不过大概意思就是计算交点和在相交后一个在另一个内部的点，然后分三种情况，将所有点顺时针排列，之后根据三角形计算总面积和IOU<h3 id="RROI"><a href="#RROI" class="headerlink" title="RROI"></a>RROI</h3>这段我是真没看懂，伪代码如下：<br><img src="https://pic1.zhimg.com/80/v2-bdb195fd4787c7b65b049230d4de2a28_hd.jpg" alt="图片已经消失在人海"><br>不过很难看懂，大概意思如下图：<br><img src="https://pic3.zhimg.com/80/v2-5a870a594de37cf1753513f9f47416ca_hd.jpg" alt="图片已经消失在人海"><br><img src="https://pic1.zhimg.com/80/v2-63b87137017eb4600081687a11c31508_hd.jpg" alt="图片已经消失在人海">  </li>
+</ol>
+<p>　　大概是将整个ROI通过预定值分为几个subregion，然后每个区域的四个点先按照ROI的方式计算出来（就是乘上SS缩放系数），然后旋转，根据旋转后的四个点做区域maxpool。但是无论是伪代码和源代码我都没大搞明白旋转矩阵具体为什么是那样操作，目前只是大概知道-w/2应该是因为旋转的时候是在左下角的点，所以旋转的时候要先平移到那个点。具体的可在参考资料中继续研究，反正我是没研究明白。另外有个知乎用户自己写了个<a href="https://zhuanlan.zhihu.com/p/60581252" target="_blank" rel="noopener">RROI的简化版本</a>，不过我看比较像ROIRATE，而且我也没懂他那个变换为啥要那么乘。这里补充下可能需要的知识，一个是<a href="https://www.cnblogs.com/zhoug2020/p/7842808.html" target="_blank" rel="noopener">坐标的变换矩阵</a>，一个是CUDA中，index代表一个核心，每个核心负责一个值的运算，那么我们知道深度学习里所有张量表示成（bchw)的思维矩阵，如何找到对应的核心呢，就是以下式子：<strong>dex = ((n<em>N + c)</em>X + h)*Y + w= nNXY + cXY + hY + w</strong>,因此我们总是能看到以下代码：  </p>
+<pre><code>int pw = idx % aligned_width;
+int ph = (idx / aligned_width) % aligned_height;
+int c  = (idx / aligned_width / aligned_height) % channels;
+int n  = idx / aligned_width / aligned_height / channels;
+</code></pre><p>就是为了求第几个batch（n）的第几个channel（c）的第行（h）的第几列（w）  </p>
+</li>
+</ol>
+<h3 id="Skew-NMS"><a href="#Skew-NMS" class="headerlink" title="Skew NMS"></a>Skew NMS</h3><p>  　　传统的NMS只考虑IoU一个因素，而这点在RRPN中是行不通的，考虑一个偏移了 π/12的矩形，虽然IoU只有0.31，但是由于偏移角度比较小，这种情况也应该考虑进去。Skew-NMS在NMS的基础上加入了IoU信息：  </p>
+<ol>
+<li>保留IoU大于0.7的最大的候选框；</li>
+<li>如果所有的候选框均位于[0.3，0.7] 之间，保留小于 π/12 的最小候选框。</li>
+</ol>
+<p>以上就是我半精度的RRPN，感觉最近看论文总是有些地方卡壳，要加油啊!</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://zhuanlan.zhihu.com/p/58534714" target="_blank" rel="noopener">RRPN模型</a><br><a href="https://blog.csdn.net/u013250416/article/details/78597557" target="_blank" rel="noopener">论文笔记-Arbitrary-Oriented Scene Text Detection via Rotation Proposals</a><br><a href="https://zhuanlan.zhihu.com/p/60581252" target="_blank" rel="noopener">RRoI pooling 的原理及实现</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #969696;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/ORC/" rel="tag"># ORC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/28/Python的星号/" rel="next" title="Python的星号">
+                <i class="fa fa-chevron-left"></i> Python的星号
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTE4MS8xMTcxNg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/face.jpg"
+                alt="GYxiaOH" />
+            
+              <p class="site-author-name" itemprop="name">GYxiaOH</p>
+              <p class="site-description motion-element" itemprop="description">人世不平一剑消</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/3334155" target="_blank" title="Bilibili">
+                      
+                        <i class="fa fa-fw fa-youtube-play"></i>Bilibili</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/GYxiaOH" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhhy1994226@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/1821212904/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总集"><span class="nav-number">1.</span> <span class="nav-text">总集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RRPN"><span class="nav-number">2.</span> <span class="nav-text">RRPN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据预处理以及RRPN"><span class="nav-number">2.1.</span> <span class="nav-text">数据预处理以及RRPN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RROI"><span class="nav-number">2.2.</span> <span class="nav-text">RROI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Skew-NMS"><span class="nav-number">2.3.</span> <span class="nav-text">Skew NMS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GYxiaOH</span>
+
+  
+</div>
+
+
+  <div class="powered-by">fixed by 我自己</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">做个博客好辛苦，不如回家烤红薯 </div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>Visitors
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>Total
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Ce6XhNEEnEkqv5BMidLlCs3l-gzGzoHsz", "zOAGhRSjtBhtu0LkRzxemw25");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
