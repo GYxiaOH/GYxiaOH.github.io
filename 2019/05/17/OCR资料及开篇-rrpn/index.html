@@ -102,7 +102,7 @@
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-bdb195fd4787c7b65b049230d4de2a28_hd.jpg">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-5a870a594de37cf1753513f9f47416ca_hd.jpg">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-63b87137017eb4600081687a11c31508_hd.jpg">
-<meta property="og:updated_time" content="2019-05-17T14:41:54.103Z">
+<meta property="og:updated_time" content="2019-05-20T14:50:12.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OCR系列（1）-资料及开篇RRPN">
 <meta name="twitter:description" content="久违的更新！莫名的被提前拉来实习，承担了莫名的压力~学起来…….大概吧">
@@ -390,7 +390,7 @@
 
       
         <p>久违的更新！莫名的被提前拉来实习，承担了莫名的压力<del>~</del>学起来…….大概吧<br><a id="more"></a>　</p>
-<h2 id="总集"><a href="#总集" class="headerlink" title="总集"></a>总集</h2><p>　　首先是github上几个两个不错的论文总结（其实不止是论文）：<br>　　<a href="https://github.com/ChanChiChoi/awesome-ocr" target="_blank" rel="noopener">比较全的按时间排序awesome-ocr</a><br>　　<a href="https://github.com/hwalsuklee/awesome-deep-text-detection-recognition" target="_blank" rel="noopener">按照detection，Recognition分好的awesome-deep-text-detection-recognition</a><br>　　然后还有一个<a href="https://github.com/whitelok/image-text-localization-recognition" target="_blank" rel="noopener">按照研究机构分的image-text-localization-recognition</a><br>  　　另外就是overview，就是这篇<a href="(https://arxiv.org/abs/1811.04256">Scene Text Detection and Recognition: The Deep Learning Era</a>),它自己也有个总的<a href="https://github.com/Jyouhou/SceneTextPapers" target="_blank" rel="noopener">论文集</a>,不过我感觉这篇overview我看的有点头晕，不过还是按照他的分类看下去吧。<br>   　　首先OCR可以简单的分为三大块，即上文提到的Detection，Recognition以及Other。第一个是Text Detection，论文里将其分为了两大块一个是Anchor-based method和Region based method，不过我感觉其实一个就是基于one step的detection方法（SSD之类的）一个就是基于two step的detection方法（也就是RCNN那边的），因为我对one step的方法没什么研究，所以先看region的，首先就是第一篇<a href="https://arxiv.org/pdf/1703.01086.pdf" target="_blank" rel="noopener">Arbitrary-Oriented Scene Text Detection via Rotation Proposals</a>,<a href="https://github.com/mjq11302010044/RRPN" target="_blank" rel="noopener">code</a>,由于RROI那部分实在对算法那里没看懂，所以这篇论文顶多算是半精度吧，感觉这样时间还是长了点，希望以后逐渐改进。</p>
+<h2 id="总集"><a href="#总集" class="headerlink" title="总集"></a>总集</h2><p>　　首先是github上几个两个不错的论文总结（其实不止是论文）：<br>　　<a href="https://github.com/ChanChiChoi/awesome-ocr" target="_blank" rel="noopener">比较全的按时间排序awesome-ocr</a><br>　　<a href="https://github.com/hwalsuklee/awesome-deep-text-detection-recognition" target="_blank" rel="noopener">按照detection，Recognition分好的awesome-deep-text-detection-recognition</a><br>　　然后还有一个<a href="https://github.com/whitelok/image-text-localization-recognition" target="_blank" rel="noopener">按照研究机构分的image-text-localization-recognition</a><br>  　　另外就是overview，就是这篇<a href="(https://arxiv.org/abs/1811.04256">Scene Text Detection and Recognition: The Deep Learning Era</a>),它自己也有个总的<a href="https://github.com/Jyouhou/SceneTextPapers" target="_blank" rel="noopener">论文集</a>,不过我感觉这篇overview我看的有点头晕，不过还是按照他的分类看下去吧。<br>   　　首先OCR可以简单的分为三大块，即上文提到的Detection，Recognition以及Other。第一个是Text Detection，论文里将其分为了两大块一个是Anchor-based method和Region based method，不过我感觉其实一个就是基于one stage的detection方法（SSD之类的）一个就是基于two stage的detection方法（也就是RCNN那边的），因为我对one stage的方法没什么研究，所以先看region的，首先就是第一篇<a href="https://arxiv.org/pdf/1703.01086.pdf" target="_blank" rel="noopener">Arbitrary-Oriented Scene Text Detection via Rotation Proposals</a>,<a href="https://github.com/mjq11302010044/RRPN" target="_blank" rel="noopener">code</a>,由于RROI那部分实在对算法那里没看懂，所以这篇论文顶多算是半精度吧，感觉这样时间还是长了点，希望以后逐渐改进。</p>
 <h2 id="RRPN"><a href="#RRPN" class="headerlink" title="RRPN"></a>RRPN</h2><p>  　　RRPN是基于Faster Rcnn搞的专门针对text的detection方法，针对自然场景中经常出现的文字倾斜现象做了特别优化，它主要的贡献有以下三点：</p>
 <ol>
 <li>在回归过程中引入角度数据，并针对性的提出了RRPN和RROI网络，使得整个结构可以直接预测出带有角度信息的proposal。</li>
@@ -472,6 +472,10 @@ int n  = idx / aligned_width / aligned_height / channels;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/20/OCR-R2CNN、CDPT、FEN/" rel="prev" title="OCR系列(2)-R2CNN、CPTN、FEN">
+                OCR系列(2)-R2CNN、CPTN、FEN <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -557,7 +561,7 @@ int n  = idx / aligned_width / aligned_height / channels;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

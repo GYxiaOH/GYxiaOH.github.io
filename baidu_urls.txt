@@ -1,5 +1,5 @@
+https://www.gyxiaoh.com/2019/05/20/OCR-R2CNN、CDPT、FEN/
 https://www.gyxiaoh.com/2019/05/17/OCR资料及开篇-rrpn/
 https://www.gyxiaoh.com/2018/10/28/Python的星号/
 https://www.gyxiaoh.com/2018/08/31/Detectron-pytorch-相关介绍（1）-coco和voc数据集/
 https://www.gyxiaoh.com/2018/08/22/剑指offer43-20/
-https://www.gyxiaoh.com/2018/07/31/算法基础系列（8）动归，剑指offer38-42/

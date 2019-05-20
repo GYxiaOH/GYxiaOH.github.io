@@ -5,11 +5,33 @@
     
   <url>
     <loc>https://www.gyxiaoh.com/2019/05/17/OCR%E8%B5%84%E6%96%99%E5%8F%8A%E5%BC%80%E7%AF%87-rrpn/</loc>
-    <lastmod>2019-05-17T14:41:54.103Z</lastmod>
+    <lastmod>2019-05-20T14:50:12.868Z</lastmod>
     <data>
         <display>
         <title>OCR系列（1）-资料及开篇RRPN</title>
         <pubTime>2019-05-17T11:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>ORC</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度（机器）学习" url="https://www.gyxiaoh.com/categories/%E6%B7%B1%E5%BA%A6%EF%BC%88%E6%9C%BA%E5%99%A8%EF%BC%89%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.gyxiaoh.com/2019/05/20/OCR-R2CNN%E3%80%81CDPT%E3%80%81FEN/</loc>
+    <lastmod>2019-05-20T14:49:52.354Z</lastmod>
+    <data>
+        <display>
+        <title>OCR系列(2)-R2CNN、CPTN、FEN</title>
+        <pubTime>2019-05-20T13:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          

@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="pytcharm,远程,工具," />
+  <meta name="keywords" content="Python,ORC," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。">
-<meta name="keywords" content="pytcharm,远程,工具">
+<meta name="description" content="最近看的论文越多发现很多论文就没讲清楚最核心的方法到底具体怎么做。。。。。">
+<meta name="keywords" content="Python,ORC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pycharm远程调试代码（tensorflow）">
-<meta property="og:url" content="https://www.gyxiaoh.com/2018/04/22/pycharm远程调试代码（tensorflow）/index.html">
+<meta property="og:title" content="OCR系列(2)-R2CNN、CPTN、FEN">
+<meta property="og:url" content="https://www.gyxiaoh.com/2019/05/20/OCR-R2CNN、CDPT、FEN/index.html">
 <meta property="og:site_name" content="小 君">
-<meta property="og:description" content="以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。">
+<meta property="og:description" content="最近看的论文越多发现很多论文就没讲清楚最核心的方法到底具体怎么做。。。。。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-06T09:27:00.117Z">
+<meta property="og:updated_time" content="2019-05-20T14:49:52.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pycharm远程调试代码（tensorflow）">
-<meta name="twitter:description" content="以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。">
+<meta name="twitter:title" content="OCR系列(2)-R2CNN、CPTN、FEN">
+<meta name="twitter:description" content="最近看的论文越多发现很多论文就没讲清楚最核心的方法到底具体怎么做。。。。。">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://www.gyxiaoh.com/2018/04/22/pycharm远程调试代码（tensorflow）/"/>
+  <link rel="canonical" href="https://www.gyxiaoh.com/2019/05/20/OCR-R2CNN、CDPT、FEN/"/>
 
 
 
 
 
-  <title>pycharm远程调试代码（tensorflow） | 小 君</title>
+  <title>OCR系列(2)-R2CNN、CPTN、FEN | 小 君</title>
   
 
 
@@ -282,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2018/04/22/pycharm远程调试代码（tensorflow）/">
+    <link itemprop="mainEntityOfPage" href="https://www.gyxiaoh.com/2019/05/20/OCR-R2CNN、CDPT、FEN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GYxiaOH">
@@ -299,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">pycharm远程调试代码（tensorflow）</h1>
+          <h1 class="post-title" itemprop="name headline">OCR系列(2)-R2CNN、CPTN、FEN</h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T22:55:00+08:00">
-                2018-04-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-20T21:00:00+08:00">
+                2019-05-20
               </time>
             
 
@@ -334,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具应用/" itemprop="url" rel="index">
-                    <span itemprop="name">工具应用</span>
+                  <a href="/categories/深度（机器）学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度（机器）学习</span>
                   </a>
                 </span>
 
@@ -351,7 +351,7 @@
 
           
           
-             <span id="/2018/04/22/pycharm远程调试代码（tensorflow）/" class="leancloud_visitors" data-flag-title="pycharm远程调试代码（tensorflow）">
+             <span id="/2019/05/20/OCR-R2CNN、CDPT、FEN/" class="leancloud_visitors" data-flag-title="OCR系列(2)-R2CNN、CPTN、FEN">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -382,14 +382,24 @@
       
 
       
-        <p>　　以前都是本地调试好代码然后上传服务器运行的。但是最近感觉太麻烦了，而且总想留着本机去干其他的事情，于是尝试使用pycharm远程连接服务器并用服务器的环境去运行代码。按照网络上的教程基本完成，但是有几个小坑网上记录的不是很清楚，这里记录下。<br><a id="more"></a>　<br>  　　本文主要参考<a href="https://www.cnblogs.com/xiongmao-cpp/p/7856596.html" target="_blank" rel="noopener">PyCharm 配置远程python解释器和在本地修改服务器代码</a>。遇到的坑如下：  </p>
+        <p>最近看的论文越多发现很多论文就没讲清楚最核心的方法到底具体怎么做。。。。。<br><a id="more"></a>　<br>首先是继续跟着Scene Text Detection and Recognition: The Deep Learning Era中Region based的思路，将R2CNN和FEN看完，之后补充了下经典的CPTN算法。</p>
+<h2 id="R2CNN"><a href="#R2CNN" class="headerlink" title="R2CNN"></a>R2CNN</h2><p>　　　R2CNN是RCNN之后发布的一篇论文，和RCNN思路差不多，也是预测倾斜的框，不过它倾斜的框是用(X1,Y1,X2,Y2,H)表示的，原文是说用角度表示的话90度和-90度的图形差不多可是计算会差的比较多，因此换成用上方的两个点加上高来表示倾斜的矩形。<br>　　　除此之外，为了适应文字proposal的特点（一般是长宽比较大）,因此在roi部分去了三种不同大小的ROI作为最后的特征做refine。<br>　　　同时对水平框和倾斜框做回归，这种multi task的做法能使最后的结果更好</p>
+<p><strong>参考资料</strong><br><a href="https://zhuanlan.zhihu.com/p/41662351" target="_blank" rel="noopener">基于Faster RCNN的斜框检测：R2CNN</a><br><a href="https://zhuanlan.zhihu.com/p/49433503" target="_blank" rel="noopener">R2CNN : Rotational Region CNN for Text Detection</a><br><a href="https://www.cnblogs.com/hearwind/p/8693565.html" target="_blank" rel="noopener">论文笔记-R2CNN: Rotational Region CNN for Orientation Robust Scene Text Detection</a></p>
+<h2 id="FEN"><a href="#FEN" class="headerlink" title="FEN"></a>FEN</h2><p> <a href="http://arxiv.org/abs/1711.04249" target="_blank" rel="noopener">Feature enhancement network: A refined scene text detector</a><br>  　　这篇就基本是在整个framework上进行了修改，基于的框架是R-FCN主要修改就是三个：</p>
 <ol>
-<li>配置Deployment的Mapping的Deployment path on server时，一定要配置的是自己的工作目录，如果用默认的根目录的话你无法down你的服务器上的代码，会提示没有这个文件或者目录</li>
-<li>配置Python解释器的时候，不知道是不是版本的原因，我是2018最新版本，是没有Add remote 这个选项的，需要用Add按钮，然后在ssh interpreter里选择服务器的配置。</li>
-<li>在本地运行的时候你需要配置一下服务器的环境变量，开始我很懵逼。。。。。后来发现就是正常的配置位置就好。在以下两个位置正常配置（和你服务器配置的路径一样就可以，比如服务器是/usr/local/cuda/lib64,那么你这里配置也是一样是/usr/local/cuda/lib64）<blockquote>
-<p>在Settings -&gt; Build, Execution, Deployment -&gt; Console -&gt; Python Console 下最上面可设置环境变量。<br>任务栏顶部的 Run -&gt; Edit Configurations 里面有个 Environment Variables  </p>
-</blockquote>
+<li><p>提出了Feature Enhancement Network，有点像特征金字塔，理由也是最后一层的特征太高级了，对细节太不清楚，因此作者每隔几层抽出来特征进行卷积BNdeconv然后把特征融合在一起作为最后的特征  </p>
 </li>
+<li><p>与R2CNN一样，在ROI POOLING上选择了不同尺度的大小，不过最后是通过一个所谓自适应的权重来选择最后的ROI POOLING而不是融合，自适应的权重是通过最后每个ROI POOLING的score做一个类似于softmax的操作得到的。（因为R-FCN最后会得到一个C+1的向量表示每个类的score，用这个得分作为权重）</p>
+</li>
+<li>提出了正样本增强的策略解决样本不平衡的问题。由于一张图片可能文本区域就1两个，所以最后网络输出的正样本可能很少，为了解决这个问题，作者吧RPN最后输出的正样本进行一个scale【0.7,1.3】，这样得到的proposal也算正样本，感觉上像是做了数据增强了一样吧。作者是对排名前50的proposal做了这个增强  </li>
+</ol>
+<p><strong>参考资料</strong><br><a href="https://img-blog.csdn.net/20171226093952711" target="_blank" rel="noopener">Feature Enhancement Network: A Refined Scene Text Detector</a>    </p>
+<h3 id="CTPN"><a href="#CTPN" class="headerlink" title="CTPN"></a>CTPN</h3><p>CTPN是早期最为常用效果也不错的一个TEXT DETECTION方案，但是其弱点也很明显，只能检测水平text proposal，因此现在没怎么用了，它由以下几个特点：</p>
+<ol>
+<li>不预测整个文本区域，利用微分的思想，预测固定宽度的小矩形，最后通过合并小矩形得到最后的文本框，因此在RPN时，只回归两个值，真实的y和其高度</li>
+<li>最后输出的三个分支，分别是分类，y和高度的回归，以及side-refinement即水平的偏移，我也不知道为啥它不在一个回归分支里回归</li>
+<li>最后的特征除了视觉特征之外，还有将视觉特征输入双向LSTM后得到的序列特征。</li>
+<li>利用文本构造的方法合并最后的矩形得到最后的文本框。<br><strong>参考资料</strong><br><a href="https://zhuanlan.zhihu.com/p/34757009" target="_blank" rel="noopener">场景文字检测—CTPN原理与实现</a><br><a href="https://cloud.tencent.com/developer/article/1152494" target="_blank" rel="noopener">场景文本检测—CTPN算法介绍</a>  </li>
 </ol>
 
       
@@ -418,11 +428,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/pytcharm/" rel="tag"># pytcharm</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
-            <a href="/tags/远程/" rel="tag"># 远程</a>
-          
-            <a href="/tags/工具/" rel="tag"># 工具</a>
+            <a href="/tags/ORC/" rel="tag"># ORC</a>
           
         </div>
       
@@ -435,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/19/从caffe到tensorflow-vggs网络/" rel="next" title="从caffe到tensorflow-vggs网络">
-                <i class="fa fa-chevron-left"></i> 从caffe到tensorflow-vggs网络
+              <a href="/2019/05/17/OCR资料及开篇-rrpn/" rel="next" title="OCR系列（1）-资料及开篇RRPN">
+                <i class="fa fa-chevron-left"></i> OCR系列（1）-资料及开篇RRPN
               </a>
             
           </div>
@@ -444,10 +452,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/30/Image-Text系列（1）：最初的开始-WSABIE-与DeViSE/" rel="prev" title="Image-Text系列（1）：最初的开始-WSABIE 与DeViSE">
-                Image-Text系列（1）：最初的开始-WSABIE 与DeViSE <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -504,8 +508,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -597,6 +610,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#R2CNN"><span class="nav-number">1.</span> <span class="nav-text">R2CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FEN"><span class="nav-number">2.</span> <span class="nav-text">FEN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CTPN"><span class="nav-number">2.1.</span> <span class="nav-text">CTPN</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
